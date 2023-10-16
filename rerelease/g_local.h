@@ -1893,6 +1893,7 @@ extern cvar_t* ff_player_damage_received_multiplier;
 extern cvar_t* ff_self_damage;
 extern cvar_t* ff_rocket_jump_power;
 extern cvar_t* ff_fastest_weapon_switch;
+extern cvar_t* ff_barrel_delay;
 
 extern cvar_t *deathmatch;
 extern cvar_t *coop;

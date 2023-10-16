@@ -42,6 +42,7 @@ cvar_t* ff_player_damage_received_multiplier;
 cvar_t* ff_self_damage;
 cvar_t* ff_rocket_jump_power;
 cvar_t* ff_fastest_weapon_switch;
+cvar_t* ff_barrel_delay;
 
 cvar_t *deathmatch;
 cvar_t *coop;
@@ -205,6 +206,7 @@ void PreInitGame()
 	ff_rocket_jump_power = gi.cvar("ff_rocket_jump_power", "1600", CVAR_NOFLAGS);
 	// Use ff_fastest_weapon_switch because the already existing g_instant_weapon_switch variable doesn't work, it's only for CTF games?
 	ff_fastest_weapon_switch = gi.cvar("ff_fastest_weapon_switch", "1", CVAR_NOFLAGS); // bool
+	ff_barrel_delay = gi.cvar("ff_barrel_delay", "0", CVAR_NOFLAGS); // bool
 
 	// ZOID
 	CTFInit();

@@ -1151,7 +1151,9 @@ DIE(barrel_delay) (edict_t *self, edict_t *inflictor, edict_t *attacker, int dam
 		return;
 	
 	// allow big booms to immediately blow up barrels (rockets, rail, other explosions) because it feels good and powerful
-	if (damage >= 90)
+	// fasterFps: with ff_barrel_delay, barrels always explode immediately, like in original Quake 2.
+	// In the default remastered behaviour, barrels explode on a timer unless they take a lot of damage.
+	if (damage >= 90 || ff_barrel_delay->integer == 0)
 	{
 		self->think = barrel_explode;
 		self->activator = attacker;
@@ -1162,7 +1164,6 @@ DIE(barrel_delay) (edict_t *self, edict_t *inflictor, edict_t *attacker, int dam
 		self->think = barrel_burn;
 		self->activator = attacker;
 	}
-
 }
 
 //=========
