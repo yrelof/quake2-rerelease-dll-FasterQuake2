@@ -1419,10 +1419,13 @@ MONSTERINFO_CHECKATTACK(medic_checkattack) (edict_t *self) -> bool
 		}
 	}
 
-	if (self->enemy->client && !visible(self, self->enemy) && M_SlotsLeft(self))
+	if (ff_monster_blindfire->integer == 1)
 	{
-		self->monsterinfo.attack_state = AS_BLIND;
-		return true;
+		if (self->enemy->client && !visible(self, self->enemy) && M_SlotsLeft(self))
+		{
+			self->monsterinfo.attack_state = AS_BLIND;
+			return true;
+		}
 	}
 
 	// give a LARGE bias to spawning things when we have room

@@ -974,8 +974,14 @@ bool M_CheckAttack_Base(edict_t *self, float stand_ground_chance, float melee_ch
                             if (tr.allsolid || tr.startsolid || ((tr.fraction < 1.0f) && (tr.ent != self->enemy)))
                                 return false;
 
-                            self->monsterinfo.attack_state = AS_BLIND;
-                            return true;
+                            if (ff_monster_blindfire->integer == 1)
+                            {
+                                self->monsterinfo.attack_state = AS_BLIND;
+                                return true;
+                            }
+                            else {
+                                return false;
+                            }
                         }
                     }
                 }

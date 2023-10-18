@@ -106,7 +106,11 @@ bool M_CheckClearShot(edict_t *self, const vec3_t &offset, vec3_t &start)
 
 	vec3_t target;
 
-	bool is_blind = self->monsterinfo.attack_state == AS_BLIND || (self->monsterinfo.aiflags & (AI_MANUAL_STEERING | AI_LOST_SIGHT));
+	bool is_blind = false;
+	if (ff_monster_blindfire->integer == 1)
+	{
+		is_blind = self->monsterinfo.attack_state == AS_BLIND || (self->monsterinfo.aiflags & (AI_MANUAL_STEERING | AI_LOST_SIGHT));
+	}
 	
 	if (is_blind)
 		target = self->monsterinfo.blind_fire_target;
