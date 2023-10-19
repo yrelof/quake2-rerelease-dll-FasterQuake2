@@ -549,6 +549,15 @@ void T_Damage(edict_t *targ, edict_t *inflictor, edict_t *attacker, const vec3_t
 			damage = 1;
 	}
 
+	// fasterFps: no self damage (for rocket launcher)
+	if (ff_self_damage->integer == 0 && attacker->client && targ->client)
+	{
+		// do not return from the function, to still have knockback effect (rocket jump)
+		damage = 0;
+		take = 0;
+		save = 0;
+	}
+
 	if (!targ->takedamage)
 		return;
 
