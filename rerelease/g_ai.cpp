@@ -619,12 +619,19 @@ bool G_MonsterSourceVisible(edict_t *self, edict_t *client)
     if (r > RANGE_MID)
         return false;
 
-    // Paril: revised so that monsters can be woken up
-    // by players 'seen' and attacked at by other monsters
-    // if they are close enough. they don't have to be visible.
-    bool is_visible =
-        ((r <= RANGE_NEAR && client->show_hostile >= level.time && !(self->spawnflags & SPAWNFLAG_MONSTER_AMBUSH)) ||
-            (visible(self, client) && (r <= RANGE_MELEE || (self->monsterinfo.aiflags & AI_THIRD_EYE) || infront(self, client))));
+    bool is_visible;
+    if (ff_monster_hyperaware->integer == 1)
+    {
+        // Paril: revised so that monsters can be woken up
+        // by players 'seen' and attacked at by other monsters
+        // if they are close enough. they don't have to be visible.
+        is_visible =
+            ((r <= RANGE_NEAR && client->show_hostile >= level.time && !(self->spawnflags & SPAWNFLAG_MONSTER_AMBUSH)) ||
+                (visible(self, client) && (r <= RANGE_MELEE || (self->monsterinfo.aiflags & AI_THIRD_EYE) || infront(self, client))));
+    }
+    else {
+        is_visible = visible(self, client);
+    }
 
     return is_visible;
 }
@@ -792,15 +799,39 @@ bool FindTarget(edict_t *self)
         if (r > RANGE_MID)
             return false;
 
-        // Paril: revised so that monsters can be woken up
-        // by players 'seen' and attacked at by other monsters
-        // if they are close enough. they don't have to be visible.
-        bool is_visible =
-            ((r <= RANGE_NEAR && client->show_hostile >= level.time && !(self->spawnflags & SPAWNFLAG_MONSTER_AMBUSH)) ||
-            (visible(self, client) && (r <= RANGE_MELEE || (self->monsterinfo.aiflags & AI_THIRD_EYE) || infront(self, client))));
+        bool is_visible;
+        if (ff_monster_hyperaware->integer == 1)
+        {
+            // Paril: revised so that monsters can be woken up
+            // by players 'seen' and attacked at by other monsters
+            // if they are close enough. they don't have to be visible.
+            is_visible =
+                ((r <= RANGE_NEAR && client->show_hostile >= level.time && !(self->spawnflags & SPAWNFLAG_MONSTER_AMBUSH)) ||
+                    (visible(self, client) && (r <= RANGE_MELEE || (self->monsterinfo.aiflags & AI_THIRD_EYE) || infront(self, client))));
+        }
+        else {
+            is_visible = visible(self, client);
+        }
 
         if (!is_visible)
             return false;
+
+        if (ff_monster_hyperaware->integer == 0)
+        {
+            if (r < RANGE_NEAR)
+            {
+                if (client->show_hostile < level.time && !infront(self, client))
+                {
+                    return false;
+                }
+            }
+            else {
+                if (!infront(self, client))
+                {
+                    return false;
+                }
+            }
+        }
 
         self->enemy = client;
 

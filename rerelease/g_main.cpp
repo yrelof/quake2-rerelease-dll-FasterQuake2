@@ -46,6 +46,7 @@ cvar_t* ff_barrel_delay;
 cvar_t* ff_monster_duck;
 cvar_t* ff_monster_sidestep;
 cvar_t* ff_monster_blindfire;
+cvar_t* ff_monster_hyperaware;
 
 cvar_t *deathmatch;
 cvar_t *coop;
@@ -213,6 +214,7 @@ void PreInitGame()
 	ff_monster_duck = gi.cvar("ff_monster_duck", "0", CVAR_NOFLAGS); // bool
 	ff_monster_sidestep = gi.cvar("ff_monster_sidestep", "0", CVAR_NOFLAGS); // bool
 	ff_monster_blindfire = gi.cvar("ff_monster_blindfire", "0", CVAR_LATCH); // bool
+	ff_monster_hyperaware = gi.cvar("ff_monster_hyperaware", "0", CVAR_LATCH); // bool
 
 	// ZOID
 	CTFInit();

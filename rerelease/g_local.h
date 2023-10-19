@@ -1897,6 +1897,7 @@ extern cvar_t* ff_barrel_delay;
 extern cvar_t* ff_monster_duck;
 extern cvar_t* ff_monster_sidestep;
 extern cvar_t* ff_monster_blindfire;
+extern cvar_t* ff_monster_hyperaware;
 
 extern cvar_t *deathmatch;
 extern cvar_t *coop;

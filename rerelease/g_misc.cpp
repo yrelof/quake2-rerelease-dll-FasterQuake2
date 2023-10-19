@@ -409,7 +409,11 @@ TOUCH(point_combat_touch) (edict_t *self, edict_t *other, const trace_t &tr, boo
 			return;
 
 		other->monsterinfo.pausetime = HOLD_FOREVER;
-		other->monsterinfo.aiflags |= AI_STAND_GROUND | AI_REACHED_HOLD_COMBAT | AI_THIRD_EYE;
+		other->monsterinfo.aiflags |= AI_STAND_GROUND | AI_REACHED_HOLD_COMBAT;
+		if (ff_monster_hyperaware->integer == 1)
+		{
+			other->monsterinfo.aiflags |= AI_THIRD_EYE;
+		}
 		other->monsterinfo.stand(other);
 	}
 
