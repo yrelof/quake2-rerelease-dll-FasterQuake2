@@ -1878,6 +1878,13 @@ template<typename T>
 	return irandom(2) == 0;
 }
 
+// fasterFps
+extern cvar_t* ff_give_main_weapons_at_start;
+extern cvar_t* ff_start_ammo_shootgun;
+extern cvar_t* ff_start_ammo_machinegun;
+extern cvar_t* ff_start_ammo_rocket;
+extern cvar_t* ff_start_ammo_railgun;
+
 extern cvar_t *deathmatch;
 extern cvar_t *coop;
 extern cvar_t *skill;

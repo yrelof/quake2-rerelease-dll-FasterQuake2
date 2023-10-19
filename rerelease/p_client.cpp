@@ -859,7 +859,55 @@ void InitClientPersistant(edict_t *ent, gclient_t *client)
 			// ROGUE
 
 			if (!deathmatch->integer || !g_instagib->integer)
+			{
 				client->pers.inventory[IT_WEAPON_BLASTER] = 1;
+
+				// fasterFps: give main weapons at the start of the game
+				if (ff_give_main_weapons_at_start->integer == 1)
+				{
+					client->pers.inventory[IT_WEAPON_SSHOTGUN] = 1;
+					client->pers.inventory[IT_AMMO_SHELLS] = ff_start_ammo_shootgun->integer;
+					client->pers.inventory[IT_WEAPON_MACHINEGUN] = 1;
+					client->pers.inventory[IT_AMMO_BULLETS] = ff_start_ammo_machinegun->integer;
+					client->pers.inventory[IT_WEAPON_RLAUNCHER] = 1;
+					client->pers.inventory[IT_AMMO_ROCKETS] = ff_start_ammo_rocket->integer;
+					client->pers.inventory[IT_WEAPON_RAILGUN] = 1;
+					client->pers.inventory[IT_AMMO_SLUGS] = ff_start_ammo_railgun->integer;
+					client->pers.inventory[IT_WEAPON_GRAPPLE] = 1;
+				}
+
+				// all weapons and ammo, for testing
+				/*
+				client->pers.inventory[IT_WEAPON_GRAPPLE] = 1;
+				client->pers.inventory[IT_WEAPON_BLASTER] = 1;
+				client->pers.inventory[IT_WEAPON_CHAINFIST] = 1;
+				client->pers.inventory[IT_WEAPON_SHOTGUN] = 1;
+				client->pers.inventory[IT_WEAPON_SSHOTGUN] = 1;
+				client->pers.inventory[IT_WEAPON_MACHINEGUN] = 1;
+				client->pers.inventory[IT_WEAPON_ETF_RIFLE] = 1;
+				client->pers.inventory[IT_WEAPON_CHAINGUN] = 1;
+				client->pers.inventory[IT_WEAPON_GLAUNCHER] = 1;
+				client->pers.inventory[IT_WEAPON_PROXLAUNCHER] = 1;
+				client->pers.inventory[IT_WEAPON_RLAUNCHER] = 1;
+				client->pers.inventory[IT_WEAPON_HYPERBLASTER] = 1;
+				client->pers.inventory[IT_WEAPON_IONRIPPER] = 1;
+				client->pers.inventory[IT_WEAPON_PLASMABEAM] = 1;
+				client->pers.inventory[IT_WEAPON_RAILGUN] = 1;
+				client->pers.inventory[IT_WEAPON_PHALANX] = 1;
+				client->pers.inventory[IT_WEAPON_BFG] = 1;
+				client->pers.inventory[IT_WEAPON_DISRUPTOR] = 1;
+				client->pers.inventory[IT_AMMO_SHELLS] = 100;
+				client->pers.inventory[IT_AMMO_BULLETS] = 100;
+				client->pers.inventory[IT_AMMO_CELLS] = 100;
+				client->pers.inventory[IT_AMMO_ROCKETS] = 100;
+				client->pers.inventory[IT_AMMO_SLUGS] = 100;
+				client->pers.inventory[IT_AMMO_MAGSLUG] = 100;
+				client->pers.inventory[IT_AMMO_FLECHETTES] = 100;
+				client->pers.inventory[IT_AMMO_PROX] = 100;
+				client->pers.inventory[IT_AMMO_NUKE] = 100;
+				client->pers.inventory[IT_AMMO_ROUNDS] = 100;
+				*/
+			}
 
 			// [Kex]
 			// start items!

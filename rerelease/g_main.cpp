@@ -27,6 +27,13 @@ cached_soundindex		snd_fry;
 
 edict_t *g_edicts;
 
+// fasterFps
+cvar_t* ff_give_main_weapons_at_start;
+cvar_t* ff_start_ammo_shootgun;
+cvar_t* ff_start_ammo_machinegun;
+cvar_t* ff_start_ammo_rocket;
+cvar_t* ff_start_ammo_railgun;
+
 cvar_t *deathmatch;
 cvar_t *coop;
 cvar_t *skill;
@@ -172,6 +179,13 @@ void PreInitGame()
 	deathmatch = gi.cvar("deathmatch", "0", CVAR_LATCH);
 	coop = gi.cvar("coop", "0", CVAR_LATCH);
 	teamplay = gi.cvar("teamplay", "0", CVAR_LATCH);
+
+	// fasterFps
+	ff_give_main_weapons_at_start = gi.cvar("ff_give_main_weapons_at_start", "1", CVAR_NOFLAGS); // bool
+	ff_start_ammo_shootgun = gi.cvar("ff_start_ammo_shootgun", "20", CVAR_NOFLAGS);
+	ff_start_ammo_machinegun = gi.cvar("ff_start_ammo_machinegun", "60", CVAR_NOFLAGS);
+	ff_start_ammo_rocket = gi.cvar("ff_start_ammo_rocket", "10", CVAR_NOFLAGS);
+	ff_start_ammo_railgun = gi.cvar("ff_start_ammo_railgun", "10", CVAR_NOFLAGS);
 
 	// ZOID
 	CTFInit();
