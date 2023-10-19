@@ -1319,7 +1319,12 @@ MONSTERINFO_DODGE(M_MonsterDodge) (edict_t *self, edict_t *attacker, gtime_t eta
 		}
 	}
 	if ((self->monsterinfo.sidestep) && !(self->monsterinfo.aiflags & AI_STAND_GROUND))
-		dodger = true;
+	{
+		if (ff_monster_sidestep->integer == 1)
+		{
+			dodger = true;
+		}
+	}
 
 	if ((!ducker) && (!dodger))
 		return;

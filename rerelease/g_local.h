@@ -1895,6 +1895,7 @@ extern cvar_t* ff_rocket_jump_power;
 extern cvar_t* ff_fastest_weapon_switch;
 extern cvar_t* ff_barrel_delay;
 extern cvar_t* ff_monster_duck;
+extern cvar_t* ff_monster_sidestep;
 
 extern cvar_t *deathmatch;
 extern cvar_t *coop;
