@@ -48,6 +48,9 @@ cvar_t* ff_monster_sidestep;
 cvar_t* ff_monster_blindfire;
 cvar_t* ff_monster_hyperaware;
 cvar_t* ff_monster_walkjump;
+cvar_t* ff_autosave_enabled;
+cvar_t* ff_autosave_interval_in_seconds;
+cvar_t* ff_autosave_slot_count;
 
 cvar_t *deathmatch;
 cvar_t *coop;
@@ -217,6 +220,9 @@ void PreInitGame()
 	ff_monster_blindfire = gi.cvar("ff_monster_blindfire", "0", CVAR_LATCH); // bool
 	ff_monster_hyperaware = gi.cvar("ff_monster_hyperaware", "0", CVAR_LATCH); // bool
 	ff_monster_walkjump = gi.cvar("un_monster_walkjump", "0", CVAR_LATCH); // bool
+	ff_autosave_enabled = gi.cvar("ff_autosave_enabled", "1", CVAR_NOFLAGS); // bool
+	ff_autosave_interval_in_seconds = gi.cvar("ff_autosave_interval_in_seconds", "30", CVAR_NOFLAGS);
+	ff_autosave_slot_count = gi.cvar("ff_autosave_slot_count", "10", CVAR_NOFLAGS);
 
 	// ZOID
 	CTFInit();
@@ -1039,6 +1045,35 @@ inline void G_RunFrame_(bool main_loop)
 			continue;
 
 		M_ProcessPain(e);
+	}
+
+	// fasterFps: autosave regularly on a different slot
+	if (ff_autosave_enabled->integer == 1)
+	{
+		// There is already autosave code in use_target_autosave in g_target.cpp,
+		// but I can't figure how to make the game calls it, so I reuse a part of the code here.
+
+		static const gtime_t autosave_interval = gtime_t::from_sec(ff_autosave_interval_in_seconds->integer);
+		static const int min_save_slot{1}; // we do not use save0.pak.gz because it's the save for "restart the level"
+		static int save_slot{min_save_slot};
+
+		// This code is called too early, when the level is not yet loaded,
+		// so I use this hack (dirty but it's the simpler approach for me)
+		if (level.time.seconds<int>() > 2)
+		{
+			// level.next_auto_save variable name should be level.last_auto_save_time
+			if (!level.next_auto_save) // it's empty when starting the game
+				level.next_auto_save = level.time;
+
+			if (level.time - level.next_auto_save > autosave_interval)
+			{
+				gi.AddCommandString(fmt::format("save save{}\n", save_slot).c_str());
+				++save_slot;
+				if (save_slot >= min_save_slot + ff_autosave_slot_count->integer)
+					save_slot = min_save_slot;
+				level.next_auto_save = level.time;
+			}
+		}
 	}
 
 	level.in_frame = false;
