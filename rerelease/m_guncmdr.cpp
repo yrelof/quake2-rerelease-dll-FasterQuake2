@@ -1258,6 +1258,9 @@ MMOVE_T(guncmdr_move_jump2) = { FRAME_c_jump01, FRAME_c_jump10, guncmdr_frames_j
 
 void guncmdr_jump(edict_t *self, blocked_jump_result_t result)
 {
+	if (ff_monster_walkjump->integer == 0)
+		return;
+
 	if (!self->enemy)
 		return;
 

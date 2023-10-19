@@ -767,6 +767,9 @@ MMOVE_T(gunner_move_jump2) = { FRAME_jump01, FRAME_jump10, gunner_frames_jump2, 
 
 void gunner_jump(edict_t *self, blocked_jump_result_t result)
 {
+	if (ff_monster_walkjump->integer == 0)
+		return;
+
 	if (!self->enemy)
 		return;
 

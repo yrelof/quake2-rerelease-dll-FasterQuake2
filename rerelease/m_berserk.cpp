@@ -669,6 +669,9 @@ MMOVE_T(berserk_move_jump2) = { FRAME_jump1, FRAME_jump9, berserk_frames_jump2, 
 
 void berserk_jump(edict_t *self, blocked_jump_result_t result)
 {
+	if (ff_monster_walkjump->integer == 0)
+		return;
+
 	if (!self->enemy)
 		return;
 

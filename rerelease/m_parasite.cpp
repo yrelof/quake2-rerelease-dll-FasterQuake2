@@ -751,6 +751,9 @@ MMOVE_T(parasite_move_jump_down) = { FRAME_jump01, FRAME_jump08, parasite_frames
 
 void parasite_jump(edict_t *self, blocked_jump_result_t result)
 {
+	if (ff_monster_walkjump->integer == 0)
+		return;
+
 	if (!self->enemy)
 		return;
 
