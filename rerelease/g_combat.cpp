@@ -661,7 +661,9 @@ void T_Damage(edict_t *targ, edict_t *inflictor, edict_t *attacker, const vec3_t
 				mass = (float) targ->mass;
 
 			if (targ->client && attacker == targ)
-				kvel = normalized * (1600.0f * knockback / mass); // the rocket jump hack...
+			{
+				kvel = normalized * (ff_rocket_jump_power->value * knockback / mass); // the rocket jump hack...
+			}
 			else
 				kvel = normalized * (500.0f * knockback / mass);
 

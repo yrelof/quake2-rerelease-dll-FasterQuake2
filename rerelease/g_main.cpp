@@ -40,6 +40,7 @@ cvar_t* ff_extra_ammo_railgun;
 cvar_t* ff_player_damage_sent_multiplier;
 cvar_t* ff_player_damage_received_multiplier;
 cvar_t* ff_self_damage;
+cvar_t* ff_rocket_jump_power;
 
 cvar_t *deathmatch;
 cvar_t *coop;
@@ -200,6 +201,7 @@ void PreInitGame()
 	ff_player_damage_sent_multiplier = gi.cvar("ff_player_damage_sent_multiplier", "3", CVAR_NOFLAGS); // float
 	ff_player_damage_received_multiplier = gi.cvar("ff_player_damage_received_multiplier", "0.7", CVAR_NOFLAGS); // float
 	ff_self_damage = gi.cvar("ff_self_damage", "0", CVAR_NOFLAGS); // bool
+	ff_rocket_jump_power = gi.cvar("ff_rocket_jump_power", "1600", CVAR_NOFLAGS);
 
 	// ZOID
 	CTFInit();
