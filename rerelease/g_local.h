@@ -1888,6 +1888,7 @@ extern cvar_t* ff_extra_ammo_shootgun;
 extern cvar_t* ff_extra_ammo_machinegun;
 extern cvar_t* ff_extra_ammo_rocket;
 extern cvar_t* ff_extra_ammo_railgun;
+extern cvar_t* ff_player_damage_sent_multiplier;
 
 extern cvar_t *deathmatch;
 extern cvar_t *coop;

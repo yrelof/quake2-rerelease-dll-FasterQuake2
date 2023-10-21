@@ -535,6 +535,11 @@ void T_Damage(edict_t *targ, edict_t *inflictor, edict_t *attacker, const vec3_t
 	int		   te_sparks;
 	bool	   sphere_notified; // PGM
 
+	// fasterFps: increase player damage
+	// There is already g_damage_scale but it doesn't seem to work.
+	if (attacker->client)
+		damage *= ff_player_damage_sent_multiplier->value;
+
 	if (!targ->takedamage)
 		return;
 
