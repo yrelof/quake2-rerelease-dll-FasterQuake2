@@ -33,6 +33,10 @@ cvar_t* ff_start_ammo_shootgun;
 cvar_t* ff_start_ammo_machinegun;
 cvar_t* ff_start_ammo_rocket;
 cvar_t* ff_start_ammo_railgun;
+cvar_t* ff_extra_ammo_shootgun;
+cvar_t* ff_extra_ammo_machinegun;
+cvar_t* ff_extra_ammo_rocket;
+cvar_t* ff_extra_ammo_railgun;
 
 cvar_t *deathmatch;
 cvar_t *coop;
@@ -186,6 +190,10 @@ void PreInitGame()
 	ff_start_ammo_machinegun = gi.cvar("ff_start_ammo_machinegun", "60", CVAR_NOFLAGS);
 	ff_start_ammo_rocket = gi.cvar("ff_start_ammo_rocket", "10", CVAR_NOFLAGS);
 	ff_start_ammo_railgun = gi.cvar("ff_start_ammo_railgun", "10", CVAR_NOFLAGS);
+	ff_extra_ammo_shootgun = gi.cvar("ff_extra_ammo_shootgun", "2", CVAR_NOFLAGS); // int
+	ff_extra_ammo_machinegun = gi.cvar("ff_extra_ammo_machinegun", "4", CVAR_NOFLAGS); // int
+	ff_extra_ammo_rocket = gi.cvar("ff_extra_ammo_rocket", "0.5", CVAR_NOFLAGS); // float
+	ff_extra_ammo_railgun = gi.cvar("ff_extra_ammo_railgun", "0.4", CVAR_NOFLAGS); // float
 
 	// ZOID
 	CTFInit();

@@ -540,12 +540,59 @@ bool Pickup_Key(edict_t *ent, edict_t *other)
 
 //======================================================================
 
+/*
+Ammos are stored as int, but we can do a trick to give a float,
+We save the quantity as a static float and give int when the quantity is superior to 1.
+So with a 0.5 gain, the player will get 1 ammo after picking 2 ammo items.
+*/
+static bool AddAmmoFloat(edict_t* other, item_id_t item, int32_t max, float& gain)
+{
+	const int gainInt{static_cast<int>(gain)};
+
+	if (gainInt != 0)
+	{
+		gain -= gainInt;
+		return G_AddAmmoAndCap(other, item, max, gainInt);
+	}
+	return false;
+}
+
+// Salvatore Add_Ammo()
 bool Add_Ammo(edict_t *ent, gitem_t *item, int count)
 {
 	if (!ent->client || item->tag < AMMO_BULLETS || item->tag >= AMMO_MAX)
 		return false;
 
-	return G_AddAmmoAndCap(ent, item->id, ent->client->pers.max_ammo[item->tag], count);
+	// fasterFps: any ammo item also give some ammo for the main weapons
+	bool picked = false;
+
+	picked |= G_AddAmmoAndCap(ent, IT_AMMO_SHELLS, ent->client->pers.max_ammo[AMMO_SHELLS], ff_extra_ammo_shootgun->integer); // for IT_WEAPON_SSHOTGUN
+	picked |= G_AddAmmoAndCap(ent, IT_AMMO_BULLETS, ent->client->pers.max_ammo[AMMO_BULLETS], ff_extra_ammo_machinegun->integer); // for IT_WEAPON_MACHINEGUN
+
+	// for IT_WEAPON_RLAUNCHER, as float
+	static float ammoShellGain{0.f};
+	ammoShellGain += ff_extra_ammo_rocket->value;
+	picked |= AddAmmoFloat(ent, IT_AMMO_ROCKETS, ent->client->pers.max_ammo[AMMO_ROCKETS], ammoShellGain);
+
+	// for IT_WEAPON_RAILGUN, as float
+	static float ammoSlugGain{0.f};
+	ammoSlugGain += ff_extra_ammo_railgun->value;
+	picked |= AddAmmoFloat(ent, IT_AMMO_SLUGS, ent->client->pers.max_ammo[AMMO_SLUGS], ammoSlugGain);
+	
+	// We also give the extra ammos for main weapons ammo because of the start of the game,
+	// the first levels don't have rocket and railgun ammos.
+
+	// fasterFps: give real ammo only for non-main weapons
+	if ((item->id == IT_AMMO_SHELLS && ff_extra_ammo_shootgun->integer != 0)
+		|| (item->id == IT_AMMO_BULLETS && ff_extra_ammo_machinegun->integer != 0)
+		|| (item->id == IT_AMMO_ROCKETS && ff_extra_ammo_rocket->value != 0.f)
+		|| (item->id == IT_AMMO_SLUGS && ff_extra_ammo_railgun->value != 0.f))
+	{
+		return picked;
+	}
+
+	picked |= G_AddAmmoAndCap(ent, item->id, ent->client->pers.max_ammo[item->tag], count);
+	return picked;
 }
 
 // we just got weapon `item`, check if we should switch to it
