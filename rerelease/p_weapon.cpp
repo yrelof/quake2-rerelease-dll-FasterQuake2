@@ -458,7 +458,7 @@ inline gtime_t Weapon_AnimationTime(edict_t *ent)
 {
 	if (g_quick_weapon_switch->integer && (gi.tick_rate >= 20) &&
 		(ent->client->weaponstate == WEAPON_ACTIVATING || ent->client->weaponstate == WEAPON_DROPPING))
-		ent->client->ps.gunrate = 20;
+		ent->client->ps.gunrate = (ff_fastest_weapon_switch->integer == 1 ? 0 : 20);
 	else
 		ent->client->ps.gunrate = 10;
 
@@ -758,7 +758,8 @@ inline bool Weapon_HandleNewWeapon(edict_t *ent, int FRAME_DEACTIVATE_FIRST, int
 	if (!g_instant_weapon_switch->integer)
 		is_holstering = ((ent->client->latched_buttons | ent->client->buttons) & BUTTON_HOLSTER);
 
-	if ((ent->client->newweapon || is_holstering) && (ent->client->weaponstate != WEAPON_FIRING))
+	// fasterFps: instant weapon switch, no need to wait for the end of fire animation of the current weapon
+	if ((ent->client->newweapon || is_holstering) && (ff_fastest_weapon_switch->integer == 1 || ent->client->weaponstate != WEAPON_FIRING))
 	{
 		if (g_instant_weapon_switch->integer || ent->client->weapon_think_time <= level.time)
 		{
