@@ -20,9 +20,13 @@ Start a new game in hard mode, to have more monsters, the game will still be eas
 If you want some changes for your personal taste of gameplay, you can, almost all changes of this mod are easily customizable with configuration variables.  
 You still have other weapons, with ammo and more damage.  
 
+## Demo video
+
+https://youtu.be/5SviiIMcPBk
+
 ## Installation
 
-Unzip the contents into "%USERPROFILE%\Saved Games\Nightdive Studios\Quake II\" (%USERPROFILE% gets you something like that: "C:\Users\[USER_NAME]\").  
+Unzip the contents into "%USERPROFILE%\Saved Games\Nightdive Studios\Quake II\" (%USERPROFILE% gets you something like that: "C:\Users\MY_USER_NAME\").  
 You should have a "fasterfps" folder in there, alongside the existing "baseq2", with "game_x64.dll" inside.  
 
 Launch the game with the command line parameter added:  
@@ -125,7 +129,7 @@ The key binding I use for this mod, just as a suggestion:
 - q: weapons wheel (very rarely used)  
 
 My keybinding.cfg file: https://raw.githubusercontent.com/yrelof/quake2-rerelease-dll-fasterfps/main/keybinds.cfg  
-You can put it in your "%USERPROFILE%\Saved Games\Nightdive Studios\Quake II\" directory.
+You can put it in your "%USERPROFILE%\Saved Games\Nightdive Studios\Quake II\fasterfps" directory.
 
 ## Other information
 
@@ -133,7 +137,7 @@ Source code: https://github.com/yrelof/quake2-rerelease-dll-fasterfps
 
 Mod coded for the "Update 1" version of Quake 2 Remastered (from 2023-10-03).  
 
-The mod also works with the additional campaigns (the missions from "The Reckoning" are harder, you can decrease ff_player_damage_received_multiplier).
+The mod also works with the additional campaigns (the missions from "The Reckoning" are harder, you can decrease ff_player_damage_received_multiplier) and with the Coop.
 
 Save games should be compatible if you copy them to the mod folder (baseq2\save to fasterfps\save), but you will not get automatically the main weapons.  
 I recommend to start a new game (in hard difficulty, see first section of this documentation).  
