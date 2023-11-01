@@ -685,7 +685,10 @@ TOUCH(rocket_touch) (edict_t *ent, edict_t *other, const trace_t &tr, bool other
 		}
 	}
 
-	T_RadiusDamage(ent, ent->owner, (float) ent->radius_dmg, other, ent->dmg_radius, DAMAGE_NONE, MOD_R_SPLASH);
+	float dmg_radius = ent->dmg_radius;
+	if (ent->owner->client)
+		dmg_radius *= ff_player_rocket_radius_scale->value;
+	T_RadiusDamage(ent, ent->owner, (float) ent->radius_dmg, other, dmg_radius, DAMAGE_NONE, MOD_R_SPLASH);
 
 	gi.WriteByte(svc_temp_entity);
 	if (ent->waterlevel)

@@ -92,6 +92,9 @@ Variables:
   - g_grapple_fly_speed, the variable is already in the game without this mod, default value is changed to 3000 (it was 650), a higher value has no effect  
   - g_grapple_pull_speed, the variable is already in the game without this mod, default value is 650  
 
+- The rocket area damage radius is 1.5x larger, for rockets launched by the player.  
+Variable: ff_player_rocket_radius_scale, default value is 1.5  
+
 - The bullets from the machine gun have no spread, because I like when my weapon shoots where I aim.  
 
 - Barrels always explode immediately, like in original Quake 2. Imported from the Unmaster mod.  
