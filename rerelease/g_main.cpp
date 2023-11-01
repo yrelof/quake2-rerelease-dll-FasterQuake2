@@ -51,6 +51,7 @@ cvar_t* ff_monster_walkjump;
 cvar_t* ff_autosave_enabled;
 cvar_t* ff_autosave_interval_in_seconds;
 cvar_t* ff_autosave_slot_count;
+cvar_t* ff_weapon_chains;
 
 cvar_t *deathmatch;
 cvar_t *coop;
@@ -223,6 +224,7 @@ void PreInitGame()
 	ff_autosave_enabled = gi.cvar("ff_autosave_enabled", "1", CVAR_NOFLAGS); // bool
 	ff_autosave_interval_in_seconds = gi.cvar("ff_autosave_interval_in_seconds", "30", CVAR_NOFLAGS);
 	ff_autosave_slot_count = gi.cvar("ff_autosave_slot_count", "10", CVAR_NOFLAGS);
+	ff_weapon_chains = gi.cvar("ff_weapon_chains", "0", CVAR_NOFLAGS); // bool
 
 	// ZOID
 	CTFInit();

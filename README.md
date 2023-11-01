@@ -97,6 +97,9 @@ Variables:
 - Barrels always explode immediately, like in original Quake 2. Imported from the Unmaster mod.  
 Variable: ff_barrel_delay, 0 or 1, default value is 0  
 
+- When you click on the weapon hotkey of the already selected weapon, it doesn't cycle to another weapon, because it's unnecessary and annoying with this mod.  
+Variable: ff_weapon_chains, 0 or 1, default value is 0  
+
 - The following changes are done because I prefer to quickly kill many dumb monsters.  
 
 - Monsters will not duck projectiles, like in original Quake 2. Imported from the Unmaster mod.  

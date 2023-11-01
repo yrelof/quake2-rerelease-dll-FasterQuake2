@@ -1902,6 +1902,7 @@ extern cvar_t* ff_monster_walkjump;
 extern cvar_t* ff_autosave_enabled;
 extern cvar_t* ff_autosave_interval_in_seconds;
 extern cvar_t* ff_autosave_slot_count;
+extern cvar_t* ff_weapon_chains;
 
 extern cvar_t *deathmatch;
 extern cvar_t *coop;

@@ -587,6 +587,9 @@ void Use_Weapon(edict_t *ent, gitem_t *item)
 	gitem_t		*wanted, *root;
 	weap_switch_t result = WEAP_SWITCH_NO_WEAPON;
 
+	if (ff_weapon_chains->integer == 0)
+		ent->client->no_weapon_chains = true;
+
 	// if we're switching to a weapon in this chain already,
 	// start from the weapon after this one in the chain
 	if (!ent->client->no_weapon_chains && Weapon_IsPartOfChain(item, ent->client->newweapon))
