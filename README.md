@@ -1,24 +1,29 @@
 # FasterFps: Quake II Remastered mod to be a faster FPS in solo.  
 
+## Summary
+
+Easily rush levels, instant weapon switch, grapple, efficient auto-save.
+
 ## Gameplay overview
 
 With this mod you can play fast in the existing campaigns, you rush through the levels, almost like a speedrunner, but you don't need to know the levels and you can kill everyone.  
 Your weapons are more powerful, and you takes less damage, you easily kill loads of monsters.  
 
 Use only Super Shootgun, Machine Gun, Rocket Launcher and Rail Gun.  
+You get them directly on a new game, and all ammo items are still useful because they give you a small amount of ammo for those main weapons.
+
 Weapon switch is really instantaneous, enjoy chaining kills with really distinct weapons.  
 
 Use compass when you have any doubt, you're here to run and shoot fast, not to block on closed doors.  
 Ignore items, no need to worry about the good timing for their use.  
 
-Rocket jump without taking self damage, and fly with a fast grapple.  
+Fly with a fast grapple, and rocket jump without taking self damage.  
 
 Almost never create a savegame, the mod has an auto-save every 30 seconds on different slots.  
 
 Start a new game in hard mode, to have more monsters, the game will still be easy with your overpowered weapons.  
 
-If you want some changes for your personal taste of gameplay, you can, almost all changes of this mod are easily customizable with configuration variables.  
-You still have other weapons, with ammo and more damage.  
+If you want some changes for your personal taste of gameplay, you can, almost all changes of this mod are easily customizable with configuration variables. Also, you still have other weapons, with ammo and more damage.  
 
 ## Demo video
 
@@ -100,7 +105,7 @@ Variable: ff_player_rocket_radius_scale, default value is 1.5
 - Barrels always explode immediately, like in original Quake 2. Imported from the Unmaster mod.  
 Variable: ff_barrel_delay, 0 or 1, default value is 0  
 
-- When you click on the weapon hotkey of the already selected weapon, it doesn't cycle to another weapon, because it's unnecessary and annoying with this mod.  
+- When you click on the weapon hotkey of the already selected weapon, it doesn't cycle to another weapon, because it's unnecessary and annoying in this mod.  
 Variable: ff_weapon_chains, 0 or 1, default value is 0  
 
 - The following changes are done because I prefer to quickly kill many dumb monsters.  
@@ -123,19 +128,19 @@ Variable: ff_monster_walkjump, 0 or 1, default value is 0
 ## Key binding
 
 The key binding I use for this mod, just as a suggestion:  
-- r d f g: up, left, down, right  
+- r d f g: up, left, down, right (not wasd/zqsd to have space for additional keys on the left)
 - z: compass  
 - s: grapple  
 - t: super shootgun  
 - e: machine gun  
 - h: rocket launcher  
-- b: rail gun (to push with the thumb)  
+- b: rail gun (to press with the thumb)  
 - 4: blaster (default key, very rarely used, but can still be useful if you really are out of ammo)  
 - a: items wheel (rarely used)  
 - q: weapons wheel (very rarely used)  
 
 My keybinding.cfg file: https://raw.githubusercontent.com/yrelof/quake2-rerelease-dll-fasterfps/main/keybinds.cfg  
-You can put it in your "%USERPROFILE%\Saved Games\Nightdive Studios\Quake II\fasterfps" directory.
+Right clic on the link, save link target in your "%USERPROFILE%\Saved Games\Nightdive Studios\Quake II\fasterfps" directory.
 
 ## Other information
 
@@ -143,11 +148,13 @@ Source code: https://github.com/yrelof/quake2-rerelease-dll-fasterfps
 
 Mod coded for the "Update 1" version of Quake 2 Remastered (from 2023-10-03).  
 
-The mod also works with the additional campaigns (the missions from "The Reckoning" are harder, you can decrease ff_player_damage_received_multiplier) and with the Coop.
+The mod also works with the additional campaigns and with the Coop.
 
-Save games should be compatible if you copy them to the mod folder (baseq2\save to fasterfps\save), but you will not get automatically the main weapons.  
-I recommend to start a new game (in hard difficulty, see first section of this documentation).  
+I recommend to start a new game in hard difficulty, to have a lot of monsters.  
+Save games should be compatible anyway if you copy them to the mod folder (baseq2\save to fasterfps\save), but you will not get automatically the main weapons and the grapple.  
+
+If you want an easier difficulty (notably for "The Reckoning" campaign), change the ff_player_damage_received_multiplier variable instead of changing the difficulty of a new game, to still have a lot a monsters.
 
 To customize mod variables, edit the "settings.cfg" file in the mod directory.
 
-Some changes come from the Unmaster mod, it's specified in the "Feature list" section. Link: https://github.com/nickgovier/Q2unmaster  
+Some changes come from the Unmaster mod, they are specified in the "Features" section. Link: https://github.com/nickgovier/Q2unmaster  
