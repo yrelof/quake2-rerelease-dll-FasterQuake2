@@ -1,4 +1,4 @@
-# FasterFps: Quake II Remastered mod to be a faster FPS in solo.  
+# Faster Fps: Quake II Remastered mod for faster gameplay in solo
 
 ## Summary
 
@@ -140,7 +140,7 @@ The key binding I use for this mod, just as a suggestion:
 - q: weapons wheel (very rarely used)  
 
 My keybinding.cfg file: https://raw.githubusercontent.com/yrelof/quake2-rerelease-dll-fasterfps/main/keybinds.cfg  
-Right clic on the link, save link target in your "%USERPROFILE%\Saved Games\Nightdive Studios\Quake II\fasterfps" directory.
+Right click on the link, save link target in your "%USERPROFILE%\Saved Games\Nightdive Studios\Quake II\fasterfps" directory.
 
 ## Other information
 
