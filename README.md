@@ -12,14 +12,14 @@ Your weapons are more powerful, and you takes less damage, you easily kill loads
 Use only Super Shootgun, Machine Gun, Rocket Launcher and Rail Gun.  
 You get them directly on a new game, and all ammo items are still useful because they give you a small amount of ammo for those main weapons.
 
-Weapon switch is really instantaneous, enjoy chaining kills with really distinct weapons.  
-
-Use compass when you have any doubt, you're here to run and shoot fast, not to block on closed doors.  
-Ignore items, no need to worry about the good timing for their use.  
+Weapon switch is now really instantaneous, enjoy chaining kills with really distinct weapons.  
 
 Fly with a fast grapple, and rocket jump without taking self damage.  
 
 Almost never create a savegame, the mod has an auto-save every 30 seconds on different slots.  
+
+Use compass when you have any doubt, you're here to run and shoot fast, not to block on closed doors.  
+Ignore items, no need to worry about the good timing for their use.  
 
 Start a new game in hard mode, to have more monsters, the game will still be easy with your overpowered weapons.  
 
@@ -127,17 +127,17 @@ Variable: ff_monster_walkjump, 0 or 1, default value is 0
 
 ## Key binding
 
-The key binding I use for this mod, just as a suggestion:  
-- r d f g: up, left, down, right (not wasd/zqsd to have space for additional keys on the left)
-- z: compass  
-- s: grapple  
-- t: super shootgun  
-- e: machine gun  
-- h: rocket launcher  
-- b: rail gun (to press with the thumb)  
+The key binding I use for this mod, just as a suggestion and to show important bindings:  
+- R D F G: up, left, down, right (not WASD/ZQSD to have space for additional keys on the left)
+- Z: compass  
+- S: grapple  
+- T: super shootgun  
+- E: machine gun  
+- H: rocket launcher  
+- B: rail gun (to press with the thumb)  
 - 4: blaster (default key, very rarely used, but can still be useful if you really are out of ammo)  
-- a: items wheel (rarely used)  
-- q: weapons wheel (very rarely used)  
+- A: items wheel (rarely used)  
+- Q: weapons wheel (very rarely used)  
 
 My keybinding.cfg file: https://raw.githubusercontent.com/yrelof/quake2-rerelease-dll-fasterfps/main/keybinds.cfg  
 Right click on the link, save link target in your "%USERPROFILE%\Saved Games\Nightdive Studios\Quake II\fasterfps" directory.
