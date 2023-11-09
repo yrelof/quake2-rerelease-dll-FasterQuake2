@@ -285,7 +285,7 @@ void InitGame()
 	// FIXME: sv_ prefix is wrong for these
 	sv_rollspeed = gi.cvar("sv_rollspeed", "200", CVAR_NOFLAGS);
 	sv_rollangle = gi.cvar("sv_rollangle", "2", CVAR_NOFLAGS);
-	sv_maxvelocity = gi.cvar("sv_maxvelocity", "2000", CVAR_NOFLAGS);
+	sv_maxvelocity = gi.cvar("sv_maxvelocity", "10000", CVAR_NOFLAGS);
 	sv_gravity = gi.cvar("sv_gravity", "800", CVAR_NOFLAGS);
 
 	g_skipViewModifiers = gi.cvar("g_skipViewModifiers", "0", CVAR_NOSET);

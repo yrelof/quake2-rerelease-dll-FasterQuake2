@@ -94,7 +94,7 @@ Variables:
 
 - When you start a new game you have the grapple, and its launch speed is increased.  
 Variables:  
-  - g_grapple_fly_speed, the variable is already in the game without this mod, default value is changed to 3000 (it was 650), a higher value has no effect  
+  - g_grapple_fly_speed, the variable is already in the game without this mod, default value is changed to 10000 (it was 650), it's currently the max value (because of sv_maxvelocity)
   - g_grapple_pull_speed, the variable is already in the game without this mod, default value is 650  
 
 - The rocket area damage radius is 1.5x larger, for rockets launched by the player.  
