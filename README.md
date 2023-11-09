@@ -129,15 +129,15 @@ Variable: ff_monster_walkjump, 0 or 1, default value is 0
 
 The key binding I use for this mod, just as a suggestion and to show important bindings:  
 - R D F G: up, left, down, right (not WASD/ZQSD to have space for additional keys on the left)
-- Z: compass  
+- Z: compass (W in qwerty)  
 - S: grapple  
 - T: super shootgun  
 - E: machine gun  
 - H: rocket launcher  
 - B: rail gun (to press with the thumb)  
 - 4: blaster (default key, very rarely used, but can still be useful if you really are out of ammo)  
-- A: items wheel (rarely used)  
-- Q: weapons wheel (very rarely used)  
+- A: items wheel (rarely used)(Q in qwerty)  
+- Q: weapons wheel (very rarely used)(A in qwerty)  
 
 My keybinding.cfg file: https://raw.githubusercontent.com/yrelof/quake2-rerelease-dll-fasterfps/main/keybinds.cfg  
 Right click on the link, save link target in your "%USERPROFILE%\Saved Games\Nightdive Studios\Quake II\fasterfps" directory.
