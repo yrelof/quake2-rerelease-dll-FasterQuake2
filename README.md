@@ -155,6 +155,9 @@ Save games should be compatible anyway if you copy them to the mod folder (baseq
 
 If you want an easier difficulty (notably for "The Reckoning" campaign), change the ff_player_damage_received_multiplier variable instead of changing the difficulty of a new game, to still have a lot a monsters.
 
-To customize mod variables, edit the "settings.cfg" file in the mod directory.
+To customize mod variables, edit the "settings.cfg" file in the mod directory and add this kind of line:
+```
+set ff_player_damage_sent_multiplier "2"
+```
 
 Some changes come from the Unmaster mod, they are specified in the "Features" section. Link: https://github.com/nickgovier/Q2unmaster  
