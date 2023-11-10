@@ -1078,6 +1078,17 @@ enum mod_id_t : uint8_t
 	MOD_BLUEBLASTER
 };
 
+// FasterFps mod
+enum class campaign_t
+{
+	BASE, // episode "baseq2" in mapdb.json
+	CALL_OF_THE_MACHINE, // episode "mg2" in mapdb.json
+	THE_RECKONING, // episode "xatrix" in mapdb.json
+	GROUND_ZERO, // episode "rogue" in mapdb.json
+	QUAKE64, // episode "n64" in mapdb.json
+	UNKNOWN,
+};
+
 struct mod_t
 {
 	mod_id_t	id;
@@ -1250,6 +1261,8 @@ struct level_locals_t
 	bool story_active;
 	gtime_t next_auto_save;
 	gtime_t next_match_report;
+
+	campaign_t campaign; // FasterFps mod
 };
 
 struct shadow_light_temp_t

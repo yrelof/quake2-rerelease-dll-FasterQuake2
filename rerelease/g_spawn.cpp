@@ -437,6 +437,140 @@ static const std::initializer_list<spawn_t> spawns = {
 };
 // clang-format on
 
+// map names for each campaign, used to initialize level.campaign
+// list extracted from mapdb.json in pak0.pak
+static const std::unordered_set<std::string> base_campaign_maps = {
+	"base1",
+	"base2",
+	"base3",
+	"train",
+	"bunk1",
+	"ware1",
+	"ware2",
+	"jail1",
+	"jail2",
+	"jail3",
+	"jail4",
+	"jail5",
+	"security",
+	"mintro",
+	"mine1",
+	"mine2",
+	"mine3",
+	"mine4",
+	"fact1",
+	"fact2",
+	"fact3",
+	"power1",
+	"power2",
+	"cool1",
+	"waste1",
+	"waste2",
+	"waste3",
+	"biggun",
+	"hangar1",
+	"hangar2",
+	"lab",
+	"command",
+	"strike",
+	"space",
+	"city1",
+	"city2",
+	"city3",
+	"boss1",
+	"boss2"
+};
+static const std::unordered_set<std::string> call_of_the_machine_campaign_maps = {
+	"mgu1m1",
+	"mgu1m2",
+	"mgu1m3",
+	"mgu1m4",
+	"mgu1m5",
+	"mgu1trial",
+	"mgu2m1",
+	"mgu2m2",
+	"mgu2m3",
+	"mgu3m1",
+	"mgu3m2",
+	"mgu3m3",
+	"mgu3m4",
+	"mgu3secret",
+	"mgu4m1",
+	"mgu4m2",
+	"mgu4m3",
+	"mgu4trial",
+	"mgu5m1",
+	"mgu5m2",
+	"mgu5m3",
+	"mgu5trial",
+	"mgu6m1",
+	"mgu6m2",
+	"mgu6m3",
+	"mgu6trial",
+	"mguboss",
+	"mguhub",
+	"tutorial"
+};
+static const std::unordered_set<std::string> the_reckoning_campaign_maps = {
+	"xswamp",
+	"xsewer1",
+	"xsewer2",
+	"xcompnd1",
+	"xcompnd2",
+	"xreactor",
+	"xware",
+	"xintell",
+	"industry",
+	"outbase",
+	"w_treat",
+	"badlands",
+	"refinery",
+	"xhangar1",
+	"xhangar2",
+	"xship",
+	"xmoon1",
+	"xmoon2"
+};
+static const std::unordered_set<std::string> ground_zero_campaign_maps = {
+	"rmine1",
+	"rlava1",
+	"rlava2",
+	"rmine2",
+	"rware1",
+	"rware2",
+	"rbase1",
+	"rbase2",
+	"rhangar1",
+	"rsewer1",
+	"rsewer2",
+	"rhangar2",
+	"rammo1",
+	"rammo2",
+	"rboss"
+};
+static const std::unordered_set<std::string> quake64_campaign_maps = {
+	"q64/rtest",
+	"q64/outpost",
+	"q64/complex",
+	"q64/intel",
+	"q64/comm",
+	"q64/orbit",
+	"q64/station",
+	"q64/ship",
+	"q64/cargo",
+	"q64/mines",
+	"q64/storage",
+	"q64/organic",
+	"q64/process",
+	"q64/geo-stat",
+	"q64/jail",
+	"q64/lab",
+	"q64/bio",
+	"q64/conduits",
+	"q64/core",
+	"q64/command"
+};
+
 /*
 ===============
 ED_CallSpawn
@@ -1272,6 +1406,24 @@ void SpawnEntities(const char *mapname, const char *entities, const char *spawnp
 	// ROGUE
 
 	setup_shadow_lights();
+
+	// FasterFps mod: init level.campaign
+	{
+		std::string mapname{level.mapname};
+
+		if (base_campaign_maps.contains(mapname))
+			level.campaign = campaign_t::BASE;
+		else if (call_of_the_machine_campaign_maps.contains(mapname))
+			level.campaign = campaign_t::CALL_OF_THE_MACHINE;
+		else if (the_reckoning_campaign_maps.contains(mapname))
+			level.campaign = campaign_t::THE_RECKONING;
+		else if (ground_zero_campaign_maps.contains(mapname))
+			level.campaign = campaign_t::GROUND_ZERO;
+		else if (quake64_campaign_maps.contains(mapname))
+			level.campaign = campaign_t::QUAKE64;
+		else
+			level.campaign = campaign_t::UNKNOWN;
+	}
 }
 
 //===================================================================
