@@ -27,7 +27,7 @@ cached_soundindex		snd_fry;
 
 edict_t *g_edicts;
 
-// fasterFps
+// FasterFps mod
 cvar_t* ff_give_main_weapons_at_start;
 cvar_t* ff_start_ammo_shootgun;
 cvar_t* ff_start_ammo_machinegun;
@@ -216,7 +216,7 @@ void PreInitGame()
 	coop = gi.cvar("coop", "0", CVAR_LATCH);
 	teamplay = gi.cvar("teamplay", "0", CVAR_LATCH);
 
-	// fasterFps
+	// FasterFps mod
 	ff_give_main_weapons_at_start = gi.cvar("ff_give_main_weapons_at_start", "1", CVAR_NOFLAGS); // bool
 	ff_start_ammo_shootgun = gi.cvar("ff_start_ammo_shootgun", "20", CVAR_NOFLAGS);
 	ff_start_ammo_machinegun = gi.cvar("ff_start_ammo_machinegun", "60", CVAR_NOFLAGS);
@@ -1083,7 +1083,7 @@ inline void G_RunFrame_(bool main_loop)
 		M_ProcessPain(e);
 	}
 
-	// fasterFps: autosave regularly on a different slot
+	// FasterFps mod: autosave regularly on a different slot
 	if (ff_autosave_enabled->integer == 1)
 	{
 		// There is already autosave code in use_target_autosave in g_target.cpp,

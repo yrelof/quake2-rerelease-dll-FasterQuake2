@@ -535,12 +535,12 @@ void T_Damage(edict_t *targ, edict_t *inflictor, edict_t *attacker, const vec3_t
 	int		   te_sparks;
 	bool	   sphere_notified; // PGM
 
-	// fasterFps: increase player damage
+	// FasterFps mod: increase player damage
 	// There is already g_damage_scale but it doesn't seem to work.
 	if (attacker->client)
 		damage *= ff_player_damage_sent_multiplier->value;
 
-	// fasterFps: player takes less damage (but we play in hard mode to have more monsters)
+	// FasterFps mod: player takes less damage (but we play in hard mode to have more monsters)
 	// There is already ai_damage_scale but it's not a float (and I have no confidency in it, like g_damage_scale).
 	if (targ->client && damage)
 	{
@@ -549,7 +549,7 @@ void T_Damage(edict_t *targ, edict_t *inflictor, edict_t *attacker, const vec3_t
 			damage = 1;
 	}
 
-	// fasterFps: no self damage (for rocket launcher)
+	// FasterFps mod: no self damage (for rocket launcher)
 	if (ff_self_damage->integer == 0 && attacker->client && targ->client)
 	{
 		// do not return from the function, to still have knockback effect (rocket jump)

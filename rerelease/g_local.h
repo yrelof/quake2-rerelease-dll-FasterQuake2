@@ -1891,7 +1891,7 @@ template<typename T>
 	return irandom(2) == 0;
 }
 
-// fasterFps
+// FasterFps mod
 extern cvar_t* ff_give_main_weapons_at_start;
 extern cvar_t* ff_start_ammo_shootgun;
 extern cvar_t* ff_start_ammo_machinegun;
@@ -2200,7 +2200,7 @@ void T_RadiusClassDamage(edict_t *inflictor, edict_t *attacker, float damage, ch
 void cleanupHealTarget(edict_t *ent);
 // ROGUE
 
-// fasterFps: no bullet spread
+// FasterFps mod: no bullet spread
 constexpr int32_t DEFAULT_BULLET_HSPREAD = 0;
 constexpr int32_t DEFAULT_BULLET_VSPREAD = 0;
 

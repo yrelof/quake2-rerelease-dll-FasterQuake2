@@ -862,7 +862,7 @@ void InitClientPersistant(edict_t *ent, gclient_t *client)
 			{
 				client->pers.inventory[IT_WEAPON_BLASTER] = 1;
 
-				// fasterFps: give main weapons at the start of the game
+				// FasterFps mod: give main weapons at the start of the game
 				if (ff_give_main_weapons_at_start->integer == 1)
 				{
 					client->pers.inventory[IT_WEAPON_SSHOTGUN] = 1;

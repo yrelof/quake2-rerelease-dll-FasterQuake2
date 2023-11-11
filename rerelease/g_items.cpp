@@ -563,7 +563,7 @@ bool Add_Ammo(edict_t *ent, gitem_t *item, int count)
 	if (!ent->client || item->tag < AMMO_BULLETS || item->tag >= AMMO_MAX)
 		return false;
 
-	// fasterFps: any ammo item also give some ammo for the main weapons
+	// FasterFps mod: any ammo item also give some ammo for the main weapons
 	bool picked = false;
 
 	float extra_ammo_shootgun = 0.f;
@@ -640,7 +640,7 @@ bool Add_Ammo(edict_t *ent, gitem_t *item, int count)
 	// We also give the extra ammos for main weapons ammo because of the start of the game,
 	// the first levels don't have rocket and railgun ammos.
 
-	// fasterFps: give real ammo only for non-main weapons
+	// FasterFps mod: give real ammo only for non-main weapons
 	if ((item->id == IT_AMMO_SHELLS && extra_ammo_shootgun != 0)
 		|| (item->id == IT_AMMO_BULLETS && extra_ammo_machinegun != 0)
 		|| (item->id == IT_AMMO_ROCKETS && extra_ammo_rocket != 0.f)
