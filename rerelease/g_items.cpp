@@ -566,27 +566,85 @@ bool Add_Ammo(edict_t *ent, gitem_t *item, int count)
 	// fasterFps: any ammo item also give some ammo for the main weapons
 	bool picked = false;
 
-	picked |= G_AddAmmoAndCap(ent, IT_AMMO_SHELLS, ent->client->pers.max_ammo[AMMO_SHELLS], ff_extra_ammo_shootgun->integer); // for IT_WEAPON_SSHOTGUN
-	picked |= G_AddAmmoAndCap(ent, IT_AMMO_BULLETS, ent->client->pers.max_ammo[AMMO_BULLETS], ff_extra_ammo_machinegun->integer); // for IT_WEAPON_MACHINEGUN
+	float extra_ammo_shootgun = 0.f;
+	float extra_ammo_machinegun = 0.f;
+	float extra_ammo_rocket = 0.f;
+	float extra_ammo_railgun = 0.f;
 
-	// for IT_WEAPON_RLAUNCHER, as float
-	static float ammoShellGain{0.f};
-	ammoShellGain += ff_extra_ammo_rocket->value;
-	picked |= AddAmmoFloat(ent, IT_AMMO_ROCKETS, ent->client->pers.max_ammo[AMMO_ROCKETS], ammoShellGain);
+	switch (level.campaign)
+	{
+	case campaign_t::BASE:
+		extra_ammo_shootgun = ff_extra_ammo_default_shootgun->value;
+		extra_ammo_machinegun = ff_extra_ammo_default_machinegun->value;
+		extra_ammo_rocket = ff_extra_ammo_default_rocket->value;
+		extra_ammo_railgun = ff_extra_ammo_default_railgun->value;
+		break;
+	case campaign_t::CALL_OF_THE_MACHINE:
+		extra_ammo_shootgun = ff_extra_ammo_call_of_the_machine_shootgun->value;
+		extra_ammo_machinegun = ff_extra_ammo_call_of_the_machine_machinegun->value;
+		extra_ammo_rocket = ff_extra_ammo_call_of_the_machine_rocket->value;
+		extra_ammo_railgun = ff_extra_ammo_call_of_the_machine_railgun->value;
+		break;
+	case campaign_t::THE_RECKONING:
+		extra_ammo_shootgun = ff_extra_ammo_the_reckoning_shootgun->value;
+		extra_ammo_machinegun = ff_extra_ammo_the_reckoning_machinegun->value;
+		extra_ammo_rocket = ff_extra_ammo_the_reckoning_rocket->value;
+		extra_ammo_railgun = ff_extra_ammo_the_reckoning_railgun->value;
+		break;
+	case campaign_t::GROUND_ZERO:
+		extra_ammo_shootgun = ff_extra_ammo_ground_zero_shootgun->value;
+		extra_ammo_machinegun = ff_extra_ammo_ground_zero_machinegun->value;
+		extra_ammo_rocket = ff_extra_ammo_ground_zero_rocket->value;
+		extra_ammo_railgun = ff_extra_ammo_ground_zero_railgun->value;
+		break;
+	case campaign_t::QUAKE64:
+		extra_ammo_shootgun = ff_extra_ammo_quake64_shootgun->value;
+		extra_ammo_machinegun = ff_extra_ammo_quake64_machinegun->value;
+		extra_ammo_rocket = ff_extra_ammo_quake64_rocket->value;
+		extra_ammo_railgun = ff_extra_ammo_quake64_railgun->value;
+		break;
+	case campaign_t::UNKNOWN:
+		extra_ammo_shootgun = ff_extra_ammo_default_shootgun->value;
+		extra_ammo_machinegun = ff_extra_ammo_default_machinegun->value;
+		extra_ammo_rocket = ff_extra_ammo_default_rocket->value;
+		extra_ammo_railgun = ff_extra_ammo_default_railgun->value;
+		break;
+	default:
+		gi.Com_ErrorFmt("no extra ammo handled for campaign {}", static_cast<int>(level.campaign));
+		extra_ammo_shootgun = ff_extra_ammo_default_shootgun->value;
+		extra_ammo_machinegun = ff_extra_ammo_default_machinegun->value;
+		extra_ammo_rocket = ff_extra_ammo_default_rocket->value;
+		extra_ammo_railgun = ff_extra_ammo_default_railgun->value;
+	}
 
-	// for IT_WEAPON_RAILGUN, as float
-	static float ammoSlugGain{0.f};
-	ammoSlugGain += ff_extra_ammo_railgun->value;
+	// for IT_WEAPON_SSHOTGUN
+	static float ammoShellGain = 0.f;
+	ammoShellGain += extra_ammo_shootgun;
+	picked |= AddAmmoFloat(ent, IT_AMMO_SHELLS, ent->client->pers.max_ammo[AMMO_SHELLS], ammoShellGain);
+
+	// for IT_WEAPON_MACHINEGUN
+	static float ammoBulletGain = 0.f;
+	ammoBulletGain += extra_ammo_machinegun;
+	picked |= AddAmmoFloat(ent, IT_AMMO_BULLETS, ent->client->pers.max_ammo[AMMO_BULLETS], ammoBulletGain);
+
+	// for IT_WEAPON_RLAUNCHER
+	static float ammoRocketGain = 0.f;
+	ammoRocketGain += extra_ammo_rocket;
+	picked |= AddAmmoFloat(ent, IT_AMMO_ROCKETS, ent->client->pers.max_ammo[AMMO_ROCKETS], ammoRocketGain);
+
+	// for IT_WEAPON_RAILGUN
+	static float ammoSlugGain = 0.f;
+	ammoSlugGain += extra_ammo_railgun;
 	picked |= AddAmmoFloat(ent, IT_AMMO_SLUGS, ent->client->pers.max_ammo[AMMO_SLUGS], ammoSlugGain);
-	
+
 	// We also give the extra ammos for main weapons ammo because of the start of the game,
 	// the first levels don't have rocket and railgun ammos.
 
 	// fasterFps: give real ammo only for non-main weapons
-	if ((item->id == IT_AMMO_SHELLS && ff_extra_ammo_shootgun->integer != 0)
-		|| (item->id == IT_AMMO_BULLETS && ff_extra_ammo_machinegun->integer != 0)
-		|| (item->id == IT_AMMO_ROCKETS && ff_extra_ammo_rocket->value != 0.f)
-		|| (item->id == IT_AMMO_SLUGS && ff_extra_ammo_railgun->value != 0.f))
+	if ((item->id == IT_AMMO_SHELLS && extra_ammo_shootgun != 0)
+		|| (item->id == IT_AMMO_BULLETS && extra_ammo_machinegun != 0)
+		|| (item->id == IT_AMMO_ROCKETS && extra_ammo_rocket != 0.f)
+		|| (item->id == IT_AMMO_SLUGS && extra_ammo_railgun != 0.f))
 	{
 		return picked;
 	}

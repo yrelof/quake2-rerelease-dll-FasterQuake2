@@ -33,10 +33,26 @@ cvar_t* ff_start_ammo_shootgun;
 cvar_t* ff_start_ammo_machinegun;
 cvar_t* ff_start_ammo_rocket;
 cvar_t* ff_start_ammo_railgun;
-cvar_t* ff_extra_ammo_shootgun;
-cvar_t* ff_extra_ammo_machinegun;
-cvar_t* ff_extra_ammo_rocket;
-cvar_t* ff_extra_ammo_railgun;
+cvar_t* ff_extra_ammo_default_shootgun;
+cvar_t* ff_extra_ammo_default_machinegun;
+cvar_t* ff_extra_ammo_default_rocket;
+cvar_t* ff_extra_ammo_default_railgun;
+cvar_t* ff_extra_ammo_call_of_the_machine_shootgun;
+cvar_t* ff_extra_ammo_call_of_the_machine_machinegun;
+cvar_t* ff_extra_ammo_call_of_the_machine_rocket;
+cvar_t* ff_extra_ammo_call_of_the_machine_railgun;
+cvar_t* ff_extra_ammo_the_reckoning_shootgun;
+cvar_t* ff_extra_ammo_the_reckoning_machinegun;
+cvar_t* ff_extra_ammo_the_reckoning_rocket;
+cvar_t* ff_extra_ammo_the_reckoning_railgun;
+cvar_t* ff_extra_ammo_ground_zero_shootgun;
+cvar_t* ff_extra_ammo_ground_zero_machinegun;
+cvar_t* ff_extra_ammo_ground_zero_rocket;
+cvar_t* ff_extra_ammo_ground_zero_railgun;
+cvar_t* ff_extra_ammo_quake64_shootgun;
+cvar_t* ff_extra_ammo_quake64_machinegun;
+cvar_t* ff_extra_ammo_quake64_rocket;
+cvar_t* ff_extra_ammo_quake64_railgun;
 cvar_t* ff_player_damage_sent_multiplier;
 cvar_t* ff_player_damage_received_multiplier;
 cvar_t* ff_self_damage;
@@ -206,10 +222,26 @@ void PreInitGame()
 	ff_start_ammo_machinegun = gi.cvar("ff_start_ammo_machinegun", "60", CVAR_NOFLAGS);
 	ff_start_ammo_rocket = gi.cvar("ff_start_ammo_rocket", "10", CVAR_NOFLAGS);
 	ff_start_ammo_railgun = gi.cvar("ff_start_ammo_railgun", "10", CVAR_NOFLAGS);
-	ff_extra_ammo_shootgun = gi.cvar("ff_extra_ammo_shootgun", "2", CVAR_NOFLAGS); // int
-	ff_extra_ammo_machinegun = gi.cvar("ff_extra_ammo_machinegun", "4", CVAR_NOFLAGS); // int
-	ff_extra_ammo_rocket = gi.cvar("ff_extra_ammo_rocket", "0.5", CVAR_NOFLAGS); // float
-	ff_extra_ammo_railgun = gi.cvar("ff_extra_ammo_railgun", "0.4", CVAR_NOFLAGS); // float
+	ff_extra_ammo_default_shootgun = gi.cvar("ff_extra_ammo_default_shootgun", "2.0", CVAR_NOFLAGS);
+	ff_extra_ammo_default_machinegun = gi.cvar("ff_extra_ammo_default_machinegun", "4.0", CVAR_NOFLAGS);
+	ff_extra_ammo_default_rocket = gi.cvar("ff_extra_ammo_default_rocket", "0.5", CVAR_NOFLAGS);
+	ff_extra_ammo_default_railgun = gi.cvar("ff_extra_ammo_default_railgun", "0.4", CVAR_NOFLAGS);
+	ff_extra_ammo_call_of_the_machine_shootgun = gi.cvar("ff_extra_ammo_call_of_the_machine_shootgun", "2.0", CVAR_NOFLAGS);
+	ff_extra_ammo_call_of_the_machine_machinegun = gi.cvar("ff_extra_ammo_call_of_the_machine_machinegun", "4.0", CVAR_NOFLAGS);
+	ff_extra_ammo_call_of_the_machine_rocket = gi.cvar("ff_extra_ammo_call_of_the_machine_rocket", "0.5", CVAR_NOFLAGS);
+	ff_extra_ammo_call_of_the_machine_railgun = gi.cvar("ff_extra_ammo_call_of_the_machine_railgun", "0.4", CVAR_NOFLAGS);
+	ff_extra_ammo_the_reckoning_shootgun = gi.cvar("ff_extra_ammo_the_reckoning_shootgun", "4.0", CVAR_NOFLAGS);
+	ff_extra_ammo_the_reckoning_machinegun = gi.cvar("ff_extra_ammo_the_reckoning_machinegun", "8.0", CVAR_NOFLAGS);
+	ff_extra_ammo_the_reckoning_rocket = gi.cvar("ff_extra_ammo_the_reckoning_rocket", "1.0", CVAR_NOFLAGS);
+	ff_extra_ammo_the_reckoning_railgun = gi.cvar("ff_extra_ammo_the_reckoning_railgun", "1.0", CVAR_NOFLAGS);
+	ff_extra_ammo_ground_zero_shootgun = gi.cvar("ff_extra_ammo_ground_zero_shootgun", "2.0", CVAR_NOFLAGS);
+	ff_extra_ammo_ground_zero_machinegun = gi.cvar("ff_extra_ammo_ground_zero_machinegun", "4.0", CVAR_NOFLAGS);
+	ff_extra_ammo_ground_zero_rocket = gi.cvar("ff_extra_ammo_ground_zero_rocket", "0.5", CVAR_NOFLAGS);
+	ff_extra_ammo_ground_zero_railgun = gi.cvar("ff_extra_ammo_ground_zero_railgun", "0.4", CVAR_NOFLAGS);
+	ff_extra_ammo_quake64_shootgun = gi.cvar("ff_extra_ammo_quake64_shootgun", "4.0", CVAR_NOFLAGS);
+	ff_extra_ammo_quake64_machinegun = gi.cvar("ff_extra_ammo_quake64_machinegun", "8.0", CVAR_NOFLAGS);
+	ff_extra_ammo_quake64_rocket = gi.cvar("ff_extra_ammo_quake64_rocket", "1.0", CVAR_NOFLAGS);
+	ff_extra_ammo_quake64_railgun = gi.cvar("ff_extra_ammo_quake64_railgun", "1.0", CVAR_NOFLAGS);
 	ff_player_damage_sent_multiplier = gi.cvar("ff_player_damage_sent_multiplier", "3", CVAR_NOFLAGS); // float
 	ff_player_damage_received_multiplier = gi.cvar("ff_player_damage_received_multiplier", "0.7", CVAR_NOFLAGS); // float
 	ff_self_damage = gi.cvar("ff_self_damage", "0", CVAR_NOFLAGS); // bool

@@ -81,10 +81,27 @@ For example, if you pick one rocket ammo item, you'll get 2 shootgun cells, 4 ma
 If you pick an ammo item for a weapon that is not one the 4 main weapons, you also get this weapon ammo in addition of the 4 others.  
 This behavior is necessary for the non-main weapons ammo items to still be useful, and to have ammo for the main weapons at the first levels.  
 Variables:  
-  - ff_extra_ammo_shootgun, default value is 2  
-  - ff_extra_ammo_machinegun, default value is 4   
-  - ff_extra_ammo_rocket, default value is 0.5  
-  - ff_extra_ammo_railgun, default value is 0.4  
+  - They are split for each campaign. The "default" variables are used for the base campaign and for the maps that do not belong to a campaign.
+  - ff_extra_ammo_default_shootgun, default value is 2.0
+  - ff_extra_ammo_default_machinegun, default value is 4.0
+  - ff_extra_ammo_default_rocket, default value is 0.5
+  - ff_extra_ammo_default_railgun, default value is 0.4
+  - ff_extra_ammo_call_of_the_machine_shootgun, default value is 2.0
+  - ff_extra_ammo_call_of_the_machine_machinegun, default value is 4.0
+  - ff_extra_ammo_call_of_the_machine_rocket, default value is 0.5
+  - ff_extra_ammo_call_of_the_machine_railgun, default value is 0.4
+  - ff_extra_ammo_the_reckoning_shootgun, default value is 4.0
+  - ff_extra_ammo_the_reckoning_machinegun, default value is 8.0
+  - ff_extra_ammo_the_reckoning_rocket, default value is 1.0
+  - ff_extra_ammo_the_reckoning_railgun, default value is 1.0
+  - ff_extra_ammo_ground_zero_shootgun, default value is 2.0
+  - ff_extra_ammo_ground_zero_machinegun, default value is 4.0
+  - ff_extra_ammo_ground_zero_rocket, default value is 0.5
+  - ff_extra_ammo_ground_zero_railgun, default value is 0.4
+  - ff_extra_ammo_quake64_shootgun, default value is 4.0
+  - ff_extra_ammo_quake64_machinegun, default value is 8.0
+  - ff_extra_ammo_quake64_rocket, default value is 1.0
+  - ff_extra_ammo_quake64_railgun, default value is 1.0
 
 - The player doesn't receive damage from its own weapon, so you can abuse rocket jumps.  
 Rocket jump power is configurable by a variable, but it is not changed from de vanilla game.  
