@@ -876,7 +876,6 @@ void InitClientPersistant(edict_t *ent, gclient_t *client)
 					client->pers.inventory[IT_AMMO_ROCKETS] = ff_start_ammo_rocket->integer;
 					client->pers.inventory[IT_WEAPON_RAILGUN] = 1;
 					client->pers.inventory[IT_AMMO_SLUGS] = ff_start_ammo_railgun->integer;
-					client->pers.inventory[IT_WEAPON_GRAPPLE] = 1;
 				}
 
 				// all weapons and ammo, for testing
