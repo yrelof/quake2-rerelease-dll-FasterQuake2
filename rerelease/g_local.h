@@ -1075,7 +1075,8 @@ enum mod_id_t : uint8_t
 	// ROGUE
 	//========
 	MOD_GRAPPLE,
-	MOD_BLUEBLASTER
+	MOD_BLUEBLASTER,
+	MOD_HOOK
 };
 
 // FasterFps mod
@@ -2711,6 +2712,8 @@ constexpr spawnflags_t SPAWNFLAG_LANDMARK_KEEP_Z = 1_spawnflag;
 // ZOID
 //============================================================================
 
+#include "p_hook.h"
+
 // client_t->anim_priority
 enum anim_priority_t
 {
@@ -3064,6 +3067,13 @@ struct gclient_t
 	gtime_t	 last_attacker_time;
 	// saved - for coop; last time we were in a firing state
 	gtime_t	 last_firing_time;
+
+	// FasterFps mod: hook
+	bool    hook_out;
+	bool    hook_on;
+	edict_t* hook;
+	float		last_hook_time;
+	int			ff_grapple_damage;
 };
 
 // ==========================================
@@ -3293,6 +3303,10 @@ struct edict_t
 	uint32_t crosslevel_flags;
 	// NOTE: if adding new elements, make sure to add them
 	// in g_save.cpp too!
+
+	// FasterFps mod: hook
+	edict_t* laser;
+	gtime_t hook_time;
 };
 
 //=============

@@ -292,6 +292,8 @@ void PreInitGame()
 			gi.cvar_set("coop", "0");
 	}
 	// ZOID
+
+	Hook_InitGame();
 }
 
 /*

@@ -568,6 +568,9 @@ DIE(player_die) (edict_t *self, edict_t *inflictor, edict_t *attacker, int damag
 		ClientObituary(self, inflictor, attacker, mod);
 
 		CTFFragBonuses(self, inflictor, attacker);
+
+		Hook_PlayerDie(attacker, self);
+
 		// ZOID
 		TossClientWeapon(self);
 		// ZOID
@@ -3219,6 +3222,9 @@ void ClientThink(edict_t *ent, usercmd_t *ucmd)
 			gi.LocClient_Print(ent, PRINT_CENTER, "$g_n64_crouching");
 		}
 	}
+
+	if (client->hook_on && ent->client->hook)
+		Hook_Service(client->hook);
 
 	if (level.intermissiontime || ent->client->awaiting_respawn)
 	{

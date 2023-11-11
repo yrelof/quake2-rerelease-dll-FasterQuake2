@@ -1603,6 +1603,19 @@ void ClientCommand(edict_t *ent)
 
 	cmd = gi.argv(0);
 
+	// FasterFps mod
+	if (Q_strcasecmp(cmd, "hook") == 0)
+	{
+		if (!ent->client->resp.spectator && !ent->deadflag)
+			Weapon_Hook_Fire(ent);
+		return;
+	}
+	if (Q_strcasecmp(cmd, "unhook") == 0)
+	{
+		Hook_Reset(ent->client->hook);
+		return;
+	}
+
 	if (Q_strcasecmp(cmd, "players") == 0)
 	{
 		Cmd_Players_f(ent);
