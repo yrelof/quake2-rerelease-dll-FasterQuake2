@@ -178,3 +178,14 @@ set ff_player_damage_sent_multiplier "2"
 ```
 
 Some changes come from the Unmaster mod, they are specified in the "Features" section. Link: https://github.com/nickgovier/Q2unmaster  
+
+## Changelog
+
+v1.2.0:
+- increase grapple launch speed
+- different extra ammo handled for each campaign
+- increase extra ammo for "The Reckoning" and "Quake II 64" campaigns
+- improve doc
+
+v1.1.0:
+- first public release
