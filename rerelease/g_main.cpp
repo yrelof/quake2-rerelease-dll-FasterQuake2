@@ -398,7 +398,7 @@ void InitGame()
 
 	g_strict_saves = gi.cvar("g_strict_saves", "1", CVAR_NOFLAGS);
 
-	sv_airaccelerate = gi.cvar("sv_airaccelerate", "0", CVAR_NOFLAGS);
+	sv_airaccelerate = gi.cvar("sv_airaccelerate", "10", CVAR_NOFLAGS);
 
 	g_damage_scale = gi.cvar("g_damage_scale", "1", CVAR_NOFLAGS);
 	g_disable_player_collision = gi.cvar("g_disable_player_collision", "0", CVAR_NOFLAGS);
