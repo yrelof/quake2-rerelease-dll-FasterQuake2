@@ -36,6 +36,10 @@ cvar_t *ff_grapple_damage;
 cvar_t *ff_grapple_initdamage;
 cvar_t *ff_grapple_maxdamage;
 cvar_t *ff_grapple_delay;
+cvar_t* ff_grapple_blue;
+cvar_t* ff_grapple_diameter;
+cvar_t* ff_grapple_sound_volume_main;
+cvar_t* ff_grapple_sound_volume_secondary;
 
 void Hook_InitGame(void)
 {
@@ -44,6 +48,10 @@ void Hook_InitGame(void)
 	ff_grapple_initdamage = gi.cvar("ff_grapple_initdamage", "1", CVAR_NOFLAGS);
 	ff_grapple_maxdamage = gi.cvar("ff_grapple_maxdamage", "1", CVAR_NOFLAGS);
 	ff_grapple_delay = gi.cvar("ff_grapple_delay", "0.0", CVAR_NOFLAGS);
+	ff_grapple_blue = gi.cvar("ff_grapple_blue", "0", CVAR_NOFLAGS); // bool
+	ff_grapple_diameter = gi.cvar("ff_grapple_diameter", "4", CVAR_NOFLAGS);
+	ff_grapple_sound_volume_main = gi.cvar("ff_grapple_sound_volume_main", "0.3", CVAR_NOFLAGS); // float
+	ff_grapple_sound_volume_secondary = gi.cvar("ff_grapple_sound_volume_secondary", "0.7", CVAR_NOFLAGS); // float
 }
 
 void Hook_PlayerDie(edict_t *attacker, edict_t *self)
@@ -225,7 +233,7 @@ TOUCH(Hook_Touch) (edict_t *self, edict_t *other, const trace_t &tr, bool other_
 
 		// gi.sound() doesnt work because the origin of an entity with no model is not 
 		// transmitted to clients or something.  hoped this would be fixed in Q2 ...
-		gi.positioned_sound(self->s.origin, self, CHAN_WEAPON, gi.soundindex("flyer/Flyatck2.wav"), 1, ATTN_NORM, 0);
+		gi.positioned_sound(self->s.origin, self, CHAN_WEAPON, gi.soundindex("flyer/Flyatck2.wav"), ff_grapple_sound_volume_secondary->value, ATTN_NORM, 0);
 	}
 
 	// remember who/what we hit, must be set before Hook_Check() is called
@@ -290,10 +298,10 @@ edict_t *Hook_Start(edict_t *ent)
 	self->owner = ent;
 
 	// set the beam diameter
-	self->s.frame = 4;
+	self->s.frame = ff_grapple_diameter->integer;
 
 	// set the color
-	self->s.skinnum = 0xf0f0f0f0;  // red
+	self->s.skinnum = (ff_grapple_blue->integer ? 0xf1f1f1f1 : 0xf0f0f0f0);  // red or blue
 
 	//if (ctf->value && ctf_coloredhook->value && ent->owner->client->resp.ctf_team == 2)
 	if ((ctf->integer || teamplay->integer) && ent->owner->client->resp.ctf_team == CTF_TEAM2)   // Kyper - Lithium port - forget the option, just give Blue team blue...
@@ -389,7 +397,7 @@ void Weapon_Hook_Fire(edict_t *ent)
 	// actually launch the hook off
 	Hook_Fire(ent, start, dir);
 
-	gi.sound(ent, CHAN_WEAPON, gi.soundindex("flyer/Flyatck3.wav"), 1, ATTN_NORM, 0);
+	gi.sound(ent, CHAN_WEAPON, gi.soundindex("flyer/Flyatck3.wav"), ff_grapple_sound_volume_main->value, ATTN_NORM, 0);
 
 	PlayerNoise(ent, start, PNOISE_WEAPON);
 }
