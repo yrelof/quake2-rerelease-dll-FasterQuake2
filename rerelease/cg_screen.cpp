@@ -2,6 +2,8 @@
 // Licensed under the GNU General Public License 2.0.
 #include "cg_local.h"
 
+extern cvar_t* ff_speedometer;
+
 constexpr int32_t STAT_MINUS      = 10;  // num frame for '-' stats digit
 constexpr const char *sb_nums[2][11] =
 {
@@ -1744,6 +1746,19 @@ void CG_DrawHUD (int32_t isplit, const cg_server_data_t *data, vrect_t hud_vrect
     // inventory too
     if (ps->stats[STAT_LAYOUTS] & LAYOUTS_INVENTORY)
         CG_DrawInventory(ps, data->inventory, hud_vrect, scale);
+
+    // Faster Fps mod
+    if (ff_speedometer->integer)
+    {
+        cgi.SCR_DrawFontString(
+            G_Fmt("{:.0f}", vec3_t{ ps->pmove.velocity.x, ps->pmove.velocity.y, 0.f }.length()).data(),
+            (hud_vrect.width * 0.487f) * scale,
+            (hud_vrect.height * 0.89f) * scale,
+            scale,
+            rgba_t{ 0, 175, 0, 255 },
+            true,
+            text_align_t::LEFT);
+    }
 }
 
 /*
