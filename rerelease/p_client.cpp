@@ -3142,6 +3142,9 @@ void P_FallingDamage(edict_t *ent, const pmove_t &pm)
 			damage = 1;
 		dir = { 0, 0, 1 };
 
+		// FasterFps mod
+		damage = static_cast<int>(damage * ff_fall_damage_multiplier->value);
+
 		if (!deathmatch->integer || !g_dm_no_fall_damage->integer)
 			T_Damage(ent, world, world, dir, ent->s.origin, vec3_origin, damage, 0, DAMAGE_NONE, MOD_FALLING);
 	}

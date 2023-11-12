@@ -56,6 +56,7 @@ cvar_t* ff_extra_ammo_quake64_railgun;
 cvar_t* ff_player_damage_sent_multiplier;
 cvar_t* ff_player_damage_received_multiplier;
 cvar_t* ff_self_damage;
+cvar_t* ff_fall_damage_multiplier;
 cvar_t* ff_rocket_jump_power;
 cvar_t* ff_fastest_weapon_switch;
 cvar_t* ff_barrel_delay;
@@ -246,6 +247,7 @@ void PreInitGame()
 	ff_player_damage_sent_multiplier = gi.cvar("ff_player_damage_sent_multiplier", "3", CVAR_NOFLAGS); // float
 	ff_player_damage_received_multiplier = gi.cvar("ff_player_damage_received_multiplier", "0.7", CVAR_NOFLAGS); // float
 	ff_self_damage = gi.cvar("ff_self_damage", "0", CVAR_NOFLAGS); // bool
+	ff_fall_damage_multiplier = gi.cvar("ff_fall_damage_multiplier", "0.0", CVAR_NOFLAGS); // float
 	ff_rocket_jump_power = gi.cvar("ff_rocket_jump_power", "1600", CVAR_NOFLAGS);
 	// Use ff_fastest_weapon_switch because the already existing g_instant_weapon_switch variable doesn't work, it's only for CTF games?
 	ff_fastest_weapon_switch = gi.cvar("ff_fastest_weapon_switch", "1", CVAR_NOFLAGS); // bool
