@@ -1934,6 +1934,7 @@ extern cvar_t* ff_autosave_interval_in_seconds;
 extern cvar_t* ff_autosave_slot_count;
 extern cvar_t* ff_weapon_chains;
 extern cvar_t* ff_player_rocket_radius_scale;
+extern cvar_t* ff_jump_sound_volume;
 
 extern cvar_t *deathmatch;
 extern cvar_t *coop;

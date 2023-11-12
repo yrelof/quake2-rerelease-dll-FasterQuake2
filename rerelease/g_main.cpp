@@ -69,6 +69,7 @@ cvar_t* ff_autosave_interval_in_seconds;
 cvar_t* ff_autosave_slot_count;
 cvar_t* ff_weapon_chains;
 cvar_t* ff_player_rocket_radius_scale;
+cvar_t* ff_jump_sound_volume;
 
 cvar_t *deathmatch;
 cvar_t *coop;
@@ -259,6 +260,7 @@ void PreInitGame()
 	ff_autosave_slot_count = gi.cvar("ff_autosave_slot_count", "10", CVAR_NOFLAGS);
 	ff_weapon_chains = gi.cvar("ff_weapon_chains", "0", CVAR_NOFLAGS); // bool
 	ff_player_rocket_radius_scale = gi.cvar("ff_player_rocket_radius_scale", "1.5", CVAR_NOFLAGS); // float
+	ff_jump_sound_volume = gi.cvar("ff_jump_sound_volume", "0.7", CVAR_NOFLAGS); // float
 
 	// ZOID
 	CTFInit();
