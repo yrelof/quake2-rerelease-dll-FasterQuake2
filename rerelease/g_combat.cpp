@@ -538,13 +538,14 @@ void T_Damage(edict_t *targ, edict_t *inflictor, edict_t *attacker, const vec3_t
 	// FasterFps mod: increase player damage
 	// There is already g_damage_scale but it doesn't seem to work.
 	if (attacker->client)
-		damage *= ff_player_damage_sent_multiplier->value;
+		damage *= (ff_player_damage_sent_multiplier->value == -1.f ? ff_player_damage_sent_multiplier_from_difficulty->value : ff_player_damage_sent_multiplier->value);
 
-	// FasterFps mod: player takes less damage (but we play in hard mode to have more monsters)
+	// FasterFps mod: player takes less damage
 	// There is already ai_damage_scale but it's not a float (and I have no confidency in it, like g_damage_scale).
 	if (targ->client && damage)
 	{
-		damage *= ff_player_damage_received_multiplier->value;
+		damage *= (ff_player_damage_received_multiplier->value == -1.f ? ff_player_damage_received_multiplier_from_difficulty->value : ff_player_damage_received_multiplier->value);
+
 		if (!damage)
 			damage = 1;
 	}

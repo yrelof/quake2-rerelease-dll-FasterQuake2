@@ -54,7 +54,9 @@ cvar_t* ff_extra_ammo_quake64_machinegun;
 cvar_t* ff_extra_ammo_quake64_rocket;
 cvar_t* ff_extra_ammo_quake64_railgun;
 cvar_t* ff_player_damage_sent_multiplier;
+cvar_t* ff_player_damage_sent_multiplier_from_difficulty;
 cvar_t* ff_player_damage_received_multiplier;
+cvar_t* ff_player_damage_received_multiplier_from_difficulty;
 cvar_t* ff_self_damage;
 cvar_t* ff_fall_damage_multiplier;
 cvar_t* ff_rocket_jump_power;
@@ -245,8 +247,10 @@ void PreInitGame()
 	ff_extra_ammo_quake64_machinegun = gi.cvar("ff_extra_ammo_quake64_machinegun", "8.0", CVAR_NOFLAGS);
 	ff_extra_ammo_quake64_rocket = gi.cvar("ff_extra_ammo_quake64_rocket", "1.0", CVAR_NOFLAGS);
 	ff_extra_ammo_quake64_railgun = gi.cvar("ff_extra_ammo_quake64_railgun", "1.0", CVAR_NOFLAGS);
-	ff_player_damage_sent_multiplier = gi.cvar("ff_player_damage_sent_multiplier", "3", CVAR_NOFLAGS); // float
-	ff_player_damage_received_multiplier = gi.cvar("ff_player_damage_received_multiplier", "0.7", CVAR_NOFLAGS); // float
+	ff_player_damage_sent_multiplier = gi.cvar("ff_player_damage_sent_multiplier", "-1.0", CVAR_NOFLAGS); // float
+	ff_player_damage_sent_multiplier_from_difficulty = gi.cvar("ff_player_damage_sent_multiplier_from_difficulty", "-1.0", CVAR_NOFLAGS); // must not be changed by cfg
+	ff_player_damage_received_multiplier = gi.cvar("ff_player_damage_received_multiplier", "-1.0", CVAR_NOFLAGS); // float
+	ff_player_damage_received_multiplier_from_difficulty = gi.cvar("ff_player_damage_received_multiplier_from_difficulty", "-1.0", CVAR_NOFLAGS);  // must not be changed by cfg
 	ff_self_damage = gi.cvar("ff_self_damage", "0", CVAR_NOFLAGS); // bool
 	ff_fall_damage_multiplier = gi.cvar("ff_fall_damage_multiplier", "0.0", CVAR_NOFLAGS); // float
 	ff_rocket_jump_power = gi.cvar("ff_rocket_jump_power", "1600", CVAR_NOFLAGS);
@@ -473,6 +477,30 @@ void InitGame()
 	// how far back we should support lag origins for
 	game.max_lag_origins = 20 * (0.1f / gi.frame_time_s);
 	game.lag_origins = (vec3_t *) gi.TagMalloc(game.maxclients * sizeof(vec3_t) * game.max_lag_origins, TAG_GAME);
+
+	// Faster Fps mod
+	// Init ff_player_damage_sent_multiplier_from_difficulty and ff_player_damage_received_multiplier_from_difficulty from the campaign difficuly choosen by player
+	// The player can override them by configuring ff_player_damage_sent_multiplier and ff_player_damage_received_multiplier
+	if (skill->integer == 0) // easy
+	{
+		gi.cvar_set("ff_player_damage_sent_multiplier_from_difficulty", "3.0");
+		gi.cvar_set("ff_player_damage_received_multiplier_from_difficulty", "0.5");
+	}
+	else if (skill->integer == 1) // medium
+	{
+		gi.cvar_set("ff_player_damage_sent_multiplier_from_difficulty", "3.0");
+		gi.cvar_set("ff_player_damage_received_multiplier_from_difficulty", "0.7");
+	}
+	else if (skill->integer == 2) // hard
+	{
+		gi.cvar_set("ff_player_damage_sent_multiplier_from_difficulty", "2.0");
+		gi.cvar_set("ff_player_damage_received_multiplier_from_difficulty", "0.7");
+	}
+	else // nightmare
+	{
+		gi.cvar_set("ff_player_damage_sent_multiplier_from_difficulty", "1.5");
+		gi.cvar_set("ff_player_damage_received_multiplier_from_difficulty", "1.0");
+	}
 }
 
 //===================================================================

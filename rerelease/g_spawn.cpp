@@ -1214,9 +1214,15 @@ inline bool G_InhibitEntity(edict_t *ent)
 		return true;
 
 	// skill
+	// Faster Fps mod: maximum of monster in any difficulty
+	/*
 	return ((skill->integer == 0) && ent->spawnflags.has(SPAWNFLAG_NOT_EASY)) ||
 		   ((skill->integer == 1) && ent->spawnflags.has(SPAWNFLAG_NOT_MEDIUM)) ||
 		   ((skill->integer >= 2) && ent->spawnflags.has(SPAWNFLAG_NOT_HARD));
+	*/
+	// keep this check otherwise there is weird things, 
+	// I saw an opened door that sould be closed at the start of level 2
+	return ent->spawnflags.has(SPAWNFLAG_NOT_HARD);
 }
 
 void setup_shadow_lights();
