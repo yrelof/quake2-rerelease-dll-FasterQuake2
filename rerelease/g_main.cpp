@@ -1091,6 +1091,19 @@ inline void G_RunFrame_(bool main_loop)
 		M_ProcessPain(e);
 	}
 
+	// Faster Fps mod:
+	// Reset potential hook at start of the game,
+	// for the case where a save game was created while the hook was active.
+	static bool hook_reset_done = false; // variable is reset to false when loading a game because the whole dll is reloaded
+	if (!hook_reset_done)
+	{
+		for (auto player : active_players())
+		{
+			Hook_Reset(player->client->hook);
+			hook_reset_done = true;
+		}
+	}
+
 	// FasterFps mod: autosave regularly on a different slot
 	if (ff_autosave_enabled->integer == 1)
 	{
