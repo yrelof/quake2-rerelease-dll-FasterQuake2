@@ -115,10 +115,10 @@ Variables:
 But if you prefer differently, you still have other weapons, with ammo and more damage.  
 Variables:  
   - ff_give_main_weapons_at_start, 0 or 1, default value is 1  
-  - ff_start_ammo_shootgun, default value is 20  
-  - ff_start_ammo_machinegun, default value is 60  
-  - ff_start_ammo_rocket, default value is 10  
-  - ff_start_ammo_railgun, default value is 10  
+  - ff_start_ammo_shootgun, default value is 40  
+  - ff_start_ammo_machinegun, default value is 90  
+  - ff_start_ammo_rocket, default value is 20  
+  - ff_start_ammo_railgun, default value is 15  
 
 - Any ammo item you pick gives some ammo for the main weapons.  
 For example, if you pick one rocket ammo item, you'll get 2 shootgun cells, 4 machine gun bullets, 0.5 rockets, 0.4 railgun slugs.  
@@ -129,24 +129,24 @@ Variables:
   - They are split for each campaign. The "default" variables are used for the base campaign and for the maps that do not belong to a campaign.
   - ff_extra_ammo_default_shootgun, default value is 2.0
   - ff_extra_ammo_default_machinegun, default value is 4.0
-  - ff_extra_ammo_default_rocket, default value is 0.5
+  - ff_extra_ammo_default_rocket, default value is 0.7
   - ff_extra_ammo_default_railgun, default value is 0.4
   - ff_extra_ammo_call_of_the_machine_shootgun, default value is 2.0
   - ff_extra_ammo_call_of_the_machine_machinegun, default value is 4.0
-  - ff_extra_ammo_call_of_the_machine_rocket, default value is 0.5
+  - ff_extra_ammo_call_of_the_machine_rocket, default value is 0.7
   - ff_extra_ammo_call_of_the_machine_railgun, default value is 0.4
-  - ff_extra_ammo_the_reckoning_shootgun, default value is 4.0
-  - ff_extra_ammo_the_reckoning_machinegun, default value is 8.0
+  - ff_extra_ammo_the_reckoning_shootgun, default value is 3.0
+  - ff_extra_ammo_the_reckoning_machinegun, default value is 6.0
   - ff_extra_ammo_the_reckoning_rocket, default value is 1.0
-  - ff_extra_ammo_the_reckoning_railgun, default value is 1.0
+  - ff_extra_ammo_the_reckoning_railgun, default value is 0.7
   - ff_extra_ammo_ground_zero_shootgun, default value is 2.0
   - ff_extra_ammo_ground_zero_machinegun, default value is 4.0
-  - ff_extra_ammo_ground_zero_rocket, default value is 0.5
+  - ff_extra_ammo_ground_zero_rocket, default value is 0.7
   - ff_extra_ammo_ground_zero_railgun, default value is 0.4
-  - ff_extra_ammo_quake64_shootgun, default value is 4.0
-  - ff_extra_ammo_quake64_machinegun, default value is 8.0
+  - ff_extra_ammo_quake64_shootgun, default value is 3.0
+  - ff_extra_ammo_quake64_machinegun, default value is 6.0
   - ff_extra_ammo_quake64_rocket, default value is 1.0
-  - ff_extra_ammo_quake64_railgun, default value is 1.0
+  - ff_extra_ammo_quake64_railgun, default value is 0.7
 
 - The player doesn't receive damage from its own weapon, so you can abuse rocket jumps.  
 Rocket jump power is configurable by a variable, but it is not changed from the vanilla game.  
@@ -225,6 +225,7 @@ v2.0.0:
   - always the maximum of monster
   - difficulty choice impacts player_damage_sent_multiplier and player_damage_received_multiplier but it still can be overridden by user
 - different extra ammo handled for each campaign
+- tweak ammo quantity
 - increase sv_airaccelerate to have air control
 - add speedometer (ff_speedometer variable)
 - add cfg files for keybinds variants
