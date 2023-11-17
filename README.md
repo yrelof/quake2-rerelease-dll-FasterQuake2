@@ -7,7 +7,7 @@ Easily rush levels, instant weapon switch, grapple, efficient auto-save.
 ## Gameplay overview
 
 With this mod you can play fast in the existing campaigns, you rush through the levels, almost like a speedrunner, but you don't need to know the levels and you can kill everyone.  
-Your weapons are more powerful, and you takes less damage, you easily kill loads of monsters.  
+Your weapons are more powerful, you takes less damage, there are more monsters so you smoothly kill loads of them.  
 
 Use only Super Shootgun, Machine Gun, Rocket Launcher and Rail Gun.  
 You get them directly on a new game, and all ammo items are still useful because they give you a small amount of ammo for those main weapons.
@@ -22,6 +22,7 @@ Use compass when you have any doubt, you're here to run and shoot fast, not to b
 Ignore items, no need to worry about the good timing for their use.  
 
 The mod is mainly designed for the campaign in medium difficulty mode.  
+It also works in coop.
 If you want some changes for your personal taste of gameplay, you can, almost all changes of this mod are easily customizable with configuration variables.  
 
 ## Installation
