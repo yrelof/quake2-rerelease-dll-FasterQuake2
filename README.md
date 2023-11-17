@@ -74,7 +74,6 @@ The g_instant_weapon_switch and g_quick_weapon_switch existed outside of this mo
 
 - You can launch a grapple. No need to switch weapon to use it. See the "Key binding" section for the hotkey.  
 If you prefer the independent item CTF grapple, you also have it.  
-There is a rare weird bug that can occurs where the grapple don't launch anymore, you have to reload the previous save to fix it (the console log display a message).  
 Variables:  
   - g_grapple_fly_speed, default value is changed to 3000 (it was 650), the variable is already in the game without this mod, the max value is 10000 (because sv_maxvelocity is updated to this value)
   - g_grapple_pull_speed, default value is 650, the variable is already in the game without this mod

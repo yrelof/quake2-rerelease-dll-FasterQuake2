@@ -265,14 +265,7 @@ THINK(Hook_Think) (edict_t *self) -> void
 	// stupid check for NULL pointers ...
 	if (!(self && self->owner && self->owner->owner && self->owner->owner->client))
 	{
-		/*
-		This case rarely occurs, and you cannot launch hook anymore.
-		One other "normal" case where it occurs: when you load a savegame done when the hook was active,
-		there is code in g_main.cpp in G_RunFrame_() to call Hook_Reset() but we still have this warning, 
-		but the hook still works.
-		*/
-		gi.Com_Print("Hook_Think: warning, reload your savegame to re-enabled grapple (ignore this warning if you just loaded a savegame)\n");
-
+		gi.Com_Print("Hook_Think: error\n");
 		G_FreeEdict(self);
 		return;
 	}

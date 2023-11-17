@@ -1627,7 +1627,19 @@ MOVEINFO_BLOCKED(door_blocked) (edict_t *self, edict_t *other) -> void
 		T_Damage(other, self, self, vec3_origin, other->s.origin, vec3_origin, 100000, 1, DAMAGE_NONE, MOD_CRUSH);
 		// if it's still there, nuke it
 		if (other && other->inuse)
+		{
+			/*
+			Faster Fps:
+			Avoid exploding the hook because we cannot launch it anymore after that.
+			It's not easy to find how to reproduce it:
+			you can do it near the start of the third level on the moving pylons,
+			when the pylon just starts to go out of the wall, launch a grapple on its side.
+			*/
+			if (other->classname == "hook")
+				return;
+
 			BecomeExplosion1(other);
+		}
 		return;
 	}
 	
