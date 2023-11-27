@@ -2,8 +2,6 @@
 // Licensed under the GNU General Public License 2.0.
 #include "cg_local.h"
 
-extern cvar_t* ff_speedometer;
-
 constexpr int32_t STAT_MINUS      = 10;  // num frame for '-' stats digit
 constexpr const char *sb_nums[2][11] =
 {
@@ -30,6 +28,7 @@ static cvar_t *cl_notifytime;
 static cvar_t *scr_maxlines;
 static cvar_t *ui_acc_contrast;
 static cvar_t* ui_acc_alttypeface;
+static cvar_t* ff_speedometer; // FasterFps mod
 
 // static temp data used for hud
 static struct
@@ -1747,7 +1746,7 @@ void CG_DrawHUD (int32_t isplit, const cg_server_data_t *data, vrect_t hud_vrect
     if (ps->stats[STAT_LAYOUTS] & LAYOUTS_INVENTORY)
         CG_DrawInventory(ps, data->inventory, hud_vrect, scale);
 
-    // Faster Fps mod
+    // Faster Fps mod: display player speed.
     if (ff_speedometer->integer)
     {
         cgi.SCR_DrawFontString(
@@ -1790,6 +1789,9 @@ void CG_InitScreen()
     scr_maxlines    = cgi.cvar ("scr_maxlines", "4",      CVAR_ARCHIVE);
     ui_acc_contrast = cgi.cvar ("ui_acc_contrast", "0",   CVAR_NOFLAGS);
     ui_acc_alttypeface = cgi.cvar("ui_acc_alttypeface", "0", CVAR_NOFLAGS);
+
+    // FasterFps mod
+    ff_speedometer = cgi.cvar("ff_speedometer", "0", CVAR_NOFLAGS); // bool
 
     hud_data = {};
 }
