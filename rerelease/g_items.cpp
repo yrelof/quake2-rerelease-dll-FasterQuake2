@@ -557,11 +557,14 @@ static bool AddAmmoFloat(edict_t* other, item_id_t item, int32_t max, float& gai
 	return false;
 }
 
-// Salvatore Add_Ammo()
+// https://en.wikipedia.org/wiki/Salvatore_Adamo
 bool Add_Ammo(edict_t *ent, gitem_t *item, int count)
 {
 	if (!ent->client || item->tag < AMMO_BULLETS || item->tag >= AMMO_MAX)
 		return false;
+
+	if (!ff_extra_ammo_enabled->integer)
+		return G_AddAmmoAndCap(ent, item->id, ent->client->pers.max_ammo[item->tag], count);
 
 	// FasterFps mod: any ammo item also give some ammo for the main weapons
 	bool picked = false;
@@ -640,7 +643,7 @@ bool Add_Ammo(edict_t *ent, gitem_t *item, int count)
 	// We also give the extra ammos for main weapons ammo because of the start of the game,
 	// the first levels don't have rocket and railgun ammos.
 
-	// FasterFps mod: give real ammo only for non-main weapons
+	// give real ammo only for non-main weapons
 	if ((item->id == IT_AMMO_SHELLS && extra_ammo_shootgun != 0)
 		|| (item->id == IT_AMMO_BULLETS && extra_ammo_machinegun != 0)
 		|| (item->id == IT_AMMO_ROCKETS && extra_ammo_rocket != 0.f)

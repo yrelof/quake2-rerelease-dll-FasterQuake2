@@ -94,9 +94,11 @@ Variables:
   - ff_autosave_interval_in_seconds, default value is 30  
   - ff_autosave_slot_count, default value is 10  
 
+- You always have the maximum number of monsters, it doesn't depend of the campaign difficulty anymore.  
+Variable: ff_max_monsters_in_any_difficulty, 0 or 1, default value is 1  
+
 - The player does more damage, and receive less damage, because I think it's more fun to shoot many monsters than one big, while rushing through levels.  
 The value depends of the campaign difficulty choice, but you can override the variables.  
-You always have the maximum number of monsters, it doesn't depend of the campaign difficulty anymore.  
 The mod is mainly designed to play in medium difficulty.  
 Variables:  
   - easy
@@ -122,12 +124,13 @@ Variables:
   - ff_start_ammo_railgun, default value is 15  
 
 - Any ammo item you pick gives some ammo for the main weapons.  
-For example, if you pick one rocket ammo item, you'll get 2 shootgun cells, 4 machine gun bullets, 0.5 rockets, 0.4 railgun slugs.  
-0.5 means that you have to pick 2 ammo items to get 1 rocket.  
+For example, if you pick one rocket ammo item, you'll get 2 shootgun cells, 4 machine gun bullets, 0.7 rockets, 0.4 railgun slugs.  
+A value of 0.5 means that you have to pick 2 ammo items to get 1 ammo.  
 If you pick an ammo item for a weapon that is not one the 4 main weapons, you also get this weapon ammo in addition of the 4 others.  
 This behavior is necessary for the non-main weapons ammo items to still be useful, and to have ammo for the main weapons at the first levels.  
 Variables:  
-  - They are split for each campaign. The "default" variables are used for the base campaign and for the maps that do not belong to a campaign.
+  - ff_extra_ammo_enabled, 0 or 1, default value is 1
+  - The following variables are split for each campaign. The "default" variables are used for the base campaign and for the maps that do not belong to a campaign.
   - ff_extra_ammo_default_shootgun, default value is 2.0
   - ff_extra_ammo_default_machinegun, default value is 4.0
   - ff_extra_ammo_default_rocket, default value is 0.7

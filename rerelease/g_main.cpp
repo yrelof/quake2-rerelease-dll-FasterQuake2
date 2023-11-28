@@ -33,6 +33,7 @@ cvar_t* ff_start_ammo_shootgun;
 cvar_t* ff_start_ammo_machinegun;
 cvar_t* ff_start_ammo_rocket;
 cvar_t* ff_start_ammo_railgun;
+cvar_t* ff_extra_ammo_enabled;
 cvar_t* ff_extra_ammo_default_shootgun;
 cvar_t* ff_extra_ammo_default_machinegun;
 cvar_t* ff_extra_ammo_default_rocket;
@@ -57,6 +58,7 @@ cvar_t* ff_player_damage_sent_multiplier;
 cvar_t* ff_player_damage_sent_multiplier_from_difficulty;
 cvar_t* ff_player_damage_received_multiplier;
 cvar_t* ff_player_damage_received_multiplier_from_difficulty;
+cvar_t* ff_max_monsters_in_any_difficulty;
 cvar_t* ff_self_damage;
 cvar_t* ff_fall_damage_multiplier;
 cvar_t* ff_rocket_jump_power;
@@ -226,6 +228,7 @@ void PreInitGame()
 	ff_start_ammo_machinegun = gi.cvar("ff_start_ammo_machinegun", "90", CVAR_NOFLAGS);
 	ff_start_ammo_rocket = gi.cvar("ff_start_ammo_rocket", "20", CVAR_NOFLAGS);
 	ff_start_ammo_railgun = gi.cvar("ff_start_ammo_railgun", "15", CVAR_NOFLAGS);
+	ff_extra_ammo_enabled = gi.cvar("ff_extra_ammo_enabled", "1", CVAR_NOFLAGS); // bool
 	ff_extra_ammo_default_shootgun = gi.cvar("ff_extra_ammo_default_shootgun", "2.0", CVAR_NOFLAGS);
 	ff_extra_ammo_default_machinegun = gi.cvar("ff_extra_ammo_default_machinegun", "4.0", CVAR_NOFLAGS);
 	ff_extra_ammo_default_rocket = gi.cvar("ff_extra_ammo_default_rocket", "0.7", CVAR_NOFLAGS);
@@ -250,6 +253,7 @@ void PreInitGame()
 	ff_player_damage_sent_multiplier_from_difficulty = gi.cvar("ff_player_damage_sent_multiplier_from_difficulty", "-1.0", CVAR_NOFLAGS); // must not be changed by cfg
 	ff_player_damage_received_multiplier = gi.cvar("ff_player_damage_received_multiplier", "-1.0", CVAR_NOFLAGS); // float
 	ff_player_damage_received_multiplier_from_difficulty = gi.cvar("ff_player_damage_received_multiplier_from_difficulty", "-1.0", CVAR_NOFLAGS);  // must not be changed by cfg
+	ff_max_monsters_in_any_difficulty = gi.cvar("ff_max_monsters_in_any_difficulty", "1", CVAR_NOFLAGS); // bool
 	ff_self_damage = gi.cvar("ff_self_damage", "0", CVAR_NOFLAGS); // bool
 	ff_fall_damage_multiplier = gi.cvar("ff_fall_damage_multiplier", "0.0", CVAR_NOFLAGS); // float
 	ff_rocket_jump_power = gi.cvar("ff_rocket_jump_power", "1600", CVAR_NOFLAGS);
