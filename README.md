@@ -7,14 +7,15 @@ Easily rush levels, instant weapon switch, grapple, efficient auto-save.
 ## Gameplay overview
 
 With this mod you can play fast in the existing campaigns, you rush through the levels, almost like a speedrunner, but you don't need to know the levels and you can kill everyone.  
-Your weapons are more powerful, you takes less damage, there are more monsters so you smoothly kill loads of them.  
 
-Use only Super Shootgun, Machine Gun, Rocket Launcher and Rail Gun.  
+Weapon switch is now really instantaneous so you can chain kills.  
+
+Fly with a fast grapple, rocket jump without taking self damage and take turns at high speed with more air control.  
+
+There are a lot of monsters but your weapons are more powerful and you takes less damage, so you smoothly kill loads of monsters.  
+
+Use only really distinct weapons: Super Shootgun, Machine Gun, Rocket Launcher and Rail Gun.
 You get them directly on a new game, and all ammo items are still useful because they give you a small amount of ammo for those main weapons.
-
-Weapon switch is now really instantaneous, enjoy chaining kills with really distinct weapons.  
-
-Fly with a fast grapple, and rocket jump without taking self damage.  
 
 Almost never create a savegame, the mod has an auto-save every 30 seconds on different slots.  
 
@@ -30,20 +31,14 @@ If you want some changes for your personal taste of gameplay, you can, almost al
 Unzip the contents into "%USERPROFILE%\Saved Games\Nightdive Studios\Quake II\" (%USERPROFILE% gets you something like that: "C:\Users\MY_USER_NAME\").  
 You should have a "fasterfps" folder in there, alongside the existing "baseq2", with "game_x64.dll" inside.  
 
-Launch the game with the command line parameter added:  
+In your launcher (Steam, Epic, Gog...), open the properties of the game and customize the launch options to add:
 ```
 +set game fasterfps
 ```
-In Steam, Gog and Epic you can customize the launch options in the properties of the game.  
 
-Or you can create on new manual shortcut on the game, example:  
-```
-C:\MyGames\QuakeII\ptah_Shipping_Playfab_EGS_x64.exe +set game fasterfps
-```
+While at it, you can also add the "-skipmovies" option for a faster start of the game.  
 
-While at it, you can also add the "-skipmovies" command line for a faster start of the game.  
-
-Less convenient alternative to the command line: start the game, open the console, enter "game fasterfps".  
+Less convenient alternative than the launch option: start the game, open the console, enter "game fasterfps".  
 
 ## Key binding
 
@@ -87,6 +82,9 @@ Variables:
   - ff_grapple_diameter, default value is 4
   - ff_grapple_sound_volume_main, default value is 0.3
   - ff_grapple_sound_volume_secondary, default value is 0.7  
+
+- You have more air control. To turn a corner, you have to strafe and release the forward key.  
+Variable: sv_airaccelerate, default value is 10, original game value was 0
 
 - The mod has an auto-save every 30 seconds on different slots. Every game should have this feature.  
 Variables:  
@@ -166,9 +164,6 @@ Variable: ff_player_rocket_radius_scale, default value is 1.5
 
 - The bullets from the machine gun have no spread, because I like when my weapon shoots where I aim.  
 
-- You have more air control. To turn a corner, you have to release the forward key and strafe.  
-Variable: sv_airaccelerate, default value is 10, original game value was 0
-
 - A speedometer can be displayed.  
 Variable: ff_speedometer, default value is 0, set it to 1 to display it
 
@@ -206,7 +201,7 @@ Mod coded for the "Update 1" version of Quake 2 Remastered (from 2023-10-03).
 
 The mod also works with the additional campaigns and with the Coop.
 
-Save games should be compatible anyway if you copy them to the mod folder (baseq2\save to fasterfps\save), but you will not get automatically the main weapons.  
+Save games should be compatible if you copy them to the mod folder (baseq2\save to fasterfps\save), but you will not automatically get the main weapons.  
 
 To customize mod variables, edit the "settings.cfg" file in the mod directory and add this kind of line:  
 ```
