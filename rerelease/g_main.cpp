@@ -1140,7 +1140,6 @@ inline void G_RunFrame_(bool main_loop)
 		// There is already autosave code in use_target_autosave in g_target.cpp,
 		// but I can't figure how to make the game calls it, so I reuse a part of the code here.
 
-		static const gtime_t autosave_interval = gtime_t::from_sec(ff_autosave_interval_in_seconds->integer);
 		static const int min_save_slot{1}; // we do not use save0.pak.gz because it's the save for "restart the level"
 		static int save_slot{min_save_slot};
 
@@ -1152,7 +1151,7 @@ inline void G_RunFrame_(bool main_loop)
 			if (!level.next_auto_save) // it's empty when starting the game
 				level.next_auto_save = level.time;
 
-			if (level.time - level.next_auto_save > autosave_interval)
+			if (level.time - level.next_auto_save > gtime_t::from_sec(ff_autosave_interval_in_seconds->integer))
 			{
 				gi.AddCommandString(fmt::format("save save{}\n", save_slot).c_str());
 				++save_slot;
