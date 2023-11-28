@@ -8,10 +8,9 @@ Easily rush levels, instant weapon switch, grapple, efficient auto-save.
 
 With this mod you can play fast in the existing campaigns, you rush through the levels, almost like a speedrunner, but you don't need to know the levels and you can kill everyone.  
 
-Weapon switch is now really instantaneous so you can chain kills.  
-
 Fly with a fast grapple, rocket jump without taking self damage and take turns at high speed with more air control.  
 
+Weapon switch is now really instantaneous.  
 There are a lot of monsters but your weapons are more powerful and you takes less damage, so you smoothly kill loads of monsters.  
 
 Use only really distinct weapons: Super Shootgun, Machine Gun, Rocket Launcher and Rail Gun.
