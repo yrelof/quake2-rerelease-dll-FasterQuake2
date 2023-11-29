@@ -30,7 +30,7 @@ If you want some changes for your personal taste of gameplay, you can, almost al
 Unzip the contents into "%USERPROFILE%\Saved Games\Nightdive Studios\Quake II\" (%USERPROFILE% gets you something like that: "C:\Users\MY_USER_NAME\").  
 You should have a "fasterquake2" folder in there, alongside the existing "baseq2", with "game_x64.dll" inside.  
 
-In your launcher (Steam, Epic, Gog...), open the properties of the game and customize the launch options to add:
+In your game launcher (Steam, Epic, Gog...), open the properties of the game and customize the launch options to add:
 ```
 +set game fasterquake2
 ```
@@ -213,15 +213,24 @@ Some changes come from the Unmaster mod, they are specified in the "Features" se
 The off-hand grapple comes from the Lithium mod: http://quake2.lithium.com  
 The code used comes from the Lithium remaster port: https://github.com/KyperTrast/lithium-minus
 
-The old name of the mod was "FasterFps" (a reference to the "Fast FPS" term).  
-
 ## Changelog
+
+v3.0.0:
+- rename mod from "Faster Fps" to "Faster Quake 2"
+  - if you update from a previous version, the mod in now installed in a "fasterquake2" directory and you have to update the launch option in your game launcher
+  - the configuration variables prefix has changed form "ff_" to "fq_"
+
+v2.1.0:
+- fix crash in coop (the joining player crashed)
+- add missing configuration variables for max monsters in any difficulty and extra ammo enabled
+- ff_autosave_interval_in_seconds variable change in console is now instantly applied
 
 v2.0.0:
 - add off-hand grapple from the Lithium mod
 - campaign difficulty choice handling
   - always the maximum of monster
   - difficulty choice impacts player_damage_sent_multiplier and player_damage_received_multiplier but it still can be overridden by user
+  - the mod is now designed for the medium difficulty mode
 - different extra ammo handled for each campaign
 - tweak ammo quantity
 - increase sv_airaccelerate to have air control
