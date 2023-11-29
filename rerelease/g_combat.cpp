@@ -538,20 +538,20 @@ void T_Damage(edict_t *targ, edict_t *inflictor, edict_t *attacker, const vec3_t
 	// FasterQuake2 mod: increase player damage
 	// There is already g_damage_scale but it doesn't seem to work.
 	if (attacker->client)
-		damage *= (ff_player_damage_sent_multiplier->value == -1.f ? ff_player_damage_sent_multiplier_from_difficulty->value : ff_player_damage_sent_multiplier->value);
+		damage *= (fq_player_damage_sent_multiplier->value == -1.f ? fq_player_damage_sent_multiplier_from_difficulty->value : fq_player_damage_sent_multiplier->value);
 
 	// FasterQuake2 mod: player takes less damage
 	// There is already ai_damage_scale but it's not a float (and I have no confidency in it, like g_damage_scale).
 	if (targ->client && damage)
 	{
-		damage *= (ff_player_damage_received_multiplier->value == -1.f ? ff_player_damage_received_multiplier_from_difficulty->value : ff_player_damage_received_multiplier->value);
+		damage *= (fq_player_damage_received_multiplier->value == -1.f ? fq_player_damage_received_multiplier_from_difficulty->value : fq_player_damage_received_multiplier->value);
 
 		if (!damage)
 			damage = 1;
 	}
 
 	// FasterQuake2 mod: no self damage (for rocket launcher)
-	if (ff_self_damage->integer == 0 && attacker->client && targ->client)
+	if (fq_self_damage->integer == 0 && attacker->client && targ->client)
 	{
 		// do not return from the function, to still have knockback effect (rocket jump)
 		damage = 0;
@@ -663,7 +663,7 @@ void T_Damage(edict_t *targ, edict_t *inflictor, edict_t *attacker, const vec3_t
 
 			if (targ->client && attacker == targ)
 			{
-				kvel = normalized * (ff_rocket_jump_power->value * knockback / mass); // the rocket jump hack...
+				kvel = normalized * (fq_rocket_jump_power->value * knockback / mass); // the rocket jump hack...
 			}
 			else
 				kvel = normalized * (500.0f * knockback / mass);

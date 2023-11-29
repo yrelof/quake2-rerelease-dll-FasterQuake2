@@ -866,16 +866,16 @@ void InitClientPersistant(edict_t *ent, gclient_t *client)
 				client->pers.inventory[IT_WEAPON_BLASTER] = 1;
 
 				// FasterQuake2 mod: give main weapons at the start of the game
-				if (ff_give_main_weapons_at_start->integer == 1)
+				if (fq_give_main_weapons_at_start->integer == 1)
 				{
 					client->pers.inventory[IT_WEAPON_SSHOTGUN] = 1;
-					client->pers.inventory[IT_AMMO_SHELLS] = ff_start_ammo_shootgun->integer;
+					client->pers.inventory[IT_AMMO_SHELLS] = fq_start_ammo_shootgun->integer;
 					client->pers.inventory[IT_WEAPON_MACHINEGUN] = 1;
-					client->pers.inventory[IT_AMMO_BULLETS] = ff_start_ammo_machinegun->integer;
+					client->pers.inventory[IT_AMMO_BULLETS] = fq_start_ammo_machinegun->integer;
 					client->pers.inventory[IT_WEAPON_RLAUNCHER] = 1;
-					client->pers.inventory[IT_AMMO_ROCKETS] = ff_start_ammo_rocket->integer;
+					client->pers.inventory[IT_AMMO_ROCKETS] = fq_start_ammo_rocket->integer;
 					client->pers.inventory[IT_WEAPON_RAILGUN] = 1;
-					client->pers.inventory[IT_AMMO_SLUGS] = ff_start_ammo_railgun->integer;
+					client->pers.inventory[IT_AMMO_SLUGS] = fq_start_ammo_railgun->integer;
 					client->pers.inventory[IT_WEAPON_GRAPPLE] = 1;
 				}
 
@@ -3144,7 +3144,7 @@ void P_FallingDamage(edict_t *ent, const pmove_t &pm)
 		dir = { 0, 0, 1 };
 
 		// FasterQuake2 mod
-		damage = static_cast<int>(damage * ff_fall_damage_multiplier->value);
+		damage = static_cast<int>(damage * fq_fall_damage_multiplier->value);
 
 		if (!deathmatch->integer || !g_dm_no_fall_damage->integer)
 			T_Damage(ent, world, world, dir, ent->s.origin, vec3_origin, damage, 0, DAMAGE_NONE, MOD_FALLING);
@@ -3372,7 +3372,7 @@ void ClientThink(edict_t *ent, usercmd_t *ucmd)
 
 		if (pm.jump_sound && !(pm.s.pm_flags & PMF_ON_LADDER))
 		{
-			gi.sound(ent, CHAN_VOICE, gi.soundindex("*jump1.wav"), ff_jump_sound_volume->value, ATTN_NORM, 0);
+			gi.sound(ent, CHAN_VOICE, gi.soundindex("*jump1.wav"), fq_jump_sound_volume->value, ATTN_NORM, 0);
 			// Paril: removed to make ambushes more effective and to
 			// not have monsters around corners come to jumps
 			// PlayerNoise(ent, ent->s.origin, PNOISE_SELF);

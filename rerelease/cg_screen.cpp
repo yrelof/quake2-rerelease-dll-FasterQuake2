@@ -28,7 +28,7 @@ static cvar_t *cl_notifytime;
 static cvar_t *scr_maxlines;
 static cvar_t *ui_acc_contrast;
 static cvar_t* ui_acc_alttypeface;
-static cvar_t* ff_speedometer; // FasterQuake2 mod
+static cvar_t* fq_speedometer; // FasterQuake2 mod
 
 // static temp data used for hud
 static struct
@@ -1747,7 +1747,7 @@ void CG_DrawHUD (int32_t isplit, const cg_server_data_t *data, vrect_t hud_vrect
         CG_DrawInventory(ps, data->inventory, hud_vrect, scale);
 
     // Faster Fps mod: display player speed.
-    if (ff_speedometer->integer)
+    if (fq_speedometer->integer)
     {
         cgi.SCR_DrawFontString(
             G_Fmt("{:.0f}", vec3_t{ ps->pmove.velocity.x, ps->pmove.velocity.y, 0.f }.length()).data(),
@@ -1791,7 +1791,7 @@ void CG_InitScreen()
     ui_acc_alttypeface = cgi.cvar("ui_acc_alttypeface", "0", CVAR_NOFLAGS);
 
     // FasterQuake2 mod
-    ff_speedometer = cgi.cvar("ff_speedometer", "0", CVAR_NOFLAGS); // bool
+    fq_speedometer = cgi.cvar("fq_speedometer", "0", CVAR_NOFLAGS); // bool
 
     hud_data = {};
 }

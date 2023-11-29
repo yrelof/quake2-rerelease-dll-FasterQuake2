@@ -634,7 +634,7 @@ MMOVE_T(mutant_move_jump_down) = { FRAME_jump01, FRAME_jump05, mutant_frames_jum
 
 void mutant_jump_updown(edict_t *self, blocked_jump_result_t result)
 {
-	if (ff_monster_walkjump->integer == 0)
+	if (fq_monster_walkjump->integer == 0)
 		return;
 
 	if (!self->enemy)

@@ -458,7 +458,7 @@ inline gtime_t Weapon_AnimationTime(edict_t *ent)
 {
 	if (g_quick_weapon_switch->integer && (gi.tick_rate >= 20) &&
 		(ent->client->weaponstate == WEAPON_ACTIVATING || ent->client->weaponstate == WEAPON_DROPPING))
-		ent->client->ps.gunrate = (ff_fastest_weapon_switch->integer == 1 ? 0 : 20);
+		ent->client->ps.gunrate = (fq_fastest_weapon_switch->integer == 1 ? 0 : 20);
 	else
 		ent->client->ps.gunrate = 10;
 
@@ -587,7 +587,7 @@ void Use_Weapon(edict_t *ent, gitem_t *item)
 	gitem_t		*wanted, *root;
 	weap_switch_t result = WEAP_SWITCH_NO_WEAPON;
 
-	if (ff_weapon_chains->integer == 0)
+	if (fq_weapon_chains->integer == 0)
 		ent->client->no_weapon_chains = true;
 
 	// if we're switching to a weapon in this chain already,
@@ -762,7 +762,7 @@ inline bool Weapon_HandleNewWeapon(edict_t *ent, int FRAME_DEACTIVATE_FIRST, int
 		is_holstering = ((ent->client->latched_buttons | ent->client->buttons) & BUTTON_HOLSTER);
 
 	// FasterQuake2 mod: instant weapon switch, no need to wait for the end of fire animation of the current weapon
-	if ((ent->client->newweapon || is_holstering) && (ff_fastest_weapon_switch->integer == 1 || ent->client->weaponstate != WEAPON_FIRING))
+	if ((ent->client->newweapon || is_holstering) && (fq_fastest_weapon_switch->integer == 1 || ent->client->weaponstate != WEAPON_FIRING))
 	{
 		if (g_instant_weapon_switch->integer || ent->client->weapon_think_time <= level.time)
 		{

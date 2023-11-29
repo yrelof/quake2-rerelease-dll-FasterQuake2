@@ -620,7 +620,7 @@ bool G_MonsterSourceVisible(edict_t *self, edict_t *client)
         return false;
 
     bool is_visible;
-    if (ff_monster_hyperaware->integer == 1)
+    if (fq_monster_hyperaware->integer == 1)
     {
         // Paril: revised so that monsters can be woken up
         // by players 'seen' and attacked at by other monsters
@@ -800,7 +800,7 @@ bool FindTarget(edict_t *self)
             return false;
 
         bool is_visible;
-        if (ff_monster_hyperaware->integer == 1)
+        if (fq_monster_hyperaware->integer == 1)
         {
             // Paril: revised so that monsters can be woken up
             // by players 'seen' and attacked at by other monsters
@@ -816,7 +816,7 @@ bool FindTarget(edict_t *self)
         if (!is_visible)
             return false;
 
-        if (ff_monster_hyperaware->integer == 0)
+        if (fq_monster_hyperaware->integer == 0)
         {
             if (r < RANGE_NEAR)
             {
@@ -1005,7 +1005,7 @@ bool M_CheckAttack_Base(edict_t *self, float stand_ground_chance, float melee_ch
                             if (tr.allsolid || tr.startsolid || ((tr.fraction < 1.0f) && (tr.ent != self->enemy)))
                                 return false;
 
-                            if (ff_monster_blindfire->integer == 1)
+                            if (fq_monster_blindfire->integer == 1)
                             {
                                 self->monsterinfo.attack_state = AS_BLIND;
                                 return true;

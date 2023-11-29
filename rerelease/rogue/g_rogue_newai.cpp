@@ -1313,14 +1313,14 @@ MONSTERINFO_DODGE(M_MonsterDodge) (edict_t *self, edict_t *attacker, gtime_t eta
 
 	if ((self->monsterinfo.duck) && (self->monsterinfo.unduck) && !gravity)
 	{
-		if (ff_monster_duck->integer == 1)
+		if (fq_monster_duck->integer == 1)
 		{
 			ducker = true;
 		}
 	}
 	if ((self->monsterinfo.sidestep) && !(self->monsterinfo.aiflags & AI_STAND_GROUND))
 	{
-		if (ff_monster_sidestep->integer == 1)
+		if (fq_monster_sidestep->integer == 1)
 		{
 			dodger = true;
 		}

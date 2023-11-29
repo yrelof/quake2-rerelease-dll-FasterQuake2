@@ -563,7 +563,7 @@ bool Add_Ammo(edict_t *ent, gitem_t *item, int count)
 	if (!ent->client || item->tag < AMMO_BULLETS || item->tag >= AMMO_MAX)
 		return false;
 
-	if (!ff_extra_ammo_enabled->integer)
+	if (!fq_extra_ammo_enabled->integer)
 		return G_AddAmmoAndCap(ent, item->id, ent->client->pers.max_ammo[item->tag], count);
 
 	// FasterQuake2 mod: any ammo item also give some ammo for the main weapons
@@ -577,47 +577,47 @@ bool Add_Ammo(edict_t *ent, gitem_t *item, int count)
 	switch (level.campaign)
 	{
 	case campaign_t::BASE:
-		extra_ammo_shootgun = ff_extra_ammo_default_shootgun->value;
-		extra_ammo_machinegun = ff_extra_ammo_default_machinegun->value;
-		extra_ammo_rocket = ff_extra_ammo_default_rocket->value;
-		extra_ammo_railgun = ff_extra_ammo_default_railgun->value;
+		extra_ammo_shootgun = fq_extra_ammo_default_shootgun->value;
+		extra_ammo_machinegun = fq_extra_ammo_default_machinegun->value;
+		extra_ammo_rocket = fq_extra_ammo_default_rocket->value;
+		extra_ammo_railgun = fq_extra_ammo_default_railgun->value;
 		break;
 	case campaign_t::CALL_OF_THE_MACHINE:
-		extra_ammo_shootgun = ff_extra_ammo_call_of_the_machine_shootgun->value;
-		extra_ammo_machinegun = ff_extra_ammo_call_of_the_machine_machinegun->value;
-		extra_ammo_rocket = ff_extra_ammo_call_of_the_machine_rocket->value;
-		extra_ammo_railgun = ff_extra_ammo_call_of_the_machine_railgun->value;
+		extra_ammo_shootgun = fq_extra_ammo_call_of_the_machine_shootgun->value;
+		extra_ammo_machinegun = fq_extra_ammo_call_of_the_machine_machinegun->value;
+		extra_ammo_rocket = fq_extra_ammo_call_of_the_machine_rocket->value;
+		extra_ammo_railgun = fq_extra_ammo_call_of_the_machine_railgun->value;
 		break;
 	case campaign_t::THE_RECKONING:
-		extra_ammo_shootgun = ff_extra_ammo_the_reckoning_shootgun->value;
-		extra_ammo_machinegun = ff_extra_ammo_the_reckoning_machinegun->value;
-		extra_ammo_rocket = ff_extra_ammo_the_reckoning_rocket->value;
-		extra_ammo_railgun = ff_extra_ammo_the_reckoning_railgun->value;
+		extra_ammo_shootgun = fq_extra_ammo_the_reckoning_shootgun->value;
+		extra_ammo_machinegun = fq_extra_ammo_the_reckoning_machinegun->value;
+		extra_ammo_rocket = fq_extra_ammo_the_reckoning_rocket->value;
+		extra_ammo_railgun = fq_extra_ammo_the_reckoning_railgun->value;
 		break;
 	case campaign_t::GROUND_ZERO:
-		extra_ammo_shootgun = ff_extra_ammo_ground_zero_shootgun->value;
-		extra_ammo_machinegun = ff_extra_ammo_ground_zero_machinegun->value;
-		extra_ammo_rocket = ff_extra_ammo_ground_zero_rocket->value;
-		extra_ammo_railgun = ff_extra_ammo_ground_zero_railgun->value;
+		extra_ammo_shootgun = fq_extra_ammo_ground_zero_shootgun->value;
+		extra_ammo_machinegun = fq_extra_ammo_ground_zero_machinegun->value;
+		extra_ammo_rocket = fq_extra_ammo_ground_zero_rocket->value;
+		extra_ammo_railgun = fq_extra_ammo_ground_zero_railgun->value;
 		break;
 	case campaign_t::QUAKE64:
-		extra_ammo_shootgun = ff_extra_ammo_quake64_shootgun->value;
-		extra_ammo_machinegun = ff_extra_ammo_quake64_machinegun->value;
-		extra_ammo_rocket = ff_extra_ammo_quake64_rocket->value;
-		extra_ammo_railgun = ff_extra_ammo_quake64_railgun->value;
+		extra_ammo_shootgun = fq_extra_ammo_quake64_shootgun->value;
+		extra_ammo_machinegun = fq_extra_ammo_quake64_machinegun->value;
+		extra_ammo_rocket = fq_extra_ammo_quake64_rocket->value;
+		extra_ammo_railgun = fq_extra_ammo_quake64_railgun->value;
 		break;
 	case campaign_t::UNKNOWN:
-		extra_ammo_shootgun = ff_extra_ammo_default_shootgun->value;
-		extra_ammo_machinegun = ff_extra_ammo_default_machinegun->value;
-		extra_ammo_rocket = ff_extra_ammo_default_rocket->value;
-		extra_ammo_railgun = ff_extra_ammo_default_railgun->value;
+		extra_ammo_shootgun = fq_extra_ammo_default_shootgun->value;
+		extra_ammo_machinegun = fq_extra_ammo_default_machinegun->value;
+		extra_ammo_rocket = fq_extra_ammo_default_rocket->value;
+		extra_ammo_railgun = fq_extra_ammo_default_railgun->value;
 		break;
 	default:
 		gi.Com_ErrorFmt("no extra ammo handled for campaign {}", static_cast<int>(level.campaign));
-		extra_ammo_shootgun = ff_extra_ammo_default_shootgun->value;
-		extra_ammo_machinegun = ff_extra_ammo_default_machinegun->value;
-		extra_ammo_rocket = ff_extra_ammo_default_rocket->value;
-		extra_ammo_railgun = ff_extra_ammo_default_railgun->value;
+		extra_ammo_shootgun = fq_extra_ammo_default_shootgun->value;
+		extra_ammo_machinegun = fq_extra_ammo_default_machinegun->value;
+		extra_ammo_rocket = fq_extra_ammo_default_rocket->value;
+		extra_ammo_railgun = fq_extra_ammo_default_railgun->value;
 	}
 
 	// for IT_WEAPON_SSHOTGUN

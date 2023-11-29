@@ -1214,7 +1214,7 @@ inline bool G_InhibitEntity(edict_t *ent)
 		return true;
 
 	// skill
-	if (ff_max_monsters_in_any_difficulty->integer)
+	if (fq_max_monsters_in_any_difficulty->integer)
 	{
 		// Faster Fps mod: maximum of monster in any difficulty
 		

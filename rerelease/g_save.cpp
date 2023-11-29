@@ -934,7 +934,7 @@ SAVE_STRUCT_START
 	FIELD_AUTO(hook_on),
 	FIELD_AUTO(hook),
 	FIELD_AUTO(last_hook_time),
-	FIELD_AUTO(ff_grapple_damage),
+	FIELD_AUTO(fq_grapple_damage),
 
 SAVE_STRUCT_END
 #undef DECLARE_SAVE_STRUCT

@@ -28,53 +28,53 @@ cached_soundindex		snd_fry;
 edict_t *g_edicts;
 
 // FasterQuake2 mod
-cvar_t* ff_give_main_weapons_at_start;
-cvar_t* ff_start_ammo_shootgun;
-cvar_t* ff_start_ammo_machinegun;
-cvar_t* ff_start_ammo_rocket;
-cvar_t* ff_start_ammo_railgun;
-cvar_t* ff_extra_ammo_enabled;
-cvar_t* ff_extra_ammo_default_shootgun;
-cvar_t* ff_extra_ammo_default_machinegun;
-cvar_t* ff_extra_ammo_default_rocket;
-cvar_t* ff_extra_ammo_default_railgun;
-cvar_t* ff_extra_ammo_call_of_the_machine_shootgun;
-cvar_t* ff_extra_ammo_call_of_the_machine_machinegun;
-cvar_t* ff_extra_ammo_call_of_the_machine_rocket;
-cvar_t* ff_extra_ammo_call_of_the_machine_railgun;
-cvar_t* ff_extra_ammo_the_reckoning_shootgun;
-cvar_t* ff_extra_ammo_the_reckoning_machinegun;
-cvar_t* ff_extra_ammo_the_reckoning_rocket;
-cvar_t* ff_extra_ammo_the_reckoning_railgun;
-cvar_t* ff_extra_ammo_ground_zero_shootgun;
-cvar_t* ff_extra_ammo_ground_zero_machinegun;
-cvar_t* ff_extra_ammo_ground_zero_rocket;
-cvar_t* ff_extra_ammo_ground_zero_railgun;
-cvar_t* ff_extra_ammo_quake64_shootgun;
-cvar_t* ff_extra_ammo_quake64_machinegun;
-cvar_t* ff_extra_ammo_quake64_rocket;
-cvar_t* ff_extra_ammo_quake64_railgun;
-cvar_t* ff_player_damage_sent_multiplier;
-cvar_t* ff_player_damage_sent_multiplier_from_difficulty;
-cvar_t* ff_player_damage_received_multiplier;
-cvar_t* ff_player_damage_received_multiplier_from_difficulty;
-cvar_t* ff_max_monsters_in_any_difficulty;
-cvar_t* ff_self_damage;
-cvar_t* ff_fall_damage_multiplier;
-cvar_t* ff_rocket_jump_power;
-cvar_t* ff_fastest_weapon_switch;
-cvar_t* ff_barrel_delay;
-cvar_t* ff_monster_duck;
-cvar_t* ff_monster_sidestep;
-cvar_t* ff_monster_blindfire;
-cvar_t* ff_monster_hyperaware;
-cvar_t* ff_monster_walkjump;
-cvar_t* ff_autosave_enabled;
-cvar_t* ff_autosave_interval_in_seconds;
-cvar_t* ff_autosave_slot_count;
-cvar_t* ff_weapon_chains;
-cvar_t* ff_player_rocket_radius_scale;
-cvar_t* ff_jump_sound_volume;
+cvar_t* fq_give_main_weapons_at_start;
+cvar_t* fq_start_ammo_shootgun;
+cvar_t* fq_start_ammo_machinegun;
+cvar_t* fq_start_ammo_rocket;
+cvar_t* fq_start_ammo_railgun;
+cvar_t* fq_extra_ammo_enabled;
+cvar_t* fq_extra_ammo_default_shootgun;
+cvar_t* fq_extra_ammo_default_machinegun;
+cvar_t* fq_extra_ammo_default_rocket;
+cvar_t* fq_extra_ammo_default_railgun;
+cvar_t* fq_extra_ammo_call_of_the_machine_shootgun;
+cvar_t* fq_extra_ammo_call_of_the_machine_machinegun;
+cvar_t* fq_extra_ammo_call_of_the_machine_rocket;
+cvar_t* fq_extra_ammo_call_of_the_machine_railgun;
+cvar_t* fq_extra_ammo_the_reckoning_shootgun;
+cvar_t* fq_extra_ammo_the_reckoning_machinegun;
+cvar_t* fq_extra_ammo_the_reckoning_rocket;
+cvar_t* fq_extra_ammo_the_reckoning_railgun;
+cvar_t* fq_extra_ammo_ground_zero_shootgun;
+cvar_t* fq_extra_ammo_ground_zero_machinegun;
+cvar_t* fq_extra_ammo_ground_zero_rocket;
+cvar_t* fq_extra_ammo_ground_zero_railgun;
+cvar_t* fq_extra_ammo_quake64_shootgun;
+cvar_t* fq_extra_ammo_quake64_machinegun;
+cvar_t* fq_extra_ammo_quake64_rocket;
+cvar_t* fq_extra_ammo_quake64_railgun;
+cvar_t* fq_player_damage_sent_multiplier;
+cvar_t* fq_player_damage_sent_multiplier_from_difficulty;
+cvar_t* fq_player_damage_received_multiplier;
+cvar_t* fq_player_damage_received_multiplier_from_difficulty;
+cvar_t* fq_max_monsters_in_any_difficulty;
+cvar_t* fq_self_damage;
+cvar_t* fq_fall_damage_multiplier;
+cvar_t* fq_rocket_jump_power;
+cvar_t* fq_fastest_weapon_switch;
+cvar_t* fq_barrel_delay;
+cvar_t* fq_monster_duck;
+cvar_t* fq_monster_sidestep;
+cvar_t* fq_monster_blindfire;
+cvar_t* fq_monster_hyperaware;
+cvar_t* fq_monster_walkjump;
+cvar_t* fq_autosave_enabled;
+cvar_t* fq_autosave_interval_in_seconds;
+cvar_t* fq_autosave_slot_count;
+cvar_t* fq_weapon_chains;
+cvar_t* fq_player_rocket_radius_scale;
+cvar_t* fq_jump_sound_volume;
 
 cvar_t *deathmatch;
 cvar_t *coop;
@@ -223,54 +223,54 @@ void PreInitGame()
 	teamplay = gi.cvar("teamplay", "0", CVAR_LATCH);
 
 	// FasterQuake2 mod
-	ff_give_main_weapons_at_start = gi.cvar("ff_give_main_weapons_at_start", "1", CVAR_NOFLAGS); // bool
-	ff_start_ammo_shootgun = gi.cvar("ff_start_ammo_shootgun", "40", CVAR_NOFLAGS);
-	ff_start_ammo_machinegun = gi.cvar("ff_start_ammo_machinegun", "90", CVAR_NOFLAGS);
-	ff_start_ammo_rocket = gi.cvar("ff_start_ammo_rocket", "20", CVAR_NOFLAGS);
-	ff_start_ammo_railgun = gi.cvar("ff_start_ammo_railgun", "15", CVAR_NOFLAGS);
-	ff_extra_ammo_enabled = gi.cvar("ff_extra_ammo_enabled", "1", CVAR_NOFLAGS); // bool
-	ff_extra_ammo_default_shootgun = gi.cvar("ff_extra_ammo_default_shootgun", "2.0", CVAR_NOFLAGS);
-	ff_extra_ammo_default_machinegun = gi.cvar("ff_extra_ammo_default_machinegun", "4.0", CVAR_NOFLAGS);
-	ff_extra_ammo_default_rocket = gi.cvar("ff_extra_ammo_default_rocket", "0.7", CVAR_NOFLAGS);
-	ff_extra_ammo_default_railgun = gi.cvar("ff_extra_ammo_default_railgun", "0.4", CVAR_NOFLAGS);
-	ff_extra_ammo_call_of_the_machine_shootgun = gi.cvar("ff_extra_ammo_call_of_the_machine_shootgun", "2.0", CVAR_NOFLAGS);
-	ff_extra_ammo_call_of_the_machine_machinegun = gi.cvar("ff_extra_ammo_call_of_the_machine_machinegun", "4.0", CVAR_NOFLAGS);
-	ff_extra_ammo_call_of_the_machine_rocket = gi.cvar("ff_extra_ammo_call_of_the_machine_rocket", "0.7", CVAR_NOFLAGS);
-	ff_extra_ammo_call_of_the_machine_railgun = gi.cvar("ff_extra_ammo_call_of_the_machine_railgun", "0.4", CVAR_NOFLAGS);
-	ff_extra_ammo_the_reckoning_shootgun = gi.cvar("ff_extra_ammo_the_reckoning_shootgun", "3.0", CVAR_NOFLAGS);
-	ff_extra_ammo_the_reckoning_machinegun = gi.cvar("ff_extra_ammo_the_reckoning_machinegun", "6.0", CVAR_NOFLAGS);
-	ff_extra_ammo_the_reckoning_rocket = gi.cvar("ff_extra_ammo_the_reckoning_rocket", "1.0", CVAR_NOFLAGS);
-	ff_extra_ammo_the_reckoning_railgun = gi.cvar("ff_extra_ammo_the_reckoning_railgun", "0.7", CVAR_NOFLAGS);
-	ff_extra_ammo_ground_zero_shootgun = gi.cvar("ff_extra_ammo_ground_zero_shootgun", "2.0", CVAR_NOFLAGS);
-	ff_extra_ammo_ground_zero_machinegun = gi.cvar("ff_extra_ammo_ground_zero_machinegun", "4.0", CVAR_NOFLAGS);
-	ff_extra_ammo_ground_zero_rocket = gi.cvar("ff_extra_ammo_ground_zero_rocket", "0.7", CVAR_NOFLAGS);
-	ff_extra_ammo_ground_zero_railgun = gi.cvar("ff_extra_ammo_ground_zero_railgun", "0.4", CVAR_NOFLAGS);
-	ff_extra_ammo_quake64_shootgun = gi.cvar("ff_extra_ammo_quake64_shootgun", "3.0", CVAR_NOFLAGS);
-	ff_extra_ammo_quake64_machinegun = gi.cvar("ff_extra_ammo_quake64_machinegun", "6.0", CVAR_NOFLAGS);
-	ff_extra_ammo_quake64_rocket = gi.cvar("ff_extra_ammo_quake64_rocket", "1.0", CVAR_NOFLAGS);
-	ff_extra_ammo_quake64_railgun = gi.cvar("ff_extra_ammo_quake64_railgun", "0.7", CVAR_NOFLAGS);
-	ff_player_damage_sent_multiplier = gi.cvar("ff_player_damage_sent_multiplier", "-1.0", CVAR_NOFLAGS); // float
-	ff_player_damage_sent_multiplier_from_difficulty = gi.cvar("ff_player_damage_sent_multiplier_from_difficulty", "-1.0", CVAR_NOFLAGS); // must not be changed by cfg
-	ff_player_damage_received_multiplier = gi.cvar("ff_player_damage_received_multiplier", "-1.0", CVAR_NOFLAGS); // float
-	ff_player_damage_received_multiplier_from_difficulty = gi.cvar("ff_player_damage_received_multiplier_from_difficulty", "-1.0", CVAR_NOFLAGS);  // must not be changed by cfg
-	ff_max_monsters_in_any_difficulty = gi.cvar("ff_max_monsters_in_any_difficulty", "1", CVAR_NOFLAGS); // bool
-	ff_self_damage = gi.cvar("ff_self_damage", "0", CVAR_NOFLAGS); // bool
-	ff_fall_damage_multiplier = gi.cvar("ff_fall_damage_multiplier", "0.0", CVAR_NOFLAGS); // float
-	ff_rocket_jump_power = gi.cvar("ff_rocket_jump_power", "1600", CVAR_NOFLAGS);
-	// Use ff_fastest_weapon_switch because the already existing g_instant_weapon_switch variable doesn't work, it's only for CTF games?
-	ff_fastest_weapon_switch = gi.cvar("ff_fastest_weapon_switch", "1", CVAR_NOFLAGS); // bool
-	ff_barrel_delay = gi.cvar("ff_barrel_delay", "0", CVAR_NOFLAGS); // bool
-	ff_monster_duck = gi.cvar("ff_monster_duck", "0", CVAR_NOFLAGS); // bool
-	ff_monster_sidestep = gi.cvar("ff_monster_sidestep", "0", CVAR_NOFLAGS); // bool
-	ff_monster_blindfire = gi.cvar("ff_monster_blindfire", "0", CVAR_LATCH); // bool
-	ff_monster_hyperaware = gi.cvar("ff_monster_hyperaware", "0", CVAR_LATCH); // bool
-	ff_monster_walkjump = gi.cvar("un_monster_walkjump", "0", CVAR_LATCH); // bool
-	ff_autosave_enabled = gi.cvar("ff_autosave_enabled", "1", CVAR_NOFLAGS); // bool
-	ff_autosave_interval_in_seconds = gi.cvar("ff_autosave_interval_in_seconds", "30", CVAR_NOFLAGS);
-	ff_autosave_slot_count = gi.cvar("ff_autosave_slot_count", "10", CVAR_NOFLAGS);
-	ff_weapon_chains = gi.cvar("ff_weapon_chains", "0", CVAR_NOFLAGS); // bool
-	ff_player_rocket_radius_scale = gi.cvar("ff_player_rocket_radius_scale", "1.5", CVAR_NOFLAGS); // float
-	ff_jump_sound_volume = gi.cvar("ff_jump_sound_volume", "0.7", CVAR_NOFLAGS); // float
+	fq_give_main_weapons_at_start = gi.cvar("fq_give_main_weapons_at_start", "1", CVAR_NOFLAGS); // bool
+	fq_start_ammo_shootgun = gi.cvar("fq_start_ammo_shootgun", "40", CVAR_NOFLAGS);
+	fq_start_ammo_machinegun = gi.cvar("fq_start_ammo_machinegun", "90", CVAR_NOFLAGS);
+	fq_start_ammo_rocket = gi.cvar("fq_start_ammo_rocket", "20", CVAR_NOFLAGS);
+	fq_start_ammo_railgun = gi.cvar("fq_start_ammo_railgun", "15", CVAR_NOFLAGS);
+	fq_extra_ammo_enabled = gi.cvar("fq_extra_ammo_enabled", "1", CVAR_NOFLAGS); // bool
+	fq_extra_ammo_default_shootgun = gi.cvar("fq_extra_ammo_default_shootgun", "2.0", CVAR_NOFLAGS);
+	fq_extra_ammo_default_machinegun = gi.cvar("fq_extra_ammo_default_machinegun", "4.0", CVAR_NOFLAGS);
+	fq_extra_ammo_default_rocket = gi.cvar("fq_extra_ammo_default_rocket", "0.7", CVAR_NOFLAGS);
+	fq_extra_ammo_default_railgun = gi.cvar("fq_extra_ammo_default_railgun", "0.4", CVAR_NOFLAGS);
+	fq_extra_ammo_call_of_the_machine_shootgun = gi.cvar("fq_extra_ammo_call_of_the_machine_shootgun", "2.0", CVAR_NOFLAGS);
+	fq_extra_ammo_call_of_the_machine_machinegun = gi.cvar("fq_extra_ammo_call_of_the_machine_machinegun", "4.0", CVAR_NOFLAGS);
+	fq_extra_ammo_call_of_the_machine_rocket = gi.cvar("fq_extra_ammo_call_of_the_machine_rocket", "0.7", CVAR_NOFLAGS);
+	fq_extra_ammo_call_of_the_machine_railgun = gi.cvar("fq_extra_ammo_call_of_the_machine_railgun", "0.4", CVAR_NOFLAGS);
+	fq_extra_ammo_the_reckoning_shootgun = gi.cvar("fq_extra_ammo_the_reckoning_shootgun", "3.0", CVAR_NOFLAGS);
+	fq_extra_ammo_the_reckoning_machinegun = gi.cvar("fq_extra_ammo_the_reckoning_machinegun", "6.0", CVAR_NOFLAGS);
+	fq_extra_ammo_the_reckoning_rocket = gi.cvar("fq_extra_ammo_the_reckoning_rocket", "1.0", CVAR_NOFLAGS);
+	fq_extra_ammo_the_reckoning_railgun = gi.cvar("fq_extra_ammo_the_reckoning_railgun", "0.7", CVAR_NOFLAGS);
+	fq_extra_ammo_ground_zero_shootgun = gi.cvar("fq_extra_ammo_ground_zero_shootgun", "2.0", CVAR_NOFLAGS);
+	fq_extra_ammo_ground_zero_machinegun = gi.cvar("fq_extra_ammo_ground_zero_machinegun", "4.0", CVAR_NOFLAGS);
+	fq_extra_ammo_ground_zero_rocket = gi.cvar("fq_extra_ammo_ground_zero_rocket", "0.7", CVAR_NOFLAGS);
+	fq_extra_ammo_ground_zero_railgun = gi.cvar("fq_extra_ammo_ground_zero_railgun", "0.4", CVAR_NOFLAGS);
+	fq_extra_ammo_quake64_shootgun = gi.cvar("fq_extra_ammo_quake64_shootgun", "3.0", CVAR_NOFLAGS);
+	fq_extra_ammo_quake64_machinegun = gi.cvar("fq_extra_ammo_quake64_machinegun", "6.0", CVAR_NOFLAGS);
+	fq_extra_ammo_quake64_rocket = gi.cvar("fq_extra_ammo_quake64_rocket", "1.0", CVAR_NOFLAGS);
+	fq_extra_ammo_quake64_railgun = gi.cvar("fq_extra_ammo_quake64_railgun", "0.7", CVAR_NOFLAGS);
+	fq_player_damage_sent_multiplier = gi.cvar("fq_player_damage_sent_multiplier", "-1.0", CVAR_NOFLAGS); // float
+	fq_player_damage_sent_multiplier_from_difficulty = gi.cvar("fq_player_damage_sent_multiplier_from_difficulty", "-1.0", CVAR_NOFLAGS); // must not be changed by cfg
+	fq_player_damage_received_multiplier = gi.cvar("fq_player_damage_received_multiplier", "-1.0", CVAR_NOFLAGS); // float
+	fq_player_damage_received_multiplier_from_difficulty = gi.cvar("fq_player_damage_received_multiplier_from_difficulty", "-1.0", CVAR_NOFLAGS);  // must not be changed by cfg
+	fq_max_monsters_in_any_difficulty = gi.cvar("fq_max_monsters_in_any_difficulty", "1", CVAR_NOFLAGS); // bool
+	fq_self_damage = gi.cvar("fq_self_damage", "0", CVAR_NOFLAGS); // bool
+	fq_fall_damage_multiplier = gi.cvar("fq_fall_damage_multiplier", "0.0", CVAR_NOFLAGS); // float
+	fq_rocket_jump_power = gi.cvar("fq_rocket_jump_power", "1600", CVAR_NOFLAGS);
+	// Use fq_fastest_weapon_switch because the already existing g_instant_weapon_switch variable doesn't work, it's only for CTF games?
+	fq_fastest_weapon_switch = gi.cvar("fq_fastest_weapon_switch", "1", CVAR_NOFLAGS); // bool
+	fq_barrel_delay = gi.cvar("fq_barrel_delay", "0", CVAR_NOFLAGS); // bool
+	fq_monster_duck = gi.cvar("fq_monster_duck", "0", CVAR_NOFLAGS); // bool
+	fq_monster_sidestep = gi.cvar("fq_monster_sidestep", "0", CVAR_NOFLAGS); // bool
+	fq_monster_blindfire = gi.cvar("fq_monster_blindfire", "0", CVAR_LATCH); // bool
+	fq_monster_hyperaware = gi.cvar("fq_monster_hyperaware", "0", CVAR_LATCH); // bool
+	fq_monster_walkjump = gi.cvar("un_monster_walkjump", "0", CVAR_LATCH); // bool
+	fq_autosave_enabled = gi.cvar("fq_autosave_enabled", "1", CVAR_NOFLAGS); // bool
+	fq_autosave_interval_in_seconds = gi.cvar("fq_autosave_interval_in_seconds", "30", CVAR_NOFLAGS);
+	fq_autosave_slot_count = gi.cvar("fq_autosave_slot_count", "10", CVAR_NOFLAGS);
+	fq_weapon_chains = gi.cvar("fq_weapon_chains", "0", CVAR_NOFLAGS); // bool
+	fq_player_rocket_radius_scale = gi.cvar("fq_player_rocket_radius_scale", "1.5", CVAR_NOFLAGS); // float
+	fq_jump_sound_volume = gi.cvar("fq_jump_sound_volume", "0.7", CVAR_NOFLAGS); // float
 
 	// ZOID
 	CTFInit();
@@ -481,27 +481,27 @@ void InitGame()
 	game.lag_origins = (vec3_t *) gi.TagMalloc(game.maxclients * sizeof(vec3_t) * game.max_lag_origins, TAG_GAME);
 
 	// Faster Fps mod
-	// Init ff_player_damage_sent_multiplier_from_difficulty and ff_player_damage_received_multiplier_from_difficulty from the campaign difficuly choosen by player
-	// The player can override them by configuring ff_player_damage_sent_multiplier and ff_player_damage_received_multiplier
+	// Init fq_player_damage_sent_multiplier_from_difficulty and fq_player_damage_received_multiplier_from_difficulty from the campaign difficuly choosen by player
+	// The player can override them by configuring fq_player_damage_sent_multiplier and fq_player_damage_received_multiplier
 	if (skill->integer == 0) // easy
 	{
-		gi.cvar_set("ff_player_damage_sent_multiplier_from_difficulty", "3.0");
-		gi.cvar_set("ff_player_damage_received_multiplier_from_difficulty", "0.5");
+		gi.cvar_set("fq_player_damage_sent_multiplier_from_difficulty", "3.0");
+		gi.cvar_set("fq_player_damage_received_multiplier_from_difficulty", "0.5");
 	}
 	else if (skill->integer == 1) // medium
 	{
-		gi.cvar_set("ff_player_damage_sent_multiplier_from_difficulty", "3.0");
-		gi.cvar_set("ff_player_damage_received_multiplier_from_difficulty", "0.7");
+		gi.cvar_set("fq_player_damage_sent_multiplier_from_difficulty", "3.0");
+		gi.cvar_set("fq_player_damage_received_multiplier_from_difficulty", "0.7");
 	}
 	else if (skill->integer == 2) // hard
 	{
-		gi.cvar_set("ff_player_damage_sent_multiplier_from_difficulty", "2.0");
-		gi.cvar_set("ff_player_damage_received_multiplier_from_difficulty", "0.7");
+		gi.cvar_set("fq_player_damage_sent_multiplier_from_difficulty", "2.0");
+		gi.cvar_set("fq_player_damage_received_multiplier_from_difficulty", "0.7");
 	}
 	else // nightmare
 	{
-		gi.cvar_set("ff_player_damage_sent_multiplier_from_difficulty", "1.5");
-		gi.cvar_set("ff_player_damage_received_multiplier_from_difficulty", "1.0");
+		gi.cvar_set("fq_player_damage_sent_multiplier_from_difficulty", "1.5");
+		gi.cvar_set("fq_player_damage_received_multiplier_from_difficulty", "1.0");
 	}
 }
 
@@ -1135,7 +1135,7 @@ inline void G_RunFrame_(bool main_loop)
 	}
 
 	// FasterQuake2 mod: autosave regularly on a different slot
-	if (ff_autosave_enabled->integer == 1)
+	if (fq_autosave_enabled->integer == 1)
 	{
 		// There is already autosave code in use_target_autosave in g_target.cpp,
 		// but I can't figure how to make the game calls it, so I reuse a part of the code here.
@@ -1151,11 +1151,11 @@ inline void G_RunFrame_(bool main_loop)
 			if (!level.next_auto_save) // it's empty when starting the game
 				level.next_auto_save = level.time;
 
-			if (level.time - level.next_auto_save > gtime_t::from_sec(ff_autosave_interval_in_seconds->integer))
+			if (level.time - level.next_auto_save > gtime_t::from_sec(fq_autosave_interval_in_seconds->integer))
 			{
 				gi.AddCommandString(fmt::format("save save{}\n", save_slot).c_str());
 				++save_slot;
-				if (save_slot >= min_save_slot + ff_autosave_slot_count->integer)
+				if (save_slot >= min_save_slot + fq_autosave_slot_count->integer)
 					save_slot = min_save_slot;
 				level.next_auto_save = level.time;
 			}

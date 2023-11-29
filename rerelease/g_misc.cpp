@@ -410,7 +410,7 @@ TOUCH(point_combat_touch) (edict_t *self, edict_t *other, const trace_t &tr, boo
 
 		other->monsterinfo.pausetime = HOLD_FOREVER;
 		other->monsterinfo.aiflags |= AI_STAND_GROUND | AI_REACHED_HOLD_COMBAT;
-		if (ff_monster_hyperaware->integer == 1)
+		if (fq_monster_hyperaware->integer == 1)
 		{
 			other->monsterinfo.aiflags |= AI_THIRD_EYE;
 		}
@@ -1155,9 +1155,9 @@ DIE(barrel_delay) (edict_t *self, edict_t *inflictor, edict_t *attacker, int dam
 		return;
 	
 	// allow big booms to immediately blow up barrels (rockets, rail, other explosions) because it feels good and powerful
-	// FasterQuake2 mod: with ff_barrel_delay, barrels always explode immediately, like in original Quake 2.
+	// FasterQuake2 mod: with fq_barrel_delay, barrels always explode immediately, like in original Quake 2.
 	// In the default remastered behaviour, barrels explode on a timer unless they take a lot of damage.
-	if (damage >= 90 || ff_barrel_delay->integer == 0)
+	if (damage >= 90 || fq_barrel_delay->integer == 0)
 	{
 		self->think = barrel_explode;
 		self->activator = attacker;

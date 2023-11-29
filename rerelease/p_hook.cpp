@@ -31,27 +31,27 @@
 #include "g_local.h"
 
 // variables named "grapple" instead of "hook" for uniformity with previous version of the FasterQuake2 mod
-cvar_t *ff_grapple_sky;
-cvar_t *ff_grapple_damage;
-cvar_t *ff_grapple_initdamage;
-cvar_t *ff_grapple_maxdamage;
-cvar_t *ff_grapple_delay;
-cvar_t* ff_grapple_blue;
-cvar_t* ff_grapple_diameter;
-cvar_t* ff_grapple_sound_volume_main;
-cvar_t* ff_grapple_sound_volume_secondary;
+cvar_t *fq_grapple_sky;
+cvar_t *fq_grapple_damage;
+cvar_t *fq_grapple_initdamage;
+cvar_t *fq_grapple_maxdamage;
+cvar_t *fq_grapple_delay;
+cvar_t* fq_grapple_blue;
+cvar_t* fq_grapple_diameter;
+cvar_t* fq_grapple_sound_volume_main;
+cvar_t* fq_grapple_sound_volume_secondary;
 
 void Hook_InitGame(void)
 {
-	ff_grapple_sky = gi.cvar("ff_grapple_sky", "0", CVAR_NOFLAGS);
-	ff_grapple_damage = gi.cvar("ff_grapple_damage", "1", CVAR_NOFLAGS);
-	ff_grapple_initdamage = gi.cvar("ff_grapple_initdamage", "1", CVAR_NOFLAGS);
-	ff_grapple_maxdamage = gi.cvar("ff_grapple_maxdamage", "1", CVAR_NOFLAGS);
-	ff_grapple_delay = gi.cvar("ff_grapple_delay", "0.0", CVAR_NOFLAGS);
-	ff_grapple_blue = gi.cvar("ff_grapple_blue", "0", CVAR_NOFLAGS); // bool
-	ff_grapple_diameter = gi.cvar("ff_grapple_diameter", "4", CVAR_NOFLAGS);
-	ff_grapple_sound_volume_main = gi.cvar("ff_grapple_sound_volume_main", "0.3", CVAR_NOFLAGS); // float
-	ff_grapple_sound_volume_secondary = gi.cvar("ff_grapple_sound_volume_secondary", "0.7", CVAR_NOFLAGS); // float
+	fq_grapple_sky = gi.cvar("fq_grapple_sky", "0", CVAR_NOFLAGS);
+	fq_grapple_damage = gi.cvar("fq_grapple_damage", "1", CVAR_NOFLAGS);
+	fq_grapple_initdamage = gi.cvar("fq_grapple_initdamage", "1", CVAR_NOFLAGS);
+	fq_grapple_maxdamage = gi.cvar("fq_grapple_maxdamage", "1", CVAR_NOFLAGS);
+	fq_grapple_delay = gi.cvar("fq_grapple_delay", "0.0", CVAR_NOFLAGS);
+	fq_grapple_blue = gi.cvar("fq_grapple_blue", "0", CVAR_NOFLAGS); // bool
+	fq_grapple_diameter = gi.cvar("fq_grapple_diameter", "4", CVAR_NOFLAGS);
+	fq_grapple_sound_volume_main = gi.cvar("fq_grapple_sound_volume_main", "0.3", CVAR_NOFLAGS); // float
+	fq_grapple_sound_volume_secondary = gi.cvar("fq_grapple_sound_volume_secondary", "0.7", CVAR_NOFLAGS); // float
 }
 
 void Hook_PlayerDie(edict_t *attacker, edict_t *self)
@@ -149,7 +149,7 @@ THINK (Hook_Track) (edict_t *self) -> void
 		// move the hook along with the player.  It's invisible, but
 		// we need this to make the sound come from the right spot
 
-		if (self->owner->client->ff_grapple_damage >= ff_grapple_maxdamage->value)
+		if (self->owner->client->fq_grapple_damage >= fq_grapple_maxdamage->value)
 		{
 			Hook_Reset(self);
 			return;
@@ -161,9 +161,9 @@ THINK (Hook_Track) (edict_t *self) -> void
 
 		normal = self->enemy->s.origin - self->owner->s.origin;
 
-		T_Damage(self->enemy, self, self->owner, vec3_origin, self->enemy->s.origin, normal, ff_grapple_damage->value, 0, DAMAGE_NO_KNOCKBACK, MOD_HOOK);
+		T_Damage(self->enemy, self, self->owner, vec3_origin, self->enemy->s.origin, normal, fq_grapple_damage->value, 0, DAMAGE_NO_KNOCKBACK, MOD_HOOK);
 
-		self->owner->client->ff_grapple_damage += ff_grapple_damage->value;
+		self->owner->client->fq_grapple_damage += fq_grapple_damage->value;
 	}
 	else
 	{
@@ -192,7 +192,7 @@ TOUCH(Hook_Touch) (edict_t *self, edict_t *other, const trace_t &tr, bool other_
 	if (other->solid == SOLID_NOT || other->solid == SOLID_TRIGGER || other->movetype == MOVETYPE_FLYMISSILE)
 		return;
 
-	if (tr.surface && (tr.surface->flags & SURF_SKY) && !ff_grapple_sky->value)
+	if (tr.surface && (tr.surface->flags & SURF_SKY) && !fq_grapple_sky->value)
 	{
 		Hook_Reset(self);
 		return;
@@ -208,15 +208,15 @@ TOUCH(Hook_Touch) (edict_t *self, edict_t *other, const trace_t &tr, bool other_
 		dir = self->owner->s.origin - other->s.origin;
 		normal = other->s.origin - self->owner->s.origin;
 
-		if (self->owner->client->ff_grapple_damage >= ff_grapple_maxdamage->value) {
+		if (self->owner->client->fq_grapple_damage >= fq_grapple_maxdamage->value) {
 			Hook_Reset(self);
 			return;
 		}
 
-		if (ff_grapple_maxdamage->value >= ff_grapple_initdamage->value)
-			T_Damage(other, self, self->owner, dir, self->s.origin, normal, ff_grapple_initdamage->value, ff_grapple_initdamage->value, DAMAGE_NONE, MOD_HOOK);
+		if (fq_grapple_maxdamage->value >= fq_grapple_initdamage->value)
+			T_Damage(other, self, self->owner, dir, self->s.origin, normal, fq_grapple_initdamage->value, fq_grapple_initdamage->value, DAMAGE_NONE, MOD_HOOK);
 
-		self->owner->client->ff_grapple_damage += ff_grapple_initdamage->value;
+		self->owner->client->fq_grapple_damage += fq_grapple_initdamage->value;
 	}
 	else     // we hit something thats not a player
 	{					
@@ -224,16 +224,16 @@ TOUCH(Hook_Touch) (edict_t *self, edict_t *other, const trace_t &tr, bool other_
 		if (other->takedamage) {
 			dir = self->owner->s.origin - other->s.origin;
 			normal = other->s.origin - self->owner->s.origin;
-			T_Damage(other, self, self->owner, dir, self->s.origin, normal, ff_grapple_damage->value, ff_grapple_damage->value, DAMAGE_NONE, MOD_UNKNOWN);
+			T_Damage(other, self, self->owner, dir, self->s.origin, normal, fq_grapple_damage->value, fq_grapple_damage->value, DAMAGE_NONE, MOD_UNKNOWN);
 
-			self->owner->client->ff_grapple_damage += ff_grapple_initdamage->value;
+			self->owner->client->fq_grapple_damage += fq_grapple_initdamage->value;
 		}
 		// stop moving
 		self->velocity = vec3_t{ 0,0,0 };
 
 		// gi.sound() doesnt work because the origin of an entity with no model is not 
 		// transmitted to clients or something.  hoped this would be fixed in Q2 ...
-		gi.positioned_sound(self->s.origin, self, CHAN_WEAPON, gi.soundindex("flyer/Flyatck2.wav"), ff_grapple_sound_volume_secondary->value, ATTN_NORM, 0);
+		gi.positioned_sound(self->s.origin, self, CHAN_WEAPON, gi.soundindex("flyer/Flyatck2.wav"), fq_grapple_sound_volume_secondary->value, ATTN_NORM, 0);
 	}
 
 	// remember who/what we hit, must be set before Hook_Check() is called
@@ -298,10 +298,10 @@ edict_t *Hook_Start(edict_t *ent)
 	self->owner = ent;
 
 	// set the beam diameter
-	self->s.frame = ff_grapple_diameter->integer;
+	self->s.frame = fq_grapple_diameter->integer;
 
 	// set the color
-	self->s.skinnum = (ff_grapple_blue->integer ? 0xf1f1f1f1 : 0xf0f0f0f0);  // red or blue
+	self->s.skinnum = (fq_grapple_blue->integer ? 0xf1f1f1f1 : 0xf0f0f0f0);  // red or blue
 
 	//if (ctf->value && ctf_coloredhook->value && ent->owner->client->resp.ctf_team == 2)
 	if ((ctf->integer || teamplay->integer) && ent->owner->client->resp.ctf_team == CTF_TEAM2)   // Kyper - Lithium port - forget the option, just give Blue team blue...
@@ -377,13 +377,13 @@ void Weapon_Hook_Fire(edict_t *ent)
 		return;
 
 	// don't allow the client to fire the hook too rapidly
-	if (level.time < gtime_t::from_sec(ent->client->last_hook_time) + gtime_t::from_sec(ff_grapple_delay->value))
+	if (level.time < gtime_t::from_sec(ent->client->last_hook_time) + gtime_t::from_sec(fq_grapple_delay->value))
 		return;
 
 	ent->client->last_hook_time = level.time.seconds();
 
 	ent->client->hook_out = true;
-	ent->client->ff_grapple_damage = 0;
+	ent->client->fq_grapple_damage = 0;
 
 	// calculate start position and forward direction
 	AngleVectors(ent->client->v_angle, forward, right, NULL);
@@ -397,7 +397,7 @@ void Weapon_Hook_Fire(edict_t *ent)
 	// actually launch the hook off
 	Hook_Fire(ent, start, dir);
 
-	gi.sound(ent, CHAN_WEAPON, gi.soundindex("flyer/Flyatck3.wav"), ff_grapple_sound_volume_main->value, ATTN_NORM, 0);
+	gi.sound(ent, CHAN_WEAPON, gi.soundindex("flyer/Flyatck3.wav"), fq_grapple_sound_volume_main->value, ATTN_NORM, 0);
 
 	PlayerNoise(ent, start, PNOISE_WEAPON);
 }

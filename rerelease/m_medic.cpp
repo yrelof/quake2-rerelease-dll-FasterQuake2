@@ -1419,7 +1419,7 @@ MONSTERINFO_CHECKATTACK(medic_checkattack) (edict_t *self) -> bool
 		}
 	}
 
-	if (ff_monster_blindfire->integer == 1)
+	if (fq_monster_blindfire->integer == 1)
 	{
 		if (self->enemy->client && !visible(self, self->enemy) && M_SlotsLeft(self))
 		{
