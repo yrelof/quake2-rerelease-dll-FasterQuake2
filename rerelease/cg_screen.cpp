@@ -28,7 +28,7 @@ static cvar_t *cl_notifytime;
 static cvar_t *scr_maxlines;
 static cvar_t *ui_acc_contrast;
 static cvar_t* ui_acc_alttypeface;
-static cvar_t* ff_speedometer; // FasterFps mod
+static cvar_t* ff_speedometer; // FasterQuake2 mod
 
 // static temp data used for hud
 static struct
@@ -1790,7 +1790,7 @@ void CG_InitScreen()
     ui_acc_contrast = cgi.cvar ("ui_acc_contrast", "0",   CVAR_NOFLAGS);
     ui_acc_alttypeface = cgi.cvar("ui_acc_alttypeface", "0", CVAR_NOFLAGS);
 
-    // FasterFps mod
+    // FasterQuake2 mod
     ff_speedometer = cgi.cvar("ff_speedometer", "0", CVAR_NOFLAGS); // bool
 
     hud_data = {};

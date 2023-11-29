@@ -1603,7 +1603,7 @@ void ClientCommand(edict_t *ent)
 
 	cmd = gi.argv(0);
 
-	// FasterFps mod
+	// FasterQuake2 mod
 	if (Q_strcasecmp(cmd, "hook") == 0)
 	{
 		if (!ent->client->resp.spectator && !ent->deadflag)

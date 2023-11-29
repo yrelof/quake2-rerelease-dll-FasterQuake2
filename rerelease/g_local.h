@@ -1079,7 +1079,7 @@ enum mod_id_t : uint8_t
 	MOD_HOOK
 };
 
-// FasterFps mod
+// FasterQuake2 mod
 enum class campaign_t
 {
 	BASE, // episode "baseq2" in mapdb.json
@@ -1263,7 +1263,7 @@ struct level_locals_t
 	gtime_t next_auto_save;
 	gtime_t next_match_report;
 
-	campaign_t campaign; // FasterFps mod
+	campaign_t campaign; // FasterQuake2 mod
 };
 
 struct shadow_light_temp_t
@@ -1892,7 +1892,7 @@ template<typename T>
 	return irandom(2) == 0;
 }
 
-// FasterFps mod
+// FasterQuake2 mod
 extern cvar_t* ff_give_main_weapons_at_start;
 extern cvar_t* ff_start_ammo_shootgun;
 extern cvar_t* ff_start_ammo_machinegun;
@@ -2207,7 +2207,7 @@ void T_RadiusClassDamage(edict_t *inflictor, edict_t *attacker, float damage, ch
 void cleanupHealTarget(edict_t *ent);
 // ROGUE
 
-// FasterFps mod: no bullet spread
+// FasterQuake2 mod: no bullet spread
 constexpr int32_t DEFAULT_BULLET_HSPREAD = 0;
 constexpr int32_t DEFAULT_BULLET_VSPREAD = 0;
 
@@ -3074,7 +3074,7 @@ struct gclient_t
 	// saved - for coop; last time we were in a firing state
 	gtime_t	 last_firing_time;
 
-	// FasterFps mod: hook
+	// FasterQuake2 mod: hook
 	bool    hook_out;
 	bool    hook_on;
 	edict_t* hook;
@@ -3310,7 +3310,7 @@ struct edict_t
 	// NOTE: if adding new elements, make sure to add them
 	// in g_save.cpp too!
 
-	// FasterFps mod: hook
+	// FasterQuake2 mod: hook
 	edict_t* laser;
 	gtime_t hook_time;
 };

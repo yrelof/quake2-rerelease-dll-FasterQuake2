@@ -761,7 +761,7 @@ inline bool Weapon_HandleNewWeapon(edict_t *ent, int FRAME_DEACTIVATE_FIRST, int
 	if (!g_instant_weapon_switch->integer)
 		is_holstering = ((ent->client->latched_buttons | ent->client->buttons) & BUTTON_HOLSTER);
 
-	// FasterFps mod: instant weapon switch, no need to wait for the end of fire animation of the current weapon
+	// FasterQuake2 mod: instant weapon switch, no need to wait for the end of fire animation of the current weapon
 	if ((ent->client->newweapon || is_holstering) && (ff_fastest_weapon_switch->integer == 1 || ent->client->weaponstate != WEAPON_FIRING))
 	{
 		if (g_instant_weapon_switch->integer || ent->client->weapon_think_time <= level.time)

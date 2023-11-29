@@ -1418,7 +1418,7 @@ void SpawnEntities(const char *mapname, const char *entities, const char *spawnp
 
 	setup_shadow_lights();
 
-	// FasterFps mod: init level.campaign
+	// FasterQuake2 mod: init level.campaign
 	{
 		std::string mapname{level.mapname};
 

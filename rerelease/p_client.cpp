@@ -865,7 +865,7 @@ void InitClientPersistant(edict_t *ent, gclient_t *client)
 			{
 				client->pers.inventory[IT_WEAPON_BLASTER] = 1;
 
-				// FasterFps mod: give main weapons at the start of the game
+				// FasterQuake2 mod: give main weapons at the start of the game
 				if (ff_give_main_weapons_at_start->integer == 1)
 				{
 					client->pers.inventory[IT_WEAPON_SSHOTGUN] = 1;
@@ -3143,7 +3143,7 @@ void P_FallingDamage(edict_t *ent, const pmove_t &pm)
 			damage = 1;
 		dir = { 0, 0, 1 };
 
-		// FasterFps mod
+		// FasterQuake2 mod
 		damage = static_cast<int>(damage * ff_fall_damage_multiplier->value);
 
 		if (!deathmatch->integer || !g_dm_no_fall_damage->integer)

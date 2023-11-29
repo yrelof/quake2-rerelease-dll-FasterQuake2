@@ -1,4 +1,4 @@
-// FasterFps mod
+// FasterQuake2 mod
 
 /*============================================================================
 
@@ -30,7 +30,7 @@
 
 #include "g_local.h"
 
-// variables named "grapple" instead of "hook" for uniformity with previous version of the FasterFps mod
+// variables named "grapple" instead of "hook" for uniformity with previous version of the FasterQuake2 mod
 cvar_t *ff_grapple_sky;
 cvar_t *ff_grapple_damage;
 cvar_t *ff_grapple_initdamage;

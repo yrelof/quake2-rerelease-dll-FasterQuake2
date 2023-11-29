@@ -1,4 +1,4 @@
-# Faster Fps: Quake II Remastered mod for faster gameplay in solo
+# Faster Quake 2: mod for faster gameplay in solo on Quake II Remastered
 
 ## Summary
 
@@ -28,16 +28,16 @@ If you want some changes for your personal taste of gameplay, you can, almost al
 ## Installation
 
 Unzip the contents into "%USERPROFILE%\Saved Games\Nightdive Studios\Quake II\" (%USERPROFILE% gets you something like that: "C:\Users\MY_USER_NAME\").  
-You should have a "fasterfps" folder in there, alongside the existing "baseq2", with "game_x64.dll" inside.  
+You should have a "fasterquake2" folder in there, alongside the existing "baseq2", with "game_x64.dll" inside.  
 
 In your launcher (Steam, Epic, Gog...), open the properties of the game and customize the launch options to add:
 ```
-+set game fasterfps
++set game fasterquake2
 ```
 
 While at it, you can also add the "-skipmovies" option for a faster start of the game.  
 
-Less convenient alternative than the launch option: start the game, open the console, enter "game fasterfps".  
+Less convenient alternative than the launch option: start the game, open the console, enter "game fasterquake2".  
 
 ## Key binding
 
@@ -194,13 +194,13 @@ Variable: ff_monster_walkjump, 0 or 1, default value is 0
 
 ## Other information
 
-Source code: https://github.com/yrelof/quake2-rerelease-dll-fasterfps  
+Source code: https://github.com/yrelof/quake2-rerelease-dll-FasterQuake2
 
 Mod coded for the "Update 1" version of Quake 2 Remastered (from 2023-10-03).  
 
 The mod also works with the additional campaigns and with the Coop.
 
-Save games should be compatible if you copy them to the mod folder (baseq2\save to fasterfps\save), but you will not automatically get the main weapons.  
+Save games should be compatible if you copy them to the mod folder (baseq2\save to fasterquake2\save), but you will not automatically get the main weapons.  
 
 To customize mod variables, edit the "settings.cfg" file in the mod directory and add this kind of line:  
 ```
@@ -208,12 +208,12 @@ set ff_player_damage_sent_multiplier "2"
 ```
 You can also run the command in the game console, but the change will be lost when closing the game.  
 
-Some changes come from the Unmaster mod, they are specified in the "Features" section. Link: https://github.com/nickgovier/Q2unmaster  
+Some changes come from the Unmaster mod, they are specified in the "Features" section. Link: https://github.com/nickgovier/Q2unmaster
 
 The off-hand grapple comes from the Lithium mod: http://quake2.lithium.com  
 The code used comes from the Lithium remaster port: https://github.com/KyperTrast/lithium-minus
 
-The "FasterFps" mod name means "Faster First Person Shooter", a reference to the "Fast FPS" term.  
+The old name of the mod was "FasterFps" (a reference to the "Fast FPS" term).  
 
 ## Changelog
 

@@ -566,7 +566,7 @@ bool Add_Ammo(edict_t *ent, gitem_t *item, int count)
 	if (!ff_extra_ammo_enabled->integer)
 		return G_AddAmmoAndCap(ent, item->id, ent->client->pers.max_ammo[item->tag], count);
 
-	// FasterFps mod: any ammo item also give some ammo for the main weapons
+	// FasterQuake2 mod: any ammo item also give some ammo for the main weapons
 	bool picked = false;
 
 	float extra_ammo_shootgun = 0.f;
