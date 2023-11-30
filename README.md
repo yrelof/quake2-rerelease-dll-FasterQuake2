@@ -27,8 +27,12 @@ If you want some changes for your personal taste of gameplay, you can, almost al
 
 ## Installation
 
-Unzip the contents into "%USERPROFILE%\Saved Games\Nightdive Studios\Quake II\" (%USERPROFILE% gets you something like that: "C:\Users\MY_USER_NAME\").  
-You should have a "fasterquake2" folder in there, alongside the existing "baseq2", with "game_x64.dll" inside.  
+Unzip the contents into:
+```
+C:\Users\[MY_USER_NAME]\Saved Games\Nightdive Studios\Quake II\
+```
+Replace [MY_USER_NAME] by your Windows user name (or you can paste %USERPROFILE% in the file explorer address bar to go to your user directory).
+You should now have a "fasterquake2" folder in there, alongside the existing "baseq2", with multiple files inside (it's wrong if you have only another folder "fasterquake2" inside a "FasterQuake2Mod" folder).  
 
 In your game launcher (Steam, Epic, Gog...), open the properties of the game and customize the launch options to add:
 ```
@@ -38,6 +42,13 @@ In your game launcher (Steam, Epic, Gog...), open the properties of the game and
 While at it, you can also add the "-skipmovies" option for a faster start of the game.  
 
 Less convenient alternative than the launch option: start the game, open the console, enter "game fasterquake2".  
+
+Read the "Key binding" doc section under, especially for azerty keyboard players.
+
+If you are updating from v1 or v2 of the mod (before the renaming):
+  - if you want to keep your savegames: the mod folder was named "fasterfps", keep it like that, add and override the content of the new "fasterquake2" folder to it. Keep the old launch option ("+set game fasterfps"). It's better to do like that because the savegame files seems to have an hard-coded path inside, so the new saves after loading will be created in the "fasterfps" folder anyway.
+  - if you customized configuration variables in "settings.cfg": the variable prefix has changed form "ff_" to "fq_", update them in "settings.cfg" (in the new "fasterquake2" folder if you have it). See also the doc about campaign difficulty choice.
+  - you can read the changelog at the bottom of this file.
 
 ## Key binding
 
@@ -217,8 +228,9 @@ The code used comes from the Lithium remaster port: https://github.com/KyperTras
 
 v3.0.0:
 - rename mod from "Faster Fps" to "Faster Quake 2"
-  - if you update from a previous version, the mod in now installed in a "fasterquake2" directory and you have to update the launch option in your game launcher
+  - the mod in now installed in a "fasterquake2" folder
   - the configuration variables prefix has changed form "ff_" to "fq_"
+  - see the "Installation" doc section for instructions if you update from a previous version
 
 v2.1.0:
 - fix crash in coop (the joining player crashed)
