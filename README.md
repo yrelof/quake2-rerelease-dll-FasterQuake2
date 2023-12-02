@@ -4,6 +4,8 @@
 
 Easily rush levels, instant weapon switch, grapple, efficient auto-save.
 
+Demo video: https://www.youtube.com/watch?v=ighEUIIcmt4
+
 ## Gameplay overview
 
 With this mod you can play fast in the existing campaigns, you rush through the levels, almost like a speedrunner, but you don't need to know the levels and you can kill everyone.  
@@ -32,7 +34,7 @@ Unzip the contents into:
 C:\Users\[MY_USER_NAME]\Saved Games\Nightdive Studios\Quake II\
 ```
 Replace [MY_USER_NAME] by your Windows user name (or you can paste %USERPROFILE% in the file explorer address bar to go to your user directory).
-You should now have a "fasterquake2" folder in there, alongside the existing "baseq2", with multiple files inside.
+You should now have a "fasterquake2" folder in there, alongside the existing "baseq2", with multiple files inside.  
 Warning: it's wrong if you have a "FasterQuake2Mod" folder and/or a unique folder inside the folder.
 - Good path:  Nightdive Studios\Quake II\fasterquake2\game_x64.dll
 - Wrong path: Nightdive Studios\Quake II\FasterQuake2Mod\fasterquake2\game_x64.dll
