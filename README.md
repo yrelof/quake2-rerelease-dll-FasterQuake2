@@ -32,14 +32,22 @@ Unzip the contents into:
 C:\Users\[MY_USER_NAME]\Saved Games\Nightdive Studios\Quake II\
 ```
 Replace [MY_USER_NAME] by your Windows user name (or you can paste %USERPROFILE% in the file explorer address bar to go to your user directory).
-You should now have a "fasterquake2" folder in there, alongside the existing "baseq2", with multiple files inside (it's wrong if you have only another folder "fasterquake2" inside a "FasterQuake2Mod" folder).  
+You should now have a "fasterquake2" folder in there, alongside the existing "baseq2", with multiple files inside.
+Warning: it's wrong if you have a "FasterQuake2Mod" folder and/or a unique folder inside the folder.
+- Good path:  Nightdive Studios\Quake II\fasterquake2\game_x64.dll
+- Wrong path: Nightdive Studios\Quake II\FasterQuake2Mod\fasterquake2\game_x64.dll
+- Wrong path: Nightdive Studios\Quake II\fasterquake2\fasterquake2\game_x64.dll
 
 In your game launcher (Steam, Epic, Gog...), open the properties of the game and customize the launch options to add:
 ```
 +set game fasterquake2
 ```
+Detailed steps for each launcher:
+- In steam: right click on the game, "Properties", stay on the "General" tab, scroll down to the bottom, "launch options", add the text.
+- In Epic: right click on the game, "Manage", scroll down to the bottom, check "Launch options", add the text.
+- In Gog: right click  on the game, "Manage installation", "Configure...", "features" tab, check "Launch parameters / Custom executables / arguments", click "Duplicate" of the Quake 2 Remastered, scroll down to the bottom, add text in "Arguments", check "Default executable".
 
-While at it, you can also add the "-skipmovies" option for a faster start of the game.  
+While at it, you can also add the "-skipmovies" option for a faster launch of the game.  
 
 Less convenient alternative than the launch option: start the game, open the console, enter "game fasterquake2".  
 
@@ -56,7 +64,7 @@ The mod archive includes suggested keybinds with the keybinds.cfg and autoexec.c
 The default is qwerty with jump on right click and grapple on space bar.  
 You can override them with the files in the "keybinds variants" directory, there are variants for azerty and jump with space bar.  
 
-Default keys:
+Suggested keys:
 - WASD/ZQSD: up, left, down, right
 - left mouse: attack
 - right mouse: jump
@@ -231,6 +239,7 @@ v3.0.0:
   - the mod in now installed in a "fasterquake2" folder
   - the configuration variables prefix has changed form "ff_" to "fq_"
   - see the "Installation" doc section for instructions if you update from a previous version
+- fix keybinds variants
 
 v2.1.0:
 - fix crash in coop (the joining player crashed)
