@@ -264,7 +264,7 @@ void PreInitGame()
 	fq_monster_sidestep = gi.cvar("fq_monster_sidestep", "0", CVAR_NOFLAGS); // bool
 	fq_monster_blindfire = gi.cvar("fq_monster_blindfire", "0", CVAR_LATCH); // bool
 	fq_monster_hyperaware = gi.cvar("fq_monster_hyperaware", "0", CVAR_LATCH); // bool
-	fq_monster_walkjump = gi.cvar("un_monster_walkjump", "0", CVAR_LATCH); // bool
+	fq_monster_walkjump = gi.cvar("fq_monster_walkjump", "0", CVAR_LATCH); // bool
 	fq_autosave_enabled = gi.cvar("fq_autosave_enabled", "1", CVAR_NOFLAGS); // bool
 	fq_autosave_interval_in_seconds = gi.cvar("fq_autosave_interval_in_seconds", "30", CVAR_NOFLAGS);
 	fq_autosave_slot_count = gi.cvar("fq_autosave_slot_count", "10", CVAR_NOFLAGS);
