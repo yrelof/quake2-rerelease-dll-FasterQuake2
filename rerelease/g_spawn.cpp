@@ -1216,9 +1216,9 @@ inline bool G_InhibitEntity(edict_t *ent)
 	// skill
 	if (fq_max_monsters_in_any_difficulty->integer)
 	{
-		// Faster Fps mod: maximum of monster in any difficulty
+		// FasterQuake2 mod: maximum of monster in any difficulty
 		
-		// keep this check on SPAWNFLAG_NOT_HARD otherwise there is weird things, 
+		// keep this check on SPAWNFLAG_NOT_HARD otherwise there are weird things, 
 		// I saw an opened door that sould be closed at the start of level 2
 		return ent->spawnflags.has(SPAWNFLAG_NOT_HARD);
 	}

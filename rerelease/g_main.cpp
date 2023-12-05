@@ -480,7 +480,7 @@ void InitGame()
 	game.max_lag_origins = 20 * (0.1f / gi.frame_time_s);
 	game.lag_origins = (vec3_t *) gi.TagMalloc(game.maxclients * sizeof(vec3_t) * game.max_lag_origins, TAG_GAME);
 
-	// Faster Fps mod
+	// FasterQuake2 mod:
 	// Init fq_player_damage_sent_multiplier_from_difficulty and fq_player_damage_received_multiplier_from_difficulty from the campaign difficuly choosen by player
 	// The player can override them by configuring fq_player_damage_sent_multiplier and fq_player_damage_received_multiplier
 	if (skill->integer == 0) // easy
@@ -1121,7 +1121,7 @@ inline void G_RunFrame_(bool main_loop)
 		M_ProcessPain(e);
 	}
 
-	// Faster Fps mod:
+	// FasterQuake2 mod:
 	// Reset potential hook at start of the game,
 	// for the case where a save game was created while the hook was active.
 	static bool hook_reset_done = false; // variable is reset to false when loading a game because the whole dll is reloaded

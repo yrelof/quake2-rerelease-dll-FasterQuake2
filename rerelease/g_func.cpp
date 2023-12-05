@@ -1629,7 +1629,7 @@ MOVEINFO_BLOCKED(door_blocked) (edict_t *self, edict_t *other) -> void
 		if (other && other->inuse)
 		{
 			/*
-			Faster Fps:
+			FasterQuake2 mod:
 			Avoid exploding the hook because we cannot launch it anymore after that.
 			It's not easy to find how to reproduce it:
 			you can do it near the start of the third level on the moving pylons,

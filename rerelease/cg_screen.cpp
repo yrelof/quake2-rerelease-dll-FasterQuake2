@@ -1746,7 +1746,7 @@ void CG_DrawHUD (int32_t isplit, const cg_server_data_t *data, vrect_t hud_vrect
     if (ps->stats[STAT_LAYOUTS] & LAYOUTS_INVENTORY)
         CG_DrawInventory(ps, data->inventory, hud_vrect, scale);
 
-    // Faster Fps mod: display player speed.
+    // FasterQuake2 mod: display player speed.
     if (fq_speedometer->integer)
     {
         cgi.SCR_DrawFontString(

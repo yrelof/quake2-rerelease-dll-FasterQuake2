@@ -236,6 +236,9 @@ The code used comes from the Lithium remaster port: https://github.com/KyperTras
 
 ## Changelog
 
+v3.0.1:
+- fix fq_monster_walkjump configuration variable
+
 v3.0.0:
 - rename mod from "Faster Fps" to "Faster Quake 2"
   - the mod in now installed in a "fasterquake2" folder
