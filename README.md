@@ -213,6 +213,37 @@ Variable: fq_monster_hyperaware, 0 or 1, default value is 0
 - Monsters stay on the platforms/floors they spawn on, like in original Quake 2. Imported from the Unmaster mod.  
 Variable: fq_monster_walkjump, 0 or 1, default value is 0  
 
+## Save games import
+
+If you want to continue your progression from the base game into the modded game, you have 3 solutions:
+
+- First solution, choose the level from the menu:
+  - in the main menu: select "solo" then "level choice"
+  - you'll have the weapons and ammos that are configured by default for the level
+
+- Second solution, start a new game and jump to the level using the console:
+  - start Quake2 without the mod, load your save, open the console (the key under the escape key), type "mapname" to get the name of the current map
+  - start Quake2 with the mod, start a new game, open the console, type "map [YOUR_MAP_NAME]" (replace [YOUR_MAP_NAME] by the retrieved map name)
+  - this solution is more precise than than the first solution (there are more maps than in the menu), but you'll start without weapon and item, so you have to use the console to get them: "give railgun" for example. You can see the list on https://www.quakewiki.net/console/console-commands/quake-2-console-commands
+
+Save games are compatible if you copy them to the mod folder (baseq2\save to fasterquake2\save), but it seems that the savegame files have an hard-coded path inside, so the new saves after loading are created in the old directory anyway, so they are not displayed when you want to load.
+
+- Last solution allows you to use exactly your savegame. You create a directory link so the two save directories are in reality only one directory (replace [MY_USER_NAME] by your windows user name in the commands):
+  - make a full backup of your "C:\Users\[MY_USER_NAME]\Saved Games\Nightdive Studios\Quake II" directory
+  - delete the "C:\Users\[MY_USER_NAME]\Saved Games\Nightdive Studios\Quake II\fasterquake2\save" directory
+  - open a PowerShell console in Windows to type:
+  ```
+  New-Item -Path "C:\Users\[MY_USER_NAME]\Saved Games\Nightdive Studios\Quake II\fasterquake2\save" -ItemType SymbolicLink -Value "C:\Users\[MY_USER_NAME]\Saved Games\Nightdive Studios\Quake II\baseq2\save"
+  ```
+  (if you use the old cmd console it's:
+  ``` 
+  mklink /D "C:\Users\[MY_USER_NAME]\Saved Games\Nightdive Studios\Quake II\fasterquake2\save" "C:\Users\[MY_USER_NAME]\Saved Games\Nightdive Studios\Quake II\baseq2\save"
+  ```
+  )  
+  Now when the game will access the "fasterquake2\save" directory it will use "baseq2\save" in reality.  
+
+  To revert the changes, you just have to delete "C:\Users\[MY_USER_NAME]\Saved Games\Nightdive Studios\Quake II\fasterquake2\save" (that is a link, not a real directory).
+
 ## Other information
 
 Source code: https://github.com/yrelof/quake2-rerelease-dll-FasterQuake2
@@ -220,8 +251,6 @@ Source code: https://github.com/yrelof/quake2-rerelease-dll-FasterQuake2
 Mod coded for the "Update 1" version of Quake 2 Remastered (from 2023-10-03).  
 
 The mod also works with the additional campaigns and with the Coop.
-
-Save games should be compatible if you copy them to the mod folder (baseq2\save to fasterquake2\save), but you will not automatically get the main weapons.  
 
 To customize mod variables, edit the "settings.cfg" file in the mod directory and add this kind of line:  
 ```
