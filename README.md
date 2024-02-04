@@ -144,7 +144,7 @@ Variables:
 - Any ammo item you pick gives some ammo for the main weapons.  
 For example, if you pick one rocket ammo item, you'll get 2 shootgun cells, 4 machine gun bullets, 0.7 rockets, 0.4 railgun slugs.  
 A value of 0.5 means that you have to pick 2 ammo items to get 1 ammo.  
-If you pick an ammo item for a weapon that is not one the 4 main weapons, you also get this weapon ammo in addition of the 4 others.  
+If you pick an ammo item for a weapon that is not one of the 4 main weapons, you also get this weapon ammo in addition of the 4 others.  
 This behavior is necessary for the non-main weapons ammo items to still be useful, and to have ammo for the main weapons at the first levels.  
 Variables:  
   - fq_extra_ammo_enabled, 0 or 1, default value is 1
