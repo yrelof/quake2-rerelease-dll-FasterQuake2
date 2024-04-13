@@ -257,6 +257,7 @@ To customize mod variables, edit the "settings.cfg" file in the mod directory an
 set fq_speedometer "1"
 ```
 You can also run the command in the game console, but the change will be lost when closing the game.  
+If your "settings.cfg" file is reset every time you start the game, then set the file as read-only.
 
 Some changes come from the Unmaster mod, they are specified in the "Features" section. Link: https://github.com/nickgovier/Q2unmaster
 
