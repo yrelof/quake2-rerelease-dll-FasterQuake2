@@ -259,6 +259,8 @@ set fq_speedometer "1"
 You can also run the command in the game console, but the change will be lost when closing the game.  
 If your "settings.cfg" file is reset every time you start the game, then set the file as read-only.
 
+If you ever get stuck in a level, with the GPS pointing in a wrong direction (it can occurs when rushing with the grapple), you can restart the level (it's at the top in the load game menu) and then follow the GPS more closely to avoid glitching the level.
+
 Some changes come from the Unmaster mod, they are specified in the "Features" section. Link: https://github.com/nickgovier/Q2unmaster
 
 The off-hand grapple comes from the Lithium mod: http://quake2.lithium.com  
