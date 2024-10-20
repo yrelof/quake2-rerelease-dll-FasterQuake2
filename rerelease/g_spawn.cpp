@@ -1422,15 +1422,15 @@ void SpawnEntities(const char *mapname, const char *entities, const char *spawnp
 	{
 		std::string mapname{level.mapname};
 
-		if (base_campaign_maps.contains(mapname))
+		if (base_campaign_maps.find(mapname) != base_campaign_maps.end())
 			level.campaign = campaign_t::BASE;
-		else if (call_of_the_machine_campaign_maps.contains(mapname))
+		else if (call_of_the_machine_campaign_maps.find(mapname) != call_of_the_machine_campaign_maps.end())
 			level.campaign = campaign_t::CALL_OF_THE_MACHINE;
-		else if (the_reckoning_campaign_maps.contains(mapname))
+		else if (the_reckoning_campaign_maps.find(mapname) != the_reckoning_campaign_maps.end())
 			level.campaign = campaign_t::THE_RECKONING;
-		else if (ground_zero_campaign_maps.contains(mapname))
+		else if (ground_zero_campaign_maps.find(mapname) != ground_zero_campaign_maps.end())
 			level.campaign = campaign_t::GROUND_ZERO;
-		else if (quake64_campaign_maps.contains(mapname))
+		else if (quake64_campaign_maps.find(mapname) != quake64_campaign_maps.end())
 			level.campaign = campaign_t::QUAKE64;
 		else
 			level.campaign = campaign_t::UNKNOWN;
