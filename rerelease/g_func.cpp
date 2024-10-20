@@ -1600,10 +1600,17 @@ THINK(Think_SpawnDoorTrigger) (edict_t *ent) -> void
 	}
 
 	// expand
-	mins[0] -= 60;
-	mins[1] -= 60;
-	maxs[0] += 60;
-	maxs[1] += 60;
+	mins[0] -= fq_door_trigger_expand->value;
+	mins[1] -= fq_door_trigger_expand->value;
+	maxs[0] += fq_door_trigger_expand->value;
+	maxs[1] += fq_door_trigger_expand->value;
+
+	// FasterQuake2 mod: also expand the height
+	if (fq_door_trigger_expand_in_height->value)
+	{
+		mins[2] -= fq_door_trigger_expand->value;
+		maxs[2] += fq_door_trigger_expand->value;
+	}
 
 	other = G_Spawn();
 	other->mins = mins;
@@ -1739,8 +1746,7 @@ void SP_func_door(edict_t *ent)
 	ent->moveinfo.blocked = door_blocked;
 	ent->use = door_use;
 
-	if (!ent->speed)
-		ent->speed = 100;
+	ent->speed = fq_door_opening_speed->value;
 	if (deathmatch->integer)
 		ent->speed *= 2;
 

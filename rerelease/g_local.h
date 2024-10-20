@@ -1940,6 +1940,9 @@ extern cvar_t* fq_autosave_slot_count;
 extern cvar_t* fq_weapon_chains;
 extern cvar_t* fq_player_rocket_radius_scale;
 extern cvar_t* fq_jump_sound_volume;
+extern cvar_t* fq_door_trigger_expand;
+extern cvar_t* fq_door_trigger_expand_in_height;
+extern cvar_t* fq_door_opening_speed;
 
 extern cvar_t *deathmatch;
 extern cvar_t *coop;

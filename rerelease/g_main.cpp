@@ -75,6 +75,9 @@ cvar_t* fq_autosave_slot_count;
 cvar_t* fq_weapon_chains;
 cvar_t* fq_player_rocket_radius_scale;
 cvar_t* fq_jump_sound_volume;
+cvar_t* fq_door_trigger_expand;
+cvar_t* fq_door_trigger_expand_in_height;
+cvar_t* fq_door_opening_speed;
 
 cvar_t *deathmatch;
 cvar_t *coop;
@@ -271,6 +274,9 @@ void PreInitGame()
 	fq_weapon_chains = gi.cvar("fq_weapon_chains", "0", CVAR_NOFLAGS); // bool
 	fq_player_rocket_radius_scale = gi.cvar("fq_player_rocket_radius_scale", "1.5", CVAR_NOFLAGS); // float
 	fq_jump_sound_volume = gi.cvar("fq_jump_sound_volume", "0.7", CVAR_NOFLAGS); // float
+	fq_door_trigger_expand = gi.cvar("fq_door_trigger_expand", "300", CVAR_NOFLAGS); // float
+	fq_door_trigger_expand_in_height = gi.cvar("fq_door_trigger_expand_in_height", "1", CVAR_NOFLAGS); // bool
+	fq_door_opening_speed = gi.cvar("fq_door_opening_speed", "500", CVAR_NOFLAGS); // float
 
 	// ZOID
 	CTFInit();

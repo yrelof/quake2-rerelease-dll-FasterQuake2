@@ -196,6 +196,12 @@ Variable: fq_barrel_delay, 0 or 1, default value is 0
 - When you click on the weapon hotkey of the already selected weapon, it doesn't cycle to another weapon, because it's unnecessary and annoying in this mod.  
 Variable: fq_weapon_chains, 0 or 1, default value is 0  
 
+- Doors open faster and at longer range, to avoid blocking when you move at high speed  
+Variables:
+  - fq_door_trigger_expand, default value is 300, it was 60 without the mod
+  - fq_door_trigger_expand_in_height, 0 or 1, default value is 0, so you also open doors from above and under
+  - fq_door_opening_speed, default value is 500, it was 100 without the mod
+
 - The following changes are done because I prefer to quickly kill many dumb monsters.  
 
 - Monsters will not duck projectiles, like in original Quake 2. Imported from the Unmaster mod.  
@@ -267,6 +273,10 @@ The off-hand grapple comes from the Lithium mod: http://quake2.lithium.com
 The code used comes from the Lithium remaster port: https://github.com/KyperTrast/lithium-minus
 
 ## Changelog
+
+v3.1.0:
+- doors open faster and at longer range
+- fix build because it seems that a VS2022 update broke format usage
 
 v3.0.1:
 - fix fq_monster_walkjump configuration variable
